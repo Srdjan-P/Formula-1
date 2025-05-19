@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-export default function Races () {
-=======
 import axios from "axios";
 import { useEffect, useState } from "react";
 
@@ -19,7 +16,6 @@ export default function Races() {
         setRaces(data);
     };
 
->>>>>>> 3ca349f83598cc7a0c6d9b72674e62dc0424d17d
     return (
         <div className="racers">
 
