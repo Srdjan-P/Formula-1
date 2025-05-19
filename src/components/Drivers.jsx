@@ -15,6 +15,7 @@ export default function Drivers() {
         const response = await axios.get(url);
         const data = response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings;
         setDrivers(data);
+        setIsLoading(false);
     }
 
     return (
