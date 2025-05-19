@@ -5,7 +5,6 @@ body {
     font-family: "Titillium Web", sans-serif;
 
     nav {
-        width: 100%;
         height: 50px;
         display: flex;
         justify-content: space-between;
@@ -13,9 +12,17 @@ body {
         padding: 15px;
         background-color: rgb(225, 6, 0);
 
-        .logo {}
+        .logo {
+            background-image: url("../img/Logo.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 200px;
+            height: 200px;
+        }
 
         ul {
+            margin: 0 30px;
             display: flex;
             width: 80%;
 
@@ -28,6 +35,25 @@ body {
                     font-weight: bold;
                     text-decoration: none;
                 }
+            }
+        }
+    }
+
+    .drivers {
+        height: 100vh;
+
+        table {
+            width: 94vw;
+            margin: 30px;
+            background-color: beige;
+
+            th {
+                height: 40px;
+            }
+
+            td {
+                padding: 10px;
+                border: 1px solid #ddd;
             }
         }
     }

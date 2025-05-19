@@ -10,8 +10,8 @@ export default function App() {
       <Router>
         {/* Navigacija */}
         <nav>
-          <div className="logo">
-            <NavLink to="/">Logo</NavLink>
+          <div className="logo-container">
+            <NavLink to="/"><div className="logo"></div></NavLink>
           </div>
           <ul>
             <li>

@@ -1,8 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react"
+import Loader from "./Loader"
 
-export default function AllDrivers() {
+export default function Drivers() {
     const [drivers, setDrivers] = useState([]);
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         getDrivers();
@@ -13,9 +15,8 @@ export default function AllDrivers() {
         const response = await axios.get(url);
         const data = response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings;
         setDrivers(data);
-        console.log(data);
+        setIsLoading(false)
     }
-
 
     return (
         <div className="drivers">
@@ -27,27 +28,27 @@ export default function AllDrivers() {
                         </th>
                     </tr>
                 </thead>
-                <tbody>
-                    {drivers.map((driver) => {
-                        return (
-
-                            <tr>
-                                <td>
-                                    {driver.position}
-                                </td>
-                                <td>
-                                    {driver.Driver.givenName}
-                                </td>
-                                <td>
-                                    {driver.Constructors[0].name}
-                                </td>
-                                <td>
-                                    {driver.points}
-                                </td>
-                            </tr>
-                        )
-                    })}
-                </tbody>
+                {isLoading ? <Loader /> :
+                    <tbody>
+                        {drivers.map((driver) => {
+                            return (
+                                <tr>
+                                    <td>
+                                        {driver.position}
+                                    </td>
+                                    <td>
+                                        {driver.Driver.givenName}
+                                    </td>
+                                    <td>
+                                        {driver.Constructors[0].name}
+                                    </td>
+                                    <td>
+                                        {driver.points}
+                                    </td>
+                                </tr>
+                            )
+                        })}
+                    </tbody>}
             </table>
 
         </div>

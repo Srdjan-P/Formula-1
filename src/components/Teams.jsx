@@ -1,7 +1,7 @@
-export default function AllTeams () {
+export default function Teams() {
     return (
         <>
-        <p>All Teams</p>
+            <p>All Teams</p>
         </>
     )
 }

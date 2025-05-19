@@ -1,7 +1,7 @@
-export default function AllRaces () {
+export default function Races() {
     return (
         <>
-        <p>All Races</p>
+            <p>All Races</p>
         </>
     )
 }
