@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react"
 
-export default function AllDrivers() {
+export default function Drivers() {
     const [drivers, setDrivers] = useState([]);
 
     useEffect(() => {
@@ -13,7 +13,7 @@ export default function AllDrivers() {
         const response = await axios.get(url);
         const data = response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings;
         setDrivers(data);
-        console.log(data);
+        // console.log(data);
     }
 
 
