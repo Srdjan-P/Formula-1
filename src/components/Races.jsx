@@ -16,13 +16,10 @@ export default function Races() {
         const url = 'http://ergast.com/api/f1/2013/results/1.json';
         const response = await axios.get(url);
         const data = response.data.MRData.RaceTable.Races
-        const dataName = response.data;
-        console.log("dataName", dataName);
-
         setRaces(data);
     };
 
-    const handleRaceDetails = (id) => {
+    const handleRaces = (id) => {
         const linkTo = `/drivers/${id}`
         navigate(linkTo)
 
@@ -53,10 +50,11 @@ export default function Races() {
                             <>
                                 <tr>
                                     <td>{race.round}</td>
-                                    <td>{race.raceName}</td>
+                                    <td onClick={() => { handleRaces() }}>
+                                        {race.raceName}</td>
                                     <td>{race.Circuit.circuitName}</td>
                                     <td>{race.date}</td>
-                                    <td>{race.round}</td>
+                                    <td>{race.Results[0].Driver.nationality} {race.Results[0].Driver.familyName}</td>
 
                                 </tr>
                             </>
