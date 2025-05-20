@@ -30,12 +30,13 @@ export default function Races() {
 
     return (
 
-        <div className="racers">
+        <div className="races">
             <table>
                 <thead>
-                    <h1>Race Calendar</h1>
                     <tr>
-                        <p>Race Calendar - 2013</p>
+                        <th colSpan={5}>
+                            <p>Race Calendar - 2013</p>
+                        </th>
                     </tr>
                     <tr>
                         <th>Round</th>

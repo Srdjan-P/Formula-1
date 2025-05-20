@@ -41,19 +41,19 @@ export default function Drivers() {
                     </tr>
                 </thead>
                 <tbody>
-                    {drivers.map((driver, i) => {
+                    {drivers.map((driver) => {
                         return (
-                            <tr key={i}>
-                                <td>
+                            <tr key={driver.Driver.driverId}>
+                                <td width="7%" style={{ textAlign: "center" }}>
                                     {driver.position}
                                 </td>
-                                <td onClick={() => { handleClickDetails(driver.Driver.driverId) }}>
-                                    {driver.Driver.givenName}
+                                <td width="50%" onClick={() => { handleClickDetails(driver.Driver.driverId) }}>
+                                    {driver.Driver.givenName} {driver.Driver.familyName}
                                 </td>
-                                <td>
+                                <td width="35%">
                                     {driver.Constructors[0].name}
                                 </td>
-                                <td>
+                                <td width="15%" style={{ textAlign: "center" }}>
                                     {driver.points}
                                 </td>
                             </tr>
