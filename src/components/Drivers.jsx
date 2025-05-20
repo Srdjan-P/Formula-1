@@ -1,8 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router";
-
-
+import Loader from "./Loader";
 
 export default function Drivers() {
     const [drivers, setDrivers] = useState([]);
@@ -28,40 +27,39 @@ export default function Drivers() {
         navigate(linkTo);
     }
 
-
-
     return (
         <div className="drivers">
-            <table>
-                <thead>
-                    <tr>
-                        <th colSpan={4}>
-                            <p>Drivers Championship Standings - 2013</p>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {drivers.map((driver) => {
-                        return (
-                            <tr key={driver.Driver.driverId}>
-                                <td width="7%" style={{ textAlign: "center" }}>
-                                    {driver.position}
-                                </td>
-                                <td width="50%" onClick={() => { handleClickDetails(driver.Driver.driverId) }}>
-                                    {driver.Driver.givenName} {driver.Driver.familyName}
-                                </td>
-                                <td width="35%">
-                                    {driver.Constructors[0].name}
-                                </td>
-                                <td width="15%" style={{ textAlign: "center" }}>
-                                    {driver.points}
-                                </td>
-                            </tr>
-                        )
-                    })}
-                </tbody>
-            </table>
-
+            {isLoading ? <Loader /> :
+                <table>
+                    <thead>
+                        <tr>
+                            <th colSpan={4}>
+                                <p>Drivers Championship Standings - 2013</p>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {drivers.map((driver) => {
+                            return (
+                                <tr key={driver.Driver.driverId}>
+                                    <td style={{ textAlign: "center" }}>
+                                        {driver.position}
+                                    </td>
+                                    <td width="45%" onClick={() => { handleClickDetails(driver.Driver.driverId) }}>
+                                        {driver.Driver.givenName} {driver.Driver.familyName}
+                                    </td>
+                                    <td width="45%">
+                                        {driver.Constructors[0].name}
+                                    </td>
+                                    <td style={{ textAlign: "center" }}>
+                                        {driver.points}
+                                    </td>
+                                </tr>
+                            )
+                        })}
+                    </tbody>
+                </table>
+            }
         </div>
     )
 }

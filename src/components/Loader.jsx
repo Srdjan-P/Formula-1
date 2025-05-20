@@ -1,12 +1,19 @@
 import React from "react";
-import { PacmanLoader } from "react-spinners";
+import { FadeLoader } from "react-spinners";
 
 export default class Loader extends React.Component {
     render() {
         return (
             <div className="loader-container">
-                <PacmanLoader color="#efe120" size={100} />
+                <FadeLoader
+                    color="#ff0000"
+                    height={25}
+                    width={8}
+                    radius={10}
+                    margin={10}
+                    speedMultiplier={1.5}
+                />
             </div>
-        )
+        );
     }
 }
