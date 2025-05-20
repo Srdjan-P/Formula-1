@@ -7,6 +7,7 @@ import { useNavigate } from "react-router"
 
 export default function Races() {
     const [races, setRaces] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         getRaces();
@@ -20,7 +21,7 @@ export default function Races() {
     };
 
     const handleRaces = (id) => {
-        const linkTo = `/drivers/${id}`
+        const linkTo = `/races/${id}`
         navigate(linkTo)
 
     }
@@ -50,7 +51,7 @@ export default function Races() {
                             <>
                                 <tr>
                                     <td>{race.round}</td>
-                                    <td onClick={() => { handleRaces() }}>
+                                    <td onClick={() => { handleRaces(race.round) }}>
                                         {race.raceName}</td>
                                     <td>{race.Circuit.circuitName}</td>
                                     <td>{race.date}</td>

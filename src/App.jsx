@@ -5,6 +5,7 @@ import Races from "./components/Races";
 import Teams from "./components/Teams";
 import Home from "./components/Home";
 import DriverDetails from "./components/DriverDetails";
+import RaceDetails from "./components/RaceDetails";
 
 export default function App() {
   return (
@@ -37,6 +38,7 @@ export default function App() {
 
 
           <Route path="/races" element={<Races />} />
+          <Route path="/races/:raceId" element={<RaceDetails />} />
           <Route path="/teams" element={<Teams />} />
         </Routes>
 

@@ -7,6 +7,7 @@ export default function DriverDetails() {
     const { driverId } = useParams();
     const [driverDetails, setDriverDetails] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const params = useParams();
 
     useEffect(() => {
         getDriverDetails();
@@ -27,7 +28,7 @@ export default function DriverDetails() {
         return <Loader />;
     }
 
-    
+
 
     return (
         <div className="driver-details">
