@@ -1,5 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router"
+
+
 
 
 export default function Races() {
@@ -16,31 +19,46 @@ export default function Races() {
         setRaces(data);
     };
 
-    return (
-        <div className="racers">
+    const handleRaces = (id) => {
+        const linkTo = `/drivers/${id}`
+        navigate(linkTo)
 
+    }
+    console.log(races);
+
+
+    return (
+
+        <div className="racers">
             <table>
                 <thead>
-                    <th>
-                        <p>All Races</p>
-                    </th>
+                    <h1>Race Calendar</h1>
+                    <tr>
+                        <p>Race Calendar - 2013</p>
+                    </tr>
+                    <tr>
+                        <th>Round</th>
+                        <th>Grand Prix</th>
+                        <th>Circuit</th>
+                        <th>Date</th>
+                        <th>Winner</th>
+                    </tr>
                 </thead>
                 <tbody>
-
-                    {races.map((racer) => {
+                    {races.map((race) => {
                         return (
-                            <tr>
+                            <>
+                                <tr>
+                                    <td>{race.round}</td>
+                                    <td onClick={() => { handleRaces() }}>
+                                        {race.raceName}</td>
+                                    <td>{race.Circuit.circuitName}</td>
+                                    <td>{race.date}</td>
+                                    <td>{race.Results[0].Driver.nationality} {race.Results[0].Driver.familyName}</td>
 
-                                <td>
-                                    {racer.season}
-                                </td>
-                                <td>
-                                    {racer.round}
-                                </td>
-                                {/* <td>
-                        {racer.url}
-                        </td> */}
-                            </tr>
+                                </tr>
+                            </>
+
                         )
                     })}
                 </tbody>
