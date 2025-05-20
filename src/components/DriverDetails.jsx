@@ -1,48 +1,80 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router";
+import { Link, useParams } from "react-router";
 import Loader from "./Loader";
 
 export default function DriverDetails() {
     const { driverId } = useParams();
-    const [driverDetails, setDriverDetails] = useState([]);
+    const [driverDetails, setDriverDetails] = useState({});
     const [isLoading, setIsLoading] = useState(true);
+    const [driverRaces, setDriverRaces] = useState([]);
 
     useEffect(() => {
         getDriverDetails();
     }, []);
 
     const getDriverDetails = async () => {
-        console.log(driverId);
-        const url = "http://ergast.com/api/f1/2013/drivers/vettel/driverStandings.json";
-        const response = await axios.get(url);
-        //console.log(response);
-        const data = response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings;
-        console.log(data);
-        setDriverDetails(data);
+        const driverStandingsUrl = `http://ergast.com/api/f1/2013/drivers/${driverId}/driverStandings.json`;
+        const driverStandingsResponse = await axios.get(driverStandingsUrl);
+        setDriverDetails(driverStandingsResponse.data.MRData.StandingsTable.StandingsLists[0].DriverStandings[0]);
+
+        const driverResult = `http://ergast.com/api/f1/2013/drivers/${driverId}/results.json`;
+        const driverResultResponse = await axios.get(driverResult);
+        setDriverRaces(driverResultResponse.data.MRData.RaceTable.Races);
         setIsLoading(false);
+
+        console.log("driverResultResponse", driverResultResponse);
     };
+
+
 
     if (isLoading) {
         return <Loader />;
     }
 
-    
+    console.log("driverRaces ", driverRaces);
 
     return (
-        <div className="driver-details">
-            {driverDetails.map((driverDetail) => (
-                <div key={driverDetail.Driver.driverId}>
+        <div>
+            <div className="driver-details">
+                <div>
                     <h2>
-                        {driverDetail.Driver.givenName} {driverDetail.Driver.familyName}
+                        {driverDetails.Driver.givenName} {driverDetails.Driver.familyName}
                     </h2>
-                    <p>Nationality: {driverDetail.Driver.nationality}</p>
-                    <p>Constructor: {driverDetail.Constructors[0].name}</p>
-                    <p>Points: {driverDetail.points}</p>
-                    <p>Wins: {driverDetail.wins}</p>
-                    <a href={driverDetail.Driver.url}>Wikipedia</a>
+                    <p>Nationality: {driverDetails.Driver.nationality}</p>
+                    <p>Team: {driverDetails.Constructors[0].name}</p>
+                    <p>Points: {driverDetails.points}</p>
+                    <p>Wins: {driverDetails.wins}</p>
+                    <p><Link to={driverDetails.Driver.url} target="_blank">Wikipedia</Link></p>
                 </div>
-            ))}
+            </div>
+
+            <div className="drivers">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Round</th>
+                            <th>Grand Prix</th>
+                            <th>Team</th>
+                            <th>Grid</th>
+                            <th>Race</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {driverRaces.map((driverRace) => {
+                            return (
+                                <tr>
+                                    <td>{driverRace.round}</td>
+                                    <td>{driverRace.raceName}</td>
+                                    <td>{driverRace.Results[0].Constructor.name}</td>
+                                    <td>{driverRace.Results[0].grid}</td>
+                                    <td>{driverRace.Results[0].position}</td>
+                                </tr>
+                            );
+                        })}
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 }
