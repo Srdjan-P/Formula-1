@@ -16,24 +16,35 @@ export default function DriverDetails() {
         console.log(driverId);
         const url = "http://ergast.com/api/f1/2013/drivers/vettel/driverStandings.json";
         const response = await axios.get(url);
-        console.log(response);
-
-        //http://ergast.com/api/f1/' + year + '/drivers/' + id + '/driverStandings.json";
-
-
-        //'http://ergast.com/api/f1/' + year + '/drivers/' + id + '/driverStandings.json' 
+        //console.log(response);
+        const data = response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings;
+        console.log(data);
+        setDriverDetails(data);
         setIsLoading(false);
-    }
+    };
 
     if (isLoading) {
         return <Loader />;
     }
 
-    //console.log(response);
+    
 
     return (
-        <>
-            <p>Driver Details</p>
-        </>
-    )
+        <div className="driver-details">
+            {driverDetails.map((driverDetail) => (
+                <div key={driverDetail.Driver.driverId}>
+                    <h2>
+                        {driverDetail.Driver.givenName} {driverDetail.Driver.familyName}
+                    </h2>
+                    <p>Nationality: {driverDetail.Driver.nationality}</p>
+                    <p>Constructor: {driverDetail.Constructors[0].name}</p>
+                    <p>Points: {driverDetail.points}</p>
+                    <p>Wins: {driverDetail.wins}</p>
+                    <a href={driverDetail.Driver.url}>Wikipedia</a>
+                </div>
+            ))}
+        </div>
+    );
 }
+
+
