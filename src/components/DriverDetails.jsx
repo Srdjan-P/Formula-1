@@ -8,6 +8,7 @@ export default function DriverDetails() {
     const [driverDetails, setDriverDetails] = useState({});
     const [isLoading, setIsLoading] = useState(true);
     const [driverRaces, setDriverRaces] = useState([]);
+    const params = useParams();
 
     useEffect(() => {
         getDriverDetails();
@@ -26,13 +27,9 @@ export default function DriverDetails() {
         console.log("driverResultResponse", driverResultResponse);
     };
 
-
-
     if (isLoading) {
         return <Loader />;
     }
-
-    console.log("driverRaces ", driverRaces);
 
     return (
         <div>
