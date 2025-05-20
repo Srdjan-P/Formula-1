@@ -1,7 +1,12 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+<<<<<<< HEAD
 import { Link, useParams } from "react-router";
 import Loader from "./Loader";
+=======
+import { useParams } from "react-router";
+
+>>>>>>> 721d2fa05a0b46d6d0ad80e62a0ee9c8675af92a
 
 export default function DriverDetails() {
     const { driverId } = useParams();
