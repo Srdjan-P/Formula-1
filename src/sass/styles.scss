@@ -1,86 +1,42 @@
 @import "reset";
-@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap");
+@import "driverDetails";
+@import "variables";
+@import "drivers";
+@import "home";
+@import "navigation";
+@import "raceDetails";
+@import "races";
+@import "teamDetails";
+@import "teams";
+@import "loader";
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
 
 body {
     font-family: "Titillium Web", sans-serif;
+    box-sizing: border-box;
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
 
-    nav {
-        height: 50px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 15px;
-        background-color: rgb(225, 6, 0);
-
-        .logo {
-            background-image: url("../img/Logo.png");
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            width: 200px;
-            height: 200px;
-        }
-
-        ul {
-            margin: 0 30px;
-            display: flex;
-            width: 80%;
-
-            li {
-                width: 100px;
-
-                a {
-                    font-size: 20px;
-                    color: #fff;
-                    font-weight: bold;
-                    text-decoration: none;
-                }
-            }
-        }
-    }
-
-    .drivers {
-        height: 100vh;
-
-        table {
-            width: 94vw;
-            margin: 30px;
-            background-color: beige;
-
-            th {
-                height: 40px;
-            }
-
-            td {
-                padding: 10px;
-                border: 1px solid #ddd;
-            }
-        }
-    }
-
-    .photo-one {
-        background-image: url("../img/photo1.jpg");
-        background-size: contain;
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.7;
+        background-image: url(../img/formula-1.jpg);
         background-repeat: no-repeat;
-        background-position: center;
-        width: 500px;
-        height: 500px;
-    }
-    .photo-two {
-        background-image: url("../img/photo2.jpg");
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-        width: 500px;
-        height: 500px;
-    }
-    .photo-three {
-        background-image: url("../img/photo3.jpg");
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-        width: 500px;
-        height: 500px;
+        background-size: cover;
+        z-index: -1;
+        background-attachment: fixed;
     }
 
     .racers{
@@ -107,3 +63,5 @@ body {
         font-weight: bold;
     }
 }
+
+;

@@ -1,0 +1,37 @@
+nav {
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    padding-left: 5%;
+    background-color: rgb(225, 6, 0);
+    position: fixed;
+    width: 100%;
+
+    .logo {
+        background-image: url("../img/Logo.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 200px;
+        height: 200px;
+    }
+
+    ul {
+        margin: 0 5%;
+        display: flex;
+        width: 80%;
+
+        li {
+            padding: 30px;
+
+            a {
+                font-size: 25px;
+                color: #fff;
+                font-weight: 600;
+                text-decoration: none;
+            }
+        }
+    }
+}
