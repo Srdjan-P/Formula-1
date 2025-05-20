@@ -4,7 +4,7 @@ import { useParams } from "react-router";
 import Loader from "./Loader";
 
 export default function DriverDetails() {
-    const { id } = useParams();
+    const { driverId } = useParams();
     const [driverDetails, setDriverDetails] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
@@ -13,6 +13,7 @@ export default function DriverDetails() {
     }, []);
 
     const getDriverDetails = async () => {
+        console.log(driverId);
         const url = "http://ergast.com/api/f1/2013/drivers/vettel/driverStandings.json";
         const response = await axios.get(url);
         console.log(response);

@@ -33,7 +33,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/drivers" element={<Drivers />} />
-          <Route path="/drivers/:id" element={<DriverDetails />} />
+          <Route path="/drivers/:driverId" element={<DriverDetails />} />
 
 
           <Route path="/races" element={<Races />} />
