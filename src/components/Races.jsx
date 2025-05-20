@@ -22,7 +22,8 @@ export default function Races() {
             <table>
                 <thead>
                     <th>
-                        <p>All Races</p>
+                        <p className="naslov">All Races</p>
+            
                     </th>
                 </thead>
                 <tbody>
