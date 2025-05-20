@@ -1,11 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react"
-import { Link } from "react-router";
+import { useNavigate } from "react-router";
 
 
 export default function Drivers() {
     const [drivers, setDrivers] = useState([]);
-    const [isLoading, setIsLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState(true);
+    const navigate = useNavigate();
 
     useEffect(() => {
         getDrivers();
@@ -15,9 +16,18 @@ export default function Drivers() {
         const url = "http://ergast.com/api/f1/2013/driverStandings.json";
         const response = await axios.get(url);
         const data = response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings;
+        console.log(data);
         setDrivers(data);
         setIsLoading(false);
+    };
+
+    const handleClickDetails = (id) => {
+        console.log(id);
+        const linkTo = `/drivers/${id}`;
+        navigate(linkTo);
     }
+
+
 
     return (
         <div className="drivers">
@@ -36,7 +46,7 @@ export default function Drivers() {
                                     <td>
                                         {driver.position}
                                     </td>
-                                    <td onClick={() =>{ ()}}>
+                                    <td onClick={() =>{ handleClickDetails(driver.Driver.driverId)}}>
                                         {driver.Driver.givenName}
                                     </td>
                                     <td>
