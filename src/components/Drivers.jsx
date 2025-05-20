@@ -45,11 +45,16 @@ export default function Drivers() {
                                     <td style={{ textAlign: "center" }}>
                                         {driver.position}
                                     </td>
-                                    <td width="45%" onClick={() => { handleClickDetails(driver.Driver.driverId) }}>
-                                        {driver.Driver.givenName} {driver.Driver.familyName}
+                                    <td width="45%"
+                                        onClick={() => { handleClickDetails(driver.Driver.driverId) }}>
+                                        <span style={{ cursor: "pointer" }}>
+                                            {driver.Driver.givenName} {driver.Driver.familyName}
+                                        </span>
                                     </td>
                                     <td width="45%">
-                                        {driver.Constructors[0].name}
+                                        <span style={{ cursor: "pointer" }}>
+                                            {driver.Constructors[0].name}
+                                        </span>
                                     </td>
                                     <td style={{ textAlign: "center" }}>
                                         {driver.points}
