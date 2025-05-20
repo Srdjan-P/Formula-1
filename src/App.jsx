@@ -1,8 +1,10 @@
 import { BrowserRouter as Router, Routes, Route, Link, NavLink } from "react-router"
 
 import Drivers from "./components/Drivers";
-import Races from "./components/Races"
-import Teams from "./components/Teams"
+import Races from "./components/Races";
+import Teams from "./components/Teams";
+import Home from "./components/Home";
+import DriverDetails from "./components/DriverDetails";
 
 export default function App() {
   return (
@@ -29,8 +31,11 @@ export default function App() {
         {/* Rute */}
 
         <Routes>
-          <Route path="/" element={""} />
+          <Route path="/" element={<Home />} />
           <Route path="/drivers" element={<Drivers />} />
+          <Route path="/drivers/:id" element={<DriverDetails />} />
+
+
           <Route path="/races" element={<Races />} />
           <Route path="/teams" element={<Teams />} />
         </Routes>

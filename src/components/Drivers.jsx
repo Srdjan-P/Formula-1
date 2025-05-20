@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react"
-import Loader from "./Loader"
+import { Link } from "react-router";
+
 
 export default function Drivers() {
     const [drivers, setDrivers] = useState([]);
@@ -28,16 +29,17 @@ export default function Drivers() {
                         </th>
                     </tr>
                 </thead>
-                {isLoading ? <Loader /> :
                     <tbody>
-                        {drivers.map((driver) => {
+                        {drivers.map((driver, i) => {
                             return (
-                                <tr>
+                                <tr key={i}>
                                     <td>
                                         {driver.position}
                                     </td>
                                     <td>
+                                        <Link to={`/drivers/`}>
                                         {driver.Driver.givenName}
+                                        </Link>
                                     </td>
                                     <td>
                                         {driver.Constructors[0].name}
@@ -48,7 +50,7 @@ export default function Drivers() {
                                 </tr>
                             )
                         })}
-                    </tbody>}
+                    </tbody>
             </table>
 
         </div>

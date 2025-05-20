@@ -57,4 +57,29 @@ body {
             }
         }
     }
+
+    .photo-one {
+        background-image: url("../img/photo1.jpg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 500px;
+        height: 500px;
+    }
+    .photo-two {
+        background-image: url("../img/photo2.jpg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 500px;
+        height: 500px;
+    }
+    .photo-three {
+        background-image: url("../img/photo3.jpg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 500px;
+        height: 500px;
+    }
 }
