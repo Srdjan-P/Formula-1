@@ -36,10 +36,8 @@ export default function Drivers() {
                                     <td>
                                         {driver.position}
                                     </td>
-                                    <td>
-                                        <Link to={`/drivers/`}>
+                                    <td onClick={() =>{ ()}}>
                                         {driver.Driver.givenName}
-                                        </Link>
                                     </td>
                                     <td>
                                         {driver.Constructors[0].name}
