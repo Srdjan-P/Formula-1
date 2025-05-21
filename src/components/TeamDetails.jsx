@@ -61,7 +61,7 @@ export default function TeamDetails() {
                 </ul>
             </div>
 
-            <div className="team">
+            <div className="drivers">
                 <table>
                     <thead>
                         <tr>
