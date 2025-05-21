@@ -27,7 +27,7 @@ export default function DriverDetails() {
         setDriverRaces(driverResultResponse.data.MRData.RaceTable.Races);
         setIsLoading(false);
 
-        console.log("driverResultResponse", driverResultResponse);
+
     };
 
     const handleTeams = (id) => {
@@ -37,21 +37,30 @@ export default function DriverDetails() {
 
     };
 
+    console.log("driverDetails", driverDetails);
+
     if (isLoading) {
         return <Loader />;
     }
 
     return (
         <div>
-            <div className="driver-details">
-                <div>
-                    <h2>
-                        {driverDetails.Driver.givenName} {driverDetails.Driver.familyName}
-                    </h2>
+            <div className="driver-card">
+                <div className="driver-details">
+                    <div>
+                    </div>
+                    <div>
+                        <h2>
+                            <img src={`/avatars/${driverDetails.Driver.driverId}.jpg`} alt="Avatar" width="100" />
+                            {driverDetails.Driver.givenName} {driverDetails.Driver.familyName}
+                        </h2>
+                    </div>
+                </div>
+                <div className="driver-info">
                     <p>Country: {driverDetails.Driver.nationality}</p>
                     <p>Team: {driverDetails.Constructors[0].name}</p>
                     <p>Birth: {driverDetails.Driver.dateOfBirth}</p>
-                    <p className="biography"><Link to={driverDetails.Driver.url} target="_blank">Biography<LaunchIcon className="bio-icon" fontSize="small"  /></Link></p>
+                    <p className="biography"><Link to={driverDetails.Driver.url} target="_blank">Biography<LaunchIcon fontSize="small" sx={{ fontSize: 16 }} /></Link></p>
                 </div>
             </div>
 
