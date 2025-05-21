@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import Loader from "./Loader";
+import Flags from "./Flags";
 
 export default function RaceDetails() {
     const { raceId } = useParams();
@@ -31,6 +32,9 @@ export default function RaceDetails() {
 
     console.log("race", race);
 
+    console.log("qualifying", qualifying);
+
+
 
     if (isLoading) {
         return <Loader />;
@@ -38,72 +42,87 @@ export default function RaceDetails() {
 
     return (
         <div className="raceDetails">
-            <div className="race-details">
-                <p></p>
+            <div className="race-card">
+                <div className="race-driver">
+                    <Flags nationality={qualifying.Driver?.nationality} />
+                    <h2>Australian</h2>
+                </div>
+                <div className="race-details">
+                    <ul>
+                        <li>Country:</li>
+                        <li>Location:</li>
+                        <li>Date:</li>
+                        <li>Full Report:</li>
+                    </ul>
+                </div>
             </div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Qualifying Results</th>
-                    </tr>
-                    <tr>
-                        <th>Position</th>
-                        <th>Driver</th>
-                        <th>Team</th>
-                        <th>Best Time</th>
-                    </tr>
-                </thead>
-                <tbody>
+            <div className="race-tables">
+                <div className="race-table1">
 
-                    {qualifying.map((driver) => {
-                        let fastestTime = ""
-                        if (driver.Q3) {
-                            fastestTime = driver.Q3
-                        } else if (driver.Q2) {
-                            fastestTime = driver.Q2
-                        } else { fastestTime = driver.Q1 }
-                        return (
-                            <tr key={driver.position}>
-                                <td>{driver.position}</td>
-                                <td>{driver.Driver.nationality}{driver.Driver.familyName}</td>
-                                <td>{driver.Constructor.name}</td>
-                                <td>{fastestTime}</td>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Qualifying Results</th>
                             </tr>
-                        );
-                    })}
-                </tbody>
-            </table>
-            <div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Race Results</th>
-                        </tr>
-                        <tr>
-                            <th>Position</th>
-                            <th>Driver</th>
-                            <th>Team</th>
-                            <th>Results</th>
-                            <th>Points</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {race.map((lap) => {
-                            return (
+                            <tr>
+                                <th>Position</th>
+                                <th>Driver</th>
+                                <th>Team</th>
+                                <th>Best Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
 
-                                <tr key={lap.position}>
-                                    <td>{lap.position}</td>
-                                    <td>{lap.Driver.familyName}</td>
-                                    <td>{lap.Constructor.name}</td>
-                                    <td>{lap.FastestLap?.Time?.time}</td>
-                                    <td>{lap.points}</td>
-                                </tr>
-
-
-                            )
-                        })}
-                    </tbody>
-                </table>
+                            {qualifying.map((driver) => {
+                                let fastestTime = "";
+                                if (driver.Q3) {
+                                    fastestTime = driver.Q3
+                                } else if (driver.Q2) {
+                                    fastestTime = driver.Q2
+                                } else {
+                                    fastestTime = driver.Q1
+                                }
+                                return (
+                                    <tr key={driver.position}>
+                                        <td>{driver.position}</td>
+                                        <td>{driver.Driver.nationality}{driver.Driver.familyName}</td>
+                                        <td>{driver.Constructor.name}</td>
+                                        <td>{fastestTime}</td>
+                                    </tr>
+                                );
+                            })}
+                        </tbody>
+                    </table>
+                </div>
+                <div className="race-table2">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Race Results</th>
+                            </tr>
+                            <tr>
+                                <th>Position</th>
+                                <th>Driver</th>
+                                <th>Team</th>
+                                <th>Results</th>
+                                <th>Points</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {race.map((lap) => {
+                                return (
+                                    <tr key={lap.position}>
+                                        <td>{lap.position}</td>
+                                        <td>{lap.Driver.familyName}</td>
+                                        <td>{lap.Constructor.name}</td>
+                                        <td>{lap.Time ? lap.Time.time : lap.status}</td>
+                                        <td>{lap.points}</td>
+                                    </tr>
+                                )
+                            })}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     )

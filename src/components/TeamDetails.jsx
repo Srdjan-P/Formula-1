@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router";
 import { Link } from "react-router";
 import Loader from "./Loader";
 import LaunchIcon from '@mui/icons-material/Launch';
+import Flags from "./Flags";
 
 export default function TeamDetails() {
     const { teamsId } = useParams();
@@ -20,19 +21,18 @@ export default function TeamDetails() {
         const teamStandingsUrl = `http://ergast.com/api/f1/2013/constructors/${teamsId}/constructorStandings.json`;
         const teamStandingResponse = await axios.get(teamStandingsUrl);
 
-        console.log("teamStandingResponse", teamStandingResponse.data);
+        //console.log("teamStandingResponse", teamStandingResponse.data);
 
         const teamResultUrl = `http://ergast.com/api/f1/2013/constructors/${teamsId}/results.json`;
         const teamResultResponse = await axios.get(teamResultUrl);
-        console.log("TSR", teamStandingResponse.data.MRData.StandingsTable.StandingsLists[0]
-            .ConstructorStandings[0]);
+        //console.log("TSR", teamStandingResponse.data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings[0]);
         setTeamDetails(
             teamStandingResponse.data.MRData.StandingsTable.StandingsLists[0]
                 .ConstructorStandings[0]
         );
         setTeamResults(teamResultResponse.data.MRData.RaceTable.Races);
         setIsLoading(false);
-        // console.log("teamDetails", teamDetails);
+        console.log("TeamDetails", teamDetails);
     };
 
 
@@ -43,36 +43,62 @@ export default function TeamDetails() {
     };
 
     if (isLoading) {
-        <Loader />
+        return <Loader />;
     }
 
     return (
-        <div className="team-details">
-            <table>
-                <thead>
+        <div>
+            <div className="team-details">
+                <div>
+                    <img src={`/avatars/${teamDetails.Constructor.constructorId}.png`} alt="Team" width="80" />
+                </div>
+                <div>
                     <h2>
-                        <img src={`/avatars/${teamsId}.png`} alt="Team" width="80" />
-                    </h2>
+                        <Flags nationality={teamDetails.Constructor.nationality} />{teamDetails.Constructor.name}</h2>
+                </div>
+                <ul>
+                    <li>Country:{teamDetails.Constructor?.nationality}</li>
+                    <li>Position:{teamDetails?.position}</li>
+                    <li>Points:{teamDetails?.points}</li>
+                    <li>History: <Link to={teamDetails?.history} /><LaunchIcon fontSize="small" sx={{ fontSize: 16 }} />
+                    </li>
+                </ul>
+            </div>
 
-
-                    <ul>
-                        <li>Country:</li>
-                        <li>Position:</li>
-                        <li>Points:</li>
-                        <li>History:</li>
-                    </ul>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>{teamDetails.Constructor?.nationality}</td>
-                        <td>{teamDetails?.position}</td>
-                        <td>{teamDetails?.points}</td>
-                        <td>
-                            <Link to={teamDetails?.history} /><LaunchIcon fontSize="small" sx={{ fontSize: 16 }} />
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div className="drivers">
+                <table>
+                    <thead>
+                        <tr>
+                            <th colSpan={5}>
+                                <p>Formula 1 2013 Results</p>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>Round</th>
+                            <th>Grand Prix</th>
+                            <th>Team</th>
+                            <th>Grid</th>
+                            <th>Race</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {teamResults.map((teamResult) => {
+                            return (
+                                <tr>
+                                    <td>{teamResult.round}</td>
+                                    <td>{teamResult.raceName}</td>
+                                    <td onClick={() => { handleTeams(teamResult.Results[0].Constructor.constructorId) }}>
+                                        {teamResult.Results[0].Constructor.name}</td>
+                                    <td>{teamResult.Results[0].grid}</td>
+                                    <td>{teamResult.Results[0].position}</td>
+                                </tr>
+                            );
+                        })}
+                    </tbody>
+                </table>
+            </div>
         </div>
+
+
     );
 }

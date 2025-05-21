@@ -1,9 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router"
-
-
-
+import Flags from "./Flags";
 
 export default function Races() {
     const [races, setRaces] = useState([]);
@@ -25,7 +23,7 @@ export default function Races() {
         navigate(linkTo)
 
     }
-    console.log(races);
+    console.log("races", races);
 
 
     return (
@@ -53,10 +51,10 @@ export default function Races() {
                                 <tr>
                                     <td>{race.round}</td>
                                     <td onClick={() => { handleRaces(race.round) }}>
-                                        {race.raceName}</td>
+                                        <Flags nationality={race.Circuit.Location.country} />{race.raceName}</td>
                                     <td>{race.Circuit.circuitName}</td>
                                     <td>{race.date}</td>
-                                    <td>{race.Results[0].Driver.nationality} {race.Results[0].Driver.familyName}</td>
+                                    <td><Flags nationality={race.Results[0].Driver.nationality} />{race.Results[0].Driver.nationality} {race.Results[0].Driver.familyName}</td>
 
                                 </tr>
                             </>
