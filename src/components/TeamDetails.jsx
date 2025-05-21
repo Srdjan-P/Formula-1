@@ -32,7 +32,7 @@ export default function TeamDetails() {
         );
         setTeamResults(teamResultResponse.data.MRData.RaceTable.Races);
         setIsLoading(false);
-        // console.log("teamDetails", teamDetails);
+        console.log("teamDetails", teamDetails);
     };
 
 
@@ -47,33 +47,54 @@ export default function TeamDetails() {
     }
 
     return (
-        <div className="team-details">
-            <table>
-                <thead>
-                    <h2>
-                        <img src={`/avatars/${teamDetails.Constructor.constructorId}.png`} alt="Team" width="80" />
-                    </h2>
+        <div>
+            <div className="team-details">
+                <h2>
+                    <img src={`/avatars/${teamDetails.Constructor.constructorId}.png`} alt="Team" width="80" />
+                </h2>
+                <ul>
+                    <li>Country:{teamDetails.Constructor?.nationality}</li>
+                    <li>Position:{teamDetails?.position}</li>
+                    <li>Points:{teamDetails?.points}</li>
+                    <li>History: <Link to={teamDetails?.history} /><LaunchIcon fontSize="small" sx={{ fontSize: 16 }} />
+                    </li>
+                </ul>
+            </div>
 
-
-                    <ul>
-                        <li>Country:{teamDetails.Constructor?.nationality}</li>
-                        <li>Position:{teamDetails?.position}</li>
-                        <li>Points:{teamDetails?.points}</li>
-                        <li>History:
-                        </li>
-                    </ul>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>{teamDetails.Constructor?.nationality}</td>
-                        <td>{teamDetails?.position}</td>
-                        <td>{teamDetails?.points}</td>
-                        <td>
-                            <Link to={teamDetails?.history} /><LaunchIcon fontSize="small" sx={{ fontSize: 16 }} />
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div className="team">
+                <table>
+                    <thead>
+                        <tr>
+                            <th colSpan={5}>
+                                <p>Formula 1 2013 Results</p>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>Round</th>
+                            <th>Grand Prix</th>
+                            <th>Team</th>
+                            <th>Grid</th>
+                            <th>Race</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {teamResults.map((teamResult) => {
+                            return (
+                                <tr>
+                                    <td>{teamResult.round}</td>
+                                    <td>{teamResult.raceName}</td>
+                                    <td onClick={() => { handleTeams(teamResult.Results[0].Constructor.constructorId) }}>
+                                        {teamResult.Results[0].Constructor.name}</td>
+                                    <td>{teamResult.Results[0].grid}</td>
+                                    <td>{teamResult.Results[0].position}</td>
+                                </tr>
+                            );
+                        })}
+                    </tbody>
+                </table>
+            </div>
         </div>
+
+
     );
 }
