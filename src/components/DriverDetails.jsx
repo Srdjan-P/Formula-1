@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router";
 import Loader from "./Loader";
+import { useNavigate } from "react-router";
 
 export default function DriverDetails() {
     const { driverId } = useParams();
@@ -9,6 +10,7 @@ export default function DriverDetails() {
     const [isLoading, setIsLoading] = useState(true);
     const [driverRaces, setDriverRaces] = useState([]);
     const params = useParams();
+    const navigate = useNavigate();
 
     useEffect(() => {
         getDriverDetails();
@@ -25,6 +27,13 @@ export default function DriverDetails() {
         setIsLoading(false);
 
         console.log("driverResultResponse", driverResultResponse);
+    };
+
+    const handleTeams = (id) => {
+        console.log("id", id);
+        const linkTo = `/teams/${id}`;
+        navigate(linkTo);
+
     };
 
     if (isLoading) {
@@ -50,6 +59,11 @@ export default function DriverDetails() {
                 <table>
                     <thead>
                         <tr>
+                            <th colSpan={5}>
+                                <p>Formula 1 2013 Results</p>
+                            </th>
+                        </tr>
+                        <tr>
                             <th>Round</th>
                             <th>Grand Prix</th>
                             <th>Team</th>
@@ -63,7 +77,8 @@ export default function DriverDetails() {
                                 <tr>
                                     <td>{driverRace.round}</td>
                                     <td>{driverRace.raceName}</td>
-                                    <td>{driverRace.Results[0].Constructor.name}</td>
+                                    <td onClick={() => { handleTeams(driverRace.Results[0].Constructor.constructorId) }}>
+                                        {driverRace.Results[0].Constructor.name}</td>
                                     <td>{driverRace.Results[0].grid}</td>
                                     <td>{driverRace.Results[0].position}</td>
                                 </tr>
