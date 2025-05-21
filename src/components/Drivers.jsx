@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router";
 import Loader from "./Loader";
+import Flags from "./Flags";
 
 export default function Drivers() {
     const [drivers, setDrivers] = useState([]);
@@ -47,6 +48,7 @@ export default function Drivers() {
                                     </td>
                                     <td width="45%"
                                         onClick={() => { handleClickDetails(driver.Driver.driverId) }}>
+                                        <Flags nationality={driver.Driver.nationality} />
                                         <span style={{ cursor: "pointer" }}>
                                             {driver.Driver.givenName} {driver.Driver.familyName}
                                         </span>
