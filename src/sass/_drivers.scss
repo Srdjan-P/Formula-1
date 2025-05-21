@@ -1,3 +1,5 @@
+@use "variables" as variable;
+
 .drivers {
     display: flex;
     justify-content: center;
@@ -21,7 +23,7 @@
                 text-align: left;
                 padding: 10px;
                 height: 30px;
-                background-color: lighten($primaryColor, 20%);
+                background-color: lighten(variable.$primaryColor, 20%);
                 color: #fff;
                 font-size: 25px;
             }
@@ -44,7 +46,7 @@
             border: 2px solid #ddd;
 
             &:hover {
-                color: $primaryColor;
+                color: variable.$primaryColor;
             }
         }
     }
