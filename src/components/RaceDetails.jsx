@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import Loader from "./Loader";
+import Flags from "./Flags";
 
 export default function RaceDetails() {
     const { raceId } = useParams();
@@ -31,6 +32,9 @@ export default function RaceDetails() {
 
     console.log("race", race);
 
+    console.log("qualifying", qualifying);
+
+
 
     if (isLoading) {
         return <Loader />;
@@ -40,7 +44,7 @@ export default function RaceDetails() {
         <div className="raceDetails">
             <div className="race-card">
                 <div className="race-driver">
-                    {/* zastava */}
+                    <Flags nationality={qualifying.Driver?.nationality} />
                     <h2>Australian</h2>
                 </div>
                 <div className="race-details">
@@ -111,7 +115,7 @@ export default function RaceDetails() {
                                         <td>{lap.position}</td>
                                         <td>{lap.Driver.familyName}</td>
                                         <td>{lap.Constructor.name}</td>
-                                        <td>{lap.FastestLap?.Time?.time}</td>
+                                        <td>{lap.Time ? lap.Time.time : lap.status}</td>
                                         <td>{lap.points}</td>
                                     </tr>
                                 )
