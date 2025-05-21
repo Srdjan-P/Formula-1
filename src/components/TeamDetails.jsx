@@ -43,7 +43,7 @@ export default function TeamDetails() {
     };
 
     if (isLoading) {
-        <Loader />
+        return <Loader />;
     }
 
     return (
@@ -51,15 +51,16 @@ export default function TeamDetails() {
             <table>
                 <thead>
                     <h2>
-                        <img src={`/avatars/${teamsId}.png`} alt="Team" width="80" />
+                        <img src={`/avatars/${teamDetails.Constructor.constructorId}.png`} alt="Team" width="80" />
                     </h2>
 
 
                     <ul>
-                        <li>Country:</li>
-                        <li>Position:</li>
-                        <li>Points:</li>
-                        <li>History:</li>
+                        <li>Country:{teamDetails.Constructor?.nationality}</li>
+                        <li>Position:{teamDetails?.position}</li>
+                        <li>Points:{teamDetails?.points}</li>
+                        <li>History:
+                        </li>
                     </ul>
                 </thead>
                 <tbody>
