@@ -3,12 +3,13 @@ import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router";
 import { Link } from "react-router";
 import Loader from "./Loader";
+import LaunchIcon from '@mui/icons-material/Launch';
 
 export default function TeamDetails() {
     const { teamsId } = useParams();
     const [teamDetails, setTeamDetails] = useState({});
     const [teamResults, setTeamResults] = useState([]);
-    // const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(true);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -23,16 +24,17 @@ export default function TeamDetails() {
 
         const teamResultUrl = `http://ergast.com/api/f1/2013/constructors/${teamsId}/results.json`;
         const teamResultResponse = await axios.get(teamResultUrl);
-
+        console.log("TSR", teamStandingResponse.data.MRData.StandingsTable.StandingsLists[0]
+            .ConstructorStandings[0]);
         setTeamDetails(
             teamStandingResponse.data.MRData.StandingsTable.StandingsLists[0]
                 .ConstructorStandings[0]
         );
         setTeamResults(teamResultResponse.data.MRData.RaceTable.Races);
-        // setIsLoading(false);
+        setIsLoading(false);
+        // console.log("teamDetails", teamDetails);
     };
 
-    // console.log(teamDetails);
 
     const handleTeams = (id) => {
         console.log("id", id);
@@ -40,20 +42,25 @@ export default function TeamDetails() {
         navigate(linkTo);
     };
 
-    // if (isLoading) {
-    //     <Loader />
-    // }
+    if (isLoading) {
+        <Loader />
+    }
 
     return (
         <div className="team-details">
             <table>
                 <thead>
-                    <tr>
-                        <th>Country:</th>
-                        <th>Position:</th>
-                        <th>Points:</th>
-                        <th>History:</th>
-                    </tr>
+                    <h2>
+                        <img src={`/avatars/${teamsId}.png`} alt="Team" width="80" />
+                    </h2>
+
+
+                    <ul>
+                        <li>Country:</li>
+                        <li>Position:</li>
+                        <li>Points:</li>
+                        <li>History:</li>
+                    </ul>
                 </thead>
                 <tbody>
                     <tr>
@@ -61,8 +68,7 @@ export default function TeamDetails() {
                         <td>{teamDetails?.position}</td>
                         <td>{teamDetails?.points}</td>
                         <td>
-                            <Link to={teamDetails?.history} />
-                            History
+                            <Link to={teamDetails?.history} /><LaunchIcon fontSize="small" sx={{ fontSize: 16 }} />
                         </td>
                     </tr>
                 </tbody>
