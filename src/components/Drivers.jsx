@@ -2,9 +2,10 @@ import axios from "axios";
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router";
 import Loader from "./Loader";
-import Flags from "./Flags";
+import { getCodeByNationality } from "../FlagCodes";
+import Flag from "react-flagkit";
 
-export default function Drivers() {
+export default function Drivers({ countryList }) {
     const [drivers, setDrivers] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const navigate = useNavigate();
@@ -48,7 +49,7 @@ export default function Drivers() {
                                     </td>
                                     <td width="45%"
                                         onClick={() => { handleClickDetails(driver.Driver.driverId) }}>
-                                        <Flags nationality={driver.Driver.nationality} />
+                                        <Flag country={getCodeByNationality(countryList, driver.Driver.nationality)} />
                                         <span style={{ cursor: "pointer" }}>
                                             {driver.Driver.givenName} {driver.Driver.familyName}
                                         </span>
