@@ -1,6 +1,8 @@
 import axios from "axios";
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
+import { Link } from "react-router";
+import Loader from "./Loader";
 
 export default function Teams() {
     const [teams, setTeams] = useState([]);
@@ -9,21 +11,23 @@ export default function Teams() {
 
     useEffect(() => {
         getTeams();
-    }, [])
+    }, []);
 
     const getTeams = async () => {
         const url = `http://ergast.com/api/f1/2013/constructorStandings.json`;
         const response = await axios.get(url);
-        const data = response.data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings;
-        console.log(data);
+        const data =
+            response.data.MRData.StandingsTable.StandingsLists[0]
+                .ConstructorStandings;
+        console.log("data", data);
         setTeams(data);
         setIsLoading(false);
-
     };
+
     const handleClickDetails = (id) => {
         const linkTo = `/teams/${id}`;
         navigate(linkTo);
-    }
+    };
     console.log(teams);
 
     return (
@@ -41,11 +45,21 @@ export default function Teams() {
                         return (
                             <tr key={i}>
                                 <td>{team.position}</td>
-                                <td onClick={() => { handleClickDetails(team.Constructor.constructorId) }}>{team.Constructor.name}</td>
-                                <td>Details</td>
+                                <td
+                                    onClick={() => {
+                                        handleClickDetails(team.Constructor.constructorId);
+                                    }}
+                                >
+                                    {team.Constructor.name}
+                                </td>
+                                <td>
+                                    <Link target="_blank" to={team.Constructor.url}>
+                                        Details
+                                    </Link>
+                                </td>
                                 <td>{team.points}</td>
                             </tr>
-                        )
+                        );
                     })}
                 </tbody>
             </table>

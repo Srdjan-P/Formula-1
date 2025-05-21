@@ -36,15 +36,11 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/drivers" element={<Drivers />} />
           <Route path="/drivers/:driverId" element={<DriverDetails />} />
-
-
           <Route path="/races" element={<Races />} />
           <Route path="/races/:raceId" element={<RaceDetails />} />
           <Route path="/teams" element={<Teams />} />
           <Route path="/teams/:teamsId" element={<TeamDetails />} />
-
         </Routes>
-
       </Router>
     </>
   )
