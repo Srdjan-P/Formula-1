@@ -38,11 +38,18 @@ export default function DriverDetails({ countryList }) {
     };
 
     const handleTeams = (id) => {
-        console.log("id", id);
+        //console.log("id", id);
         const linkTo = `/teams/${id}`;
         navigate(linkTo);
-
     };
+
+    const handleRaces = (id) => {
+        console.log("id", id);
+        const linkTo = `/races/${id}`
+        navigate(linkTo)
+    };
+
+
 
 
     if (isLoading) {
@@ -94,7 +101,7 @@ export default function DriverDetails({ countryList }) {
                             return (
                                 <tr>
                                     <td>{driverRace.round}</td>
-                                    <td>
+                                    <td onClick={() => { handleRaces(driverRace.Results[0].round) }}>
                                         <Flag country={getCodeByCountryName(countryList, driverRace.Circuit.Location.country)} />
                                         {driverRace.raceName}
                                     </td>
