@@ -49,10 +49,10 @@ export default function RaceDetails() {
                 </div>
                 <div className="race-details">
                     <ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
+                        <li>Country:</li>
+                        <li>Location:</li>
+                        <li>Date:</li>
+                        <li>Full Report:</li>
                     </ul>
                 </div>
             </div>
