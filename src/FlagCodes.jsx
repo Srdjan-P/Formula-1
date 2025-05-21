@@ -20,6 +20,8 @@ export function getCodeByNationality(flags, nationality) {
 }
 
 export function getCodeByCountryName(flags, name) {
+    //console.log("flags", flags);
+
     if (!flags) {
         return null;
     }
