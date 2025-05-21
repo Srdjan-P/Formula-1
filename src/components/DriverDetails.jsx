@@ -29,12 +29,6 @@ export default function DriverDetails({ countryList }) {
         const driverResultResponse = await axios.get(driverResult);
         setDriverRaces(driverResultResponse.data.MRData.RaceTable.Races);
         setIsLoading(false);
-
-
-        console.log("driverDetails", driverDetails);
-
-
-
     };
 
     const handleTeams = (id) => {
@@ -101,7 +95,7 @@ export default function DriverDetails({ countryList }) {
                             return (
                                 <tr>
                                     <td>{driverRace.round}</td>
-                                    <td onClick={() => { handleRaces(driverRace.Results[0].round) }}>
+                                    <td onClick={() => { handleRaces(driverRace.round) }}>
                                         <Flag country={getCodeByCountryName(countryList, driverRace.Circuit.Location.country)} />
                                         {driverRace.raceName}
                                     </td>
