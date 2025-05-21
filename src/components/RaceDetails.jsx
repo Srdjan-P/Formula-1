@@ -56,12 +56,14 @@ export default function RaceDetails() {
                 <tbody>
 
                     {qualifying.map((driver) => {
-                        let fastestTime = ""
+                        let fastestTime = "";
                         if (driver.Q3) {
                             fastestTime = driver.Q3
                         } else if (driver.Q2) {
                             fastestTime = driver.Q2
-                        } else { fastestTime = driver.Q1 }
+                        } else {
+                            fastestTime = driver.Q1
+                        }
                         return (
                             <tr key={driver.position}>
                                 <td>{driver.position}</td>
