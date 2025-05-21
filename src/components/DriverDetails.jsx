@@ -4,10 +4,11 @@ import { Link, useParams } from "react-router";
 import Loader from "./Loader";
 import { useNavigate } from "react-router";
 import LaunchIcon from '@mui/icons-material/Launch';
-import Flags from "./Flags";
+import { getCodeByCountryName, getCodeByNationality } from "../FlagCodes";
+import Flag from "react-flagkit";
 
 
-export default function DriverDetails() {
+export default function DriverDetails({ countryList }) {
     const { driverId } = useParams();
     const [driverDetails, setDriverDetails] = useState({});
     const [isLoading, setIsLoading] = useState(true);
@@ -30,6 +31,10 @@ export default function DriverDetails() {
         setIsLoading(false);
 
 
+        console.log("driverDetails", driverDetails);
+
+
+
     };
 
     const handleTeams = (id) => {
@@ -39,22 +44,23 @@ export default function DriverDetails() {
 
     };
 
-    console.log("driverDetails", driverDetails);
 
     if (isLoading) {
         return <Loader />;
     }
 
+    console.log("driverRaces", driverRaces);
+
     return (
-        <div>
+        <div className="driver-details-container">
             <div className="driver-card">
-                <div className="driver-details">
+                <div className="driver-avatar">
                     <div>
                         <img src={`/avatars/${driverDetails.Driver.driverId}.jpg`} alt="Avatar" width="100" />
                     </div>
-                    <div>
+                    <div className="driver-name">
                         <h2>
-                            <Flags nationality={driverDetails.Driver.nationality} />
+                            <Flag country={getCodeByNationality(countryList, driverDetails.Driver.nationality)} />
                             {driverDetails.Driver.givenName} {driverDetails.Driver.familyName}
                         </h2>
                     </div>
@@ -88,9 +94,13 @@ export default function DriverDetails() {
                             return (
                                 <tr>
                                     <td>{driverRace.round}</td>
-                                    <td>{driverRace.raceName}</td>
+                                    <td>
+                                        <Flag country={getCodeByCountryName(countryList, driverRace.Circuit.Location.country)} />
+                                        {driverRace.raceName}
+                                    </td>
                                     <td onClick={() => { handleTeams(driverRace.Results[0].Constructor.constructorId) }}>
-                                        {driverRace.Results[0].Constructor.name}</td>
+                                        {driverRace.Results[0].Constructor.name}
+                                    </td>
                                     <td>{driverRace.Results[0].grid}</td>
                                     <td>{driverRace.Results[0].position}</td>
                                 </tr>
