@@ -1,5 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Link, NavLink } from "react-router"
-
+import { BrowserRouter as Router, Routes, Route, Link, NavLink } from "react-router";
 import Drivers from "./components/Drivers";
 import Races from "./components/Races";
 import Teams from "./components/Teams";

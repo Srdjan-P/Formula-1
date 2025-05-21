@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { Link } from "react-router";
 import Loader from "./Loader";
+import LaunchIcon from '@mui/icons-material/Launch';
 
 export default function Teams() {
     const [teams, setTeams] = useState([]);
@@ -54,7 +55,7 @@ export default function Teams() {
                                 </td>
                                 <td>
                                     <Link target="_blank" to={team.Constructor.url}>
-                                        Details
+                                        Details <LaunchIcon fontSize="small" />
                                     </Link>
                                 </td>
                                 <td>{team.points}</td>
