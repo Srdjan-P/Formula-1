@@ -47,11 +47,10 @@ export default function DriverDetails() {
                     <h2>
                         {driverDetails.Driver.givenName} {driverDetails.Driver.familyName}
                     </h2>
-                    <p>Nationality: {driverDetails.Driver.nationality}</p>
+                    <p>Country: {driverDetails.Driver.nationality}</p>
                     <p>Team: {driverDetails.Constructors[0].name}</p>
-                    <p>Points: {driverDetails.points}</p>
-                    <p>Wins: {driverDetails.wins}</p>
-                    <p><Link to={driverDetails.Driver.url} target="_blank">Wikipedia</Link></p>
+                    <p>Birth: {driverDetails.Driver.dateOfBirth}</p>
+                    <p><Link to={driverDetails.Driver.url} target="_blank">Biography</Link></p>
                 </div>
             </div>
 
