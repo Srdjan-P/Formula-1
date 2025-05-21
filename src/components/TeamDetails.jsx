@@ -86,7 +86,8 @@ export default function TeamDetails() {
                             return (
                                 <tr>
                                     <td>{teamResult.round}</td>
-                                    <td>{teamResult.raceName}</td>
+                                    <td><Flags nationality={teamDetails.Constructor.nationality} />{teamResult.raceName}
+                                    </td>
                                     <td onClick={() => { handleTeams(teamResult.Results[0].Constructor.constructorId) }}>
                                         {teamResult.Results[0].Constructor.name}</td>
                                     <td>{teamResult.Results[0].grid}</td>
