@@ -19,15 +19,15 @@ export default function RaceDetails() {
     }, []);
 
     const getQualifying = async () => {
-        const urlqualifying = `http://ergast.com/api/f1/2013/${raceId}/qualifying.json`
-        const qualifyingResponse = await axios.get(urlqualifying);
-        console.log(qualifyingResponse.data.MRData.RaceTable.Races[0].Results);
-        const data1 = qualifyingResponse.data.MRData;
+        const urlQualifying = `http://ergast.com/api/f1/2013/${raceId}/qualifying.json`
+        const qualifyingResponse = await axios.get(urlQualifying);
+        console.log(qualifyingResponse.data.MRData.RaceTable.Races[0].QualifyingResults);
+        const data1 = qualifyingResponse.data.MRData.RaceTable.Races[0].QualifyingResults;
         setQualifying(data1);
 
-        const urlresults = `http://ergast.com/api/f1/2013/${raceId}/results.json`
-        const resultResponse = await axios.get(urlresults)
-        console.log(resultResponse);
+        const urlResults = `http://ergast.com/api/f1/2013/${raceId}/results.json`
+        const resultResponse = await axios.get(urlResults)
+        console.log("result", resultResponse);
         const data2 = [];
         setRace(data2);
 
@@ -40,36 +40,33 @@ export default function RaceDetails() {
 
     return (
         <div className="raceDetails">
-            <div>
+            <div className="race-details">
                 <p></p>
             </div>
-            <thead>
-                <tr>Qualifying Results</tr>
-                <tr>
-                    <td>Pos</td>
-                    <td>Driver</td>
-                    <td>Team</td>
-                    <td>Best Time</td>
-                </tr>
-            </thead>
-            <tbody>
-                {qualifying.map((driver) => {
-                    return (
-                        <>
-                            <tr>
+            <table>
+                <thead>
+                    <tr>Qualifying Results</tr>
+                    <tr>
+                        <td>Position</td>
+                        <td>Driver</td>
+                        <td>Team</td>
+                        <td>Best Time</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {qualifying.map((driver) => {
+                        return (
+                            <tr key={driver.position}>
                                 <td>{driver.position}</td>
                                 <td>{driver.Driver.nationality}{driver.Driver.familyName}</td>
                                 <td>{driver.Constructor.name}</td>
-                                {/* <td>{driver.}</td> */}
+                                <td>{driver.Constructor.Time?.time}</td>
                             </tr>
-                        </>
+                        );
+                    })}
+                </tbody>
+            </table>
 
-                    )
-                })}
-            </tbody>
-            <div>
-
-            </div>
             <p>Results</p>
         </div>
     )
