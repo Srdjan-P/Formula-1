@@ -4,6 +4,8 @@ import { Link, useParams } from "react-router";
 import Loader from "./Loader";
 import { useNavigate } from "react-router";
 import LaunchIcon from '@mui/icons-material/Launch';
+import Flags from "./Flags";
+
 
 export default function DriverDetails() {
     const { driverId } = useParams();
@@ -48,10 +50,11 @@ export default function DriverDetails() {
             <div className="driver-card">
                 <div className="driver-details">
                     <div>
+                        <img src={`/avatars/${driverDetails.Driver.driverId}.jpg`} alt="Avatar" width="100" />
                     </div>
                     <div>
                         <h2>
-                            <img src={`/avatars/${driverDetails.Driver.driverId}.jpg`} alt="Avatar" width="100" />
+                            <Flags nationality={driverDetails.Driver.nationality} />
                             {driverDetails.Driver.givenName} {driverDetails.Driver.familyName}
                         </h2>
                     </div>
