@@ -3,16 +3,11 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import Loader from "./Loader";
 
-
-
-
 export default function RaceDetails() {
     const { raceId } = useParams();
     const [qualifying, setQualifying] = useState([]);
     const [race, setRace] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
-
-
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         getQualifying();
@@ -27,12 +22,15 @@ export default function RaceDetails() {
 
         const urlResults = `http://ergast.com/api/f1/2013/${raceId}/results.json`
         const resultResponse = await axios.get(urlResults)
-        console.log("result", resultResponse);
-        const data2 = [];
+        console.log(resultResponse.data.MRData.RaceTable.Races[0].Results);
+        const data2 = resultResponse.data.MRData.RaceTable.Races[0].Results;
         setRace(data2);
 
         setIsLoading(false);
     };
+
+    console.log("race", race);
+
 
     if (isLoading) {
         return <Loader />;
@@ -45,29 +43,68 @@ export default function RaceDetails() {
             </div>
             <table>
                 <thead>
-                    <tr>Qualifying Results</tr>
                     <tr>
-                        <td>Position</td>
-                        <td>Driver</td>
-                        <td>Team</td>
-                        <td>Best Time</td>
+                        <th>Qualifying Results</th>
+                    </tr>
+                    <tr>
+                        <th>Position</th>
+                        <th>Driver</th>
+                        <th>Team</th>
+                        <th>Best Time</th>
                     </tr>
                 </thead>
                 <tbody>
+
                     {qualifying.map((driver) => {
+                        let fastestTime = ""
+                        if (driver.Q3) {
+                            fastestTime = driver.Q3
+                        } else if (driver.Q2) {
+                            fastestTime = driver.Q2
+                        } else { fastestTime = driver.Q1 }
                         return (
                             <tr key={driver.position}>
                                 <td>{driver.position}</td>
                                 <td>{driver.Driver.nationality}{driver.Driver.familyName}</td>
                                 <td>{driver.Constructor.name}</td>
-                                <td>{driver.Constructor.Time?.time}</td>
+                                <td>{fastestTime}</td>
                             </tr>
                         );
                     })}
                 </tbody>
             </table>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Race Results</th>
+                        </tr>
+                        <tr>
+                            <th>Position</th>
+                            <th>Driver</th>
+                            <th>Team</th>
+                            <th>Results</th>
+                            <th>Points</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {race.map((lap) => {
+                            return (
 
-            <p>Results</p>
+                                <tr key={lap.position}>
+                                    <td>{lap.position}</td>
+                                    <td>{lap.Driver.familyName}</td>
+                                    <td>{lap.Constructor.name}</td>
+                                    <td>{lap.FastestLap?.Time?.time}</td>
+                                    <td>{lap.points}</td>
+                                </tr>
+
+
+                            )
+                        })}
+                    </tbody>
+                </table>
+            </div>
         </div>
     )
 }
