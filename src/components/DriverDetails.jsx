@@ -51,7 +51,7 @@ export default function DriverDetails() {
                     <p>Country: {driverDetails.Driver.nationality}</p>
                     <p>Team: {driverDetails.Constructors[0].name}</p>
                     <p>Birth: {driverDetails.Driver.dateOfBirth}</p>
-                    <p><Link to={driverDetails.Driver.url} target="_blank">Biography<LaunchIcon fontSize="small" /></Link></p>
+                    <p className="biography"><Link to={driverDetails.Driver.url} target="_blank">Biography<LaunchIcon className="bio-icon" fontSize="small"  /></Link></p>
                 </div>
             </div>
 
