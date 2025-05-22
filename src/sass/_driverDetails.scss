@@ -1,18 +1,20 @@
 @use "variables" as variable;
 
 .driver-details-container {
+    margin: 20px;
     display: flex;
     background-color: #464242;
     justify-content: space-between;
+    cursor: pointer;
 
     .driver-card {
         font-size: 14px;
-
+        border-radius: 20px 0 0px 0px;
         background-color: #8f8080;
         color: white;
         padding: 20px;
         gap: 10px;
-        border-radius: 12px;
+
 
         .driver-biography-card {
             display: flex;
@@ -91,7 +93,10 @@
                 height: 30px;
                 background-color: variable.$primaryColor;
                 color: #fff;
+            }
 
+            p {
+                font-weight: bold;
             }
         }
 
@@ -107,13 +112,38 @@
             background-color: rgba(206, 138, 70, 0.6);
         }
 
+        tr:nth-child(4) {
+            background-color: rgba(11, 214, 89, 0.418);
+        }
+
+        tr:nth-child(5) {
+            background-color: rgba(11, 156, 214, 0.418);
+        }
+
+
+
         td {
             padding: 8px 20px;
             border: 2px solid #ddd;
 
-            &:hover {
-                color: variable.$primaryColor;
+            span {
+                display: block;
+
+
+                align-items: center;
+
+                .flag {
+                    margin-right: 10px;
+                    gap: 20px;
+                }
+
+
+                &:hover {
+                    color: variable.$primaryColor;
+                }
             }
+
         }
     }
+
 }
