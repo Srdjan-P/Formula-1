@@ -48,17 +48,19 @@ export default function TeamDetails({ countryList }) {
     }
 
     return (
-        <div>
-            <div className="team-details">
-                <div>
-                    <img src={`/avatars/${teamDetails.Constructor.constructorId}.png`} alt="Team" width="80" />
+        <div className="team-details">
+            <div className="team-card">
+                <div className="team-bio-card">
+                    <div className="team-avatar">
+                        <img src={`/avatars/${teamDetails.Constructor.constructorId}.png`} alt="Team" width="80" />
+                    </div>
+                    <div>
+                        <h2>
+                            <Flag country={getCodeByNationality(countryList, teamDetails.Constructor.nationality)} />
+                            {teamDetails.Constructor.name}</h2>
+                    </div>
                 </div>
-                <div>
-                    <h2>
-                        <Flag country={getCodeByNationality(countryList, teamDetails.Constructor.nationality)} />
-                        {teamDetails.Constructor.name}</h2>
-                </div>
-                <ul>
+                <ul className="team-info">
                     <li>Country:{teamDetails.Constructor?.nationality}</li>
                     <li>Position:{teamDetails?.position}</li>
                     <li>Points:{teamDetails?.points}</li>
