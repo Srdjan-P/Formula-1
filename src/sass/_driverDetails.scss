@@ -1,18 +1,68 @@
+@use "variables" as variable;
+
 .driver-details-container {
     display: flex;
+    background-color: #464242;
     justify-content: space-between;
-    align-items: flex-start;
-    gap: 20px;
+
     padding: 20px;
 
     .driver-card {
-        background-color: crimson;
+        font-size: 14px;
+
+        background-color: #8f8080;
         color: white;
-        font-size: bold;
-        font-family: bold;
-
+        font-weight: bold;
         padding: 20px;
+        gap: 10px;
+        border-radius: 12px;
 
-        .driver-avatar {}
+        .driver-biography-card {
+            display: flex;
+            gap: 20px;
+        }
+
+        .driver-avatar {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .driver-name {
+            display: flex;
+
+            h2 {
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+
+            }
+
+            .country-flags {
+                text-align: center;
+                flex-direction: column;
+                gap: 10px;
+
+            }
+        }
+
+        .driver-info {
+            color: white;
+
+            p {
+                color: white;
+                text-align: justify;
+                text-decoration: none;
+
+                &.biography a {
+                    color: #ff261e;
+                    text-decoration: none;
+
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
     }
 }
