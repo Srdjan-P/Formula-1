@@ -8,7 +8,7 @@ import { getCodeByCountryName, getCodeByNationality } from "../FlagCodes";
 import Flag from "react-flagkit";
 
 
-export default function DriverDetails({ countryList }) {
+export default function DriverDetails({ countryList, selectedYear }) {
     const { driverId } = useParams();
     const [driverDetails, setDriverDetails] = useState({});
     const [isLoading, setIsLoading] = useState(true);
@@ -21,11 +21,11 @@ export default function DriverDetails({ countryList }) {
     }, []);
 
     const getDriverDetails = async () => {
-        const driverStandingsUrl = `http://ergast.com/api/f1/2013/drivers/${driverId}/driverStandings.json`;
+        const driverStandingsUrl = `http://ergast.com/api/f1/${selectedYear}/drivers/${driverId}/driverStandings.json`;
         const driverStandingsResponse = await axios.get(driverStandingsUrl);
         setDriverDetails(driverStandingsResponse.data.MRData.StandingsTable.StandingsLists[0].DriverStandings[0]);
 
-        const driverResult = `http://ergast.com/api/f1/2013/drivers/${driverId}/results.json`;
+        const driverResult = `http://ergast.com/api/f1/${selectedYear}/drivers/${driverId}/results.json`;
         const driverResultResponse = await axios.get(driverResult);
         setDriverRaces(driverResultResponse.data.MRData.RaceTable.Races);
         setIsLoading(false);
@@ -82,7 +82,7 @@ export default function DriverDetails({ countryList }) {
                     <thead>
                         <tr>
                             <th colSpan={5}>
-                                <p>Formula 1 2013 Results</p>
+                                <p>Formula 1 {selectedYear} Results</p>
                             </th>
                         </tr>
                         <tr>

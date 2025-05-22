@@ -5,7 +5,7 @@ import { Link } from "react-router";
 import Loader from "./Loader";
 import LaunchIcon from '@mui/icons-material/Launch';
 
-export default function Teams() {
+export default function Teams({selectedYear}) {
     const [teams, setTeams] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const navigate = useNavigate();
@@ -15,7 +15,7 @@ export default function Teams() {
     }, []);
 
     const getTeams = async () => {
-        const url = `http://ergast.com/api/f1/2013/constructorStandings.json`;
+        const url = `http://ergast.com/api/f1/${selectedYear}/constructorStandings.json`;
         const response = await axios.get(url);
         const data =
             response.data.MRData.StandingsTable.StandingsLists[0]
@@ -37,7 +37,7 @@ export default function Teams() {
                 <thead>
                     <tr>
                         <th colSpan={4}>
-                            <p>Constructor Championship Standings - 2013</p>
+                            <p>Constructor Championship Standings - {selectedYear}</p>
                         </th>
                     </tr>
                 </thead>

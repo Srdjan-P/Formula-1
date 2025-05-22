@@ -7,7 +7,7 @@ import LaunchIcon from '@mui/icons-material/Launch';
 import { getCodeByCountryName, getCodeByNationality } from "../FlagCodes";
 import Flag from "react-flagkit";
 
-export default function TeamDetails({ countryList }) {
+export default function TeamDetails({ countryList, selectedYear }) {
     const { teamsId } = useParams();
     const [teamDetails, setTeamDetails] = useState({});
     const [teamResults, setTeamResults] = useState([]);
@@ -19,12 +19,12 @@ export default function TeamDetails({ countryList }) {
     }, [teamsId]);
 
     const getTeamDetails = async () => {
-        const teamStandingsUrl = `http://ergast.com/api/f1/2013/constructors/${teamsId}/constructorStandings.json`;
+        const teamStandingsUrl = `http://ergast.com/api/f1/${selectedYear}/constructors/${teamsId}/constructorStandings.json`;
         const teamStandingResponse = await axios.get(teamStandingsUrl);
 
         //console.log("teamStandingResponse", teamStandingResponse.data);
 
-        const teamResultUrl = `http://ergast.com/api/f1/2013/constructors/${teamsId}/results.json`;
+        const teamResultUrl = `http://ergast.com/api/f1/${selectedYear}/constructors/${teamsId}/results.json`;
         const teamResultResponse = await axios.get(teamResultUrl);
         //console.log("TSR", teamStandingResponse.data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings[0]);
         setTeamDetails(
@@ -72,7 +72,7 @@ export default function TeamDetails({ countryList }) {
                     <thead>
                         <tr>
                             <th colSpan={5}>
-                                <p>Formula 1 2013 Results</p>
+                                <p>Formula 1 {selectedYear} Results</p>
                             </th>
                         </tr>
                         <tr>
