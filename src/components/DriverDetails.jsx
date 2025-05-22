@@ -18,7 +18,7 @@ export default function DriverDetails({ countryList, selectedYear }) {
 
     useEffect(() => {
         getDriverDetails();
-    }, []);
+    }, [selectedYear]);
 
     const getDriverDetails = async () => {
         const driverStandingsUrl = `http://ergast.com/api/f1/${selectedYear}/drivers/${driverId}/driverStandings.json`;

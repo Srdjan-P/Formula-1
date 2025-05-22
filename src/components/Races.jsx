@@ -10,7 +10,7 @@ export default function Races({ countryList, selectedYear }) {
 
     useEffect(() => {
         getRaces();
-    }, [])
+    }, [selectedYear])
 
     const getRaces = async () => {
         const url = `http://ergast.com/api/f1/${selectedYear}/results/1.json`;
