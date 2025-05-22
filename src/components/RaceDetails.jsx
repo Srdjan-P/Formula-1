@@ -53,6 +53,7 @@ export default function RaceDetails({ countryList }) {
                         <li>Location: Melbourne</li>
                         <li>Date: 2013-03-17</li>
                         <li>Full Report:</li>
+                        <img src="/img/australiaCarbon.png" className="staza" />
                     </ul>
                 </div>
             </div>
