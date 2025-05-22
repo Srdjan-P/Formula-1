@@ -1,7 +1,18 @@
-.driver-details {
-    width: 100%;
-    height: 100%;
-    padding: 100px;
-    background-color: #fff;
-    font-size: bold;
+.driver-details-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+
+    .driver-card {
+        background-color: crimson;
+        color: white;
+        font-size: bold;
+        font-family: bold;
+
+        padding: 20px;
+
+        .driver-avatar {}
+    }
 }
