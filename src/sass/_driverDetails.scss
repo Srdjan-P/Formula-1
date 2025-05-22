@@ -33,12 +33,13 @@
                 flex-direction: column;
                 font-weight: bold;
                 font-size: 15px;
+
             }
 
             .country-flags {
                 text-align: center;
                 flex-direction: column;
-                gap: 10px;
+                margin-bottom: 10px;
             }
         }
 
@@ -49,6 +50,7 @@
                 color: white;
                 text-align: justify;
                 text-decoration: none;
+                margin-bottom: 5px;
 
                 &.biography a {
                     color: #caafae;
@@ -73,26 +75,23 @@
     }
 
     table {
-        width: 100%;
-        margin: 0;
         box-shadow: 0 0 20px 5px #ddd;
         border-radius: 20px 20px 0 0;
         background-color: #fff;
         font-size: 15px;
         font-weight: 600px;
 
-
         thead {
 
             th {
-                border-radius: 10px 10px 0 0;
+
                 box-shadow: 0 0 10px 1px #fff;
                 text-align: left;
                 padding: 10px;
                 height: 30px;
                 background-color: variable.$primaryColor;
                 color: #fff;
-                font-size: 25px;
+
             }
         }
 
