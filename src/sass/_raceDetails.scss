@@ -40,7 +40,7 @@
 
 
         .bolid {
-            width: 400px;
+            width: 300px;
             /* Adjust the size */
             position: absolute;
             bottom: 10px;
@@ -87,6 +87,10 @@
                 font-size: 15px;
             }
 
+            th {
+                padding: 10px;
+            }
+
 
         }
 
@@ -106,6 +110,11 @@
                 border: 1px solid white;
                 font-size: 15px;
             }
+
+            th {
+                padding: 10px;
+            }
+
 
         }
     }
