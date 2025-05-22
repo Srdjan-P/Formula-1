@@ -4,8 +4,10 @@ import { useNavigate } from "react-router";
 import { Link } from "react-router";
 import Loader from "./Loader";
 import LaunchIcon from '@mui/icons-material/Launch';
+import Flag from "react-flagkit";
+import { getCodeByNationality } from "../FlagCodes";
 
-export default function Teams() {
+export default function Teams({ countryList }) {
     const [teams, setTeams] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const navigate = useNavigate();
@@ -33,37 +35,51 @@ export default function Teams() {
 
     return (
         <div className="teams">
-            <table>
-                <thead>
-                    <tr>
-                        <th colSpan={4}>
-                            <p>Constructor Championship Standings - 2013</p>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {teams.map((team, i) => {
-                        return (
-                            <tr key={i}>
-                                <td>{team.position}</td>
-                                <td
-                                    onClick={() => {
-                                        handleClickDetails(team.Constructor.constructorId);
-                                    }}
-                                >
-                                    {team.Constructor.name}
-                                </td>
-                                <td>
-                                    <Link target="_blank" to={team.Constructor.url}>
-                                        Details <LaunchIcon fontSize="small" />
-                                    </Link>
-                                </td>
-                                <td>{team.points}</td>
-                            </tr>
-                        );
-                    })}
-                </tbody>
-            </table>
+            {isLoading ? (
+                <Loader />
+            ) : (
+                <table>
+                    <thead>
+                        <tr>
+                            <th colSpan={4}>
+                                <p>Constructor Championship Standings - 2013</p>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {teams.map((team, i) => {
+                            console.log("team", team);
+                            return (
+                                <tr key={i}>
+                                    <td>{team.position}</td>
+                                    <td
+                                        onClick={() => {
+                                            handleClickDetails(team.Constructor.constructorId);
+                                        }}
+                                    >
+                                        <span style={{ cursor: "pointer" }}>
+                                            <Flag
+                                                className="flag"
+                                                country={getCodeByNationality(
+                                                    countryList,
+                                                    team.Constructor.nationality
+                                                )}
+                                            />
+                                            {team.Constructor.name}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <Link target="_blank" to={team.Constructor.url}>
+                                            Details <LaunchIcon fontSize="small" />
+                                        </Link>
+                                    </td>
+                                    <td>{team.points}</td>
+                                </tr>
+                            );
+                        })}
+                    </tbody>
+                </table>
+            )}
         </div>
     );
 }
