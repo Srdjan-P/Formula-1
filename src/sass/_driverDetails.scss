@@ -5,16 +5,11 @@
     background-color: #464242;
     justify-content: space-between;
 
-    .driver-details-table {
-        width: 200%;
-    }
-
     .driver-card {
         font-size: 14px;
 
         background-color: #8f8080;
         color: white;
-        font-weight: bold;
         padding: 20px;
         gap: 10px;
         border-radius: 12px;
@@ -27,6 +22,7 @@
         .driver-avatar {
             text-align: center;
             margin-bottom: 15px;
+
         }
 
         .driver-name {
@@ -35,15 +31,14 @@
             h2 {
                 display: flex;
                 flex-direction: column;
-                text-align: center;
-
+                font-weight: bold;
+                font-size: 15px;
             }
 
             .country-flags {
                 text-align: center;
                 flex-direction: column;
                 gap: 10px;
-
             }
         }
 
@@ -56,9 +51,8 @@
                 text-decoration: none;
 
                 &.biography a {
-                    color: #ff261e;
+                    color: #caafae;
                     text-decoration: none;
-
 
                     &:hover {
                         text-decoration: underline;
@@ -69,24 +63,24 @@
     }
 }
 
-
 .driver-details {
-    width: 100%;
-    min-width: 300px;
-
     display: flex;
+    width: 100%;
     justify-content: center;
-    padding: 30px;
+
+    .driver-details-table {
+        width: 100%;
+    }
 
     table {
-
-        max-width: 800px;
+        width: 100%;
         margin: 0;
         box-shadow: 0 0 20px 5px #ddd;
         border-radius: 20px 20px 0 0;
         background-color: #fff;
         font-size: 15px;
         font-weight: 600px;
+
 
         thead {
 
