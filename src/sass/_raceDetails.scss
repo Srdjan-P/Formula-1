@@ -32,6 +32,28 @@
 
         }
 
+
+        .bolid {
+            width: 300px;
+            /* Adjust the size */
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            animation: drive 6s linear infinite;
+        }
+
+        @keyframes drive {
+            from {
+                left: 0;
+            }
+
+            to {
+                left: 100%;
+            }
+        }
+
+
+
     }
 
     .race-tables {
