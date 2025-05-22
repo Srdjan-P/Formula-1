@@ -7,17 +7,17 @@ import LaunchIcon from '@mui/icons-material/Launch';
 import Flag from "react-flagkit";
 import { getCodeByNationality } from "../FlagCodes";
 
-export default function Teams({ countryList }) {
+export default function Teams({selectedYear, countryList}) {
     const [teams, setTeams] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const navigate = useNavigate();
 
     useEffect(() => {
         getTeams();
-    }, []);
+    }, [selectedYear]);
 
     const getTeams = async () => {
-        const url = `http://ergast.com/api/f1/2013/constructorStandings.json`;
+        const url = `http://ergast.com/api/f1/${selectedYear}/constructorStandings.json`;
         const response = await axios.get(url);
         const data =
             response.data.MRData.StandingsTable.StandingsLists[0]

@@ -4,16 +4,16 @@ import { useNavigate } from "react-router"
 import Flag from "react-flagkit";
 import { getCodeByCountryName, getCodeByNationality } from "../FlagCodes";
 
-export default function Races({ countryList }) {
+export default function Races({ countryList, selectedYear }) {
     const [races, setRaces] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {
         getRaces();
-    }, [])
+    }, [selectedYear])
 
     const getRaces = async () => {
-        const url = 'http://ergast.com/api/f1/2013/results/1.json';
+        const url = `http://ergast.com/api/f1/${selectedYear}/results/1.json`;
         const response = await axios.get(url);
         const data = response.data.MRData.RaceTable.Races
         setRaces(data);
@@ -34,7 +34,7 @@ export default function Races({ countryList }) {
                 <thead>
                     <tr>
                         <th colSpan={5}>
-                            <p>Race Calendar - 2013</p>
+                            <p>Race Calendar - {selectedYear}</p>
                         </th>
                     </tr>
                     <tr>
