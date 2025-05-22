@@ -61,7 +61,7 @@ export default function RaceDetails({ countryList }) {
                     <table>
                         <thead>
                             <tr>
-                                <th>Qualifying Results</th>
+                                <th colspan={4}>Qualifying Results</th>
                             </tr>
                             <tr>
                                 <th>Position</th>
