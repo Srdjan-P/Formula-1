@@ -48,9 +48,9 @@ export default function RaceDetails({ countryList }) {
                 </div>
                 <div className="race-details">
                     <ul>
-                        <li>Country:</li>
-                        <li>Location:</li>
-                        <li>Date:</li>
+                        <li>Country: Australia</li>
+                        <li>Location: Melbourne</li>
+                        <li>Date: 2013-03-17</li>
                         <li>Full Report:</li>
                     </ul>
                 </div>
@@ -65,7 +65,9 @@ export default function RaceDetails({ countryList }) {
                             </tr>
                             <tr>
                                 <th>Position</th>
+
                                 <th>Driver</th>
+
                                 <th>Team</th>
                                 <th>Best Time</th>
                             </tr>
@@ -84,6 +86,8 @@ export default function RaceDetails({ countryList }) {
                                 return (
                                     <tr key={driver.position}>
                                         <td>{driver.position}</td>
+                                        <td>    <Flag country={getCodeByCountryName(countryList, qualifying.Circuit.Location.country)} /></td>
+                                        {/* <td><Flag country={getCodeByNationality(countryList, qualifyingResults.[0].Driver.nationality)} /></td> */}
                                         <td>{driver.Driver.nationality}{driver.Driver.familyName}</td>
                                         <td>{driver.Constructor.name}</td>
                                         <td>{fastestTime}</td>
