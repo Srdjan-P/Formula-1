@@ -70,7 +70,7 @@ export default function TeamDetails({ countryList, selectedYear }) {
             </div>
 
             <div className="drivers">
-                <table>
+                <table className="team-results">
                     <thead>
                         <tr>
                             <th colSpan={5}>
