@@ -1,53 +1,61 @@
 @use "variables" as variable;
 
 .drivers {
-    display: flex;
-    justify-content: center;
-    padding: 30px;
+  display: flex;
+  justify-content: center;
+  padding: 30px;
 
-    table {
-        width: 96vw;
-        max-width: 800px;
-        margin: 30px;
-        box-shadow: 0 0 20px 5px #ddd;
-        border-radius: 20px 20px 0 0;
-        background-color: #fff;
-        font-size: 15px;
-        font-weight: 600;
+  table {
+    width: 96vw;
+    max-width: 800px;
+    margin: 30px;
+    box-shadow: 0 0 20px 5px #ddd;
+    border-radius: 20px 20px 0 0;
+    background-color: #fff;
+    font-size: 15px;
+    font-weight: 600;
 
-        thead {
-
-            th {
-                border-radius: 10px 10px 0 0;
-                box-shadow: 0 0 10px 1px #fff;
-                text-align: left;
-                padding: 10px;
-                height: 30px;
-                background-color: variable.$primaryColor;
-                color: #fff;
-                font-size: 25px;
-            }
-        }
-
-        tr:first-child {
-            background-color: rgb(255, 217, 0);
-        }
-
-        tr:nth-child(2) {
-            background-color: rgb(192, 192, 192, 0.7);
-        }
-
-        tr:nth-child(3) {
-            background-color: rgba(206, 138, 70, 0.6);
-        }
-
-        td {
-            padding: 8px 20px;
-            border: 2px solid #ddd;
-
-            &:hover {
-                color: variable.$primaryColor;
-            }
-        }
+    thead {
+      th {
+        border-radius: 10px 10px 0 0;
+        box-shadow: 0 0 10px 1px #fff;
+        text-align: left;
+        padding: 10px;
+        height: 30px;
+        background-color: variable.$primaryColor;
+        color: #fff;
+        font-size: 25px;
+      }
     }
+
+    tr:first-child {
+      background-color: rgb(230, 195, 1);
+    }
+
+    tr:nth-child(2) {
+      background-color: rgb(192, 192, 192, 0.7);
+    }
+
+    tr:nth-child(3) {
+      background-color: rgba(206, 138, 70, 0.6);
+    }
+
+    td {
+      padding: 8px 20px;
+      border: 2px solid #ddd;
+      vertical-align: middle;
+
+      span {
+        display: flex;
+        align-items: center;
+
+        .flag {
+          margin-right: 10px;
+        }
+        &:hover {
+          color: variable.$primaryColor;
+        }
+      }
+    }
+  }
 }
