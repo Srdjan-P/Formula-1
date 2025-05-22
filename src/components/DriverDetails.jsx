@@ -77,8 +77,8 @@ export default function DriverDetails({ countryList }) {
                 </div>
             </div>
             {/* Tabela - desna strana */}
-            <div className="drivers">
-                <table>
+            <div className="driver-details">
+                <table className="driver-details-table">
                     <thead>
                         <tr>
                             <th colSpan={5}>
