@@ -55,17 +55,20 @@ export default function DriverDetails({ countryList }) {
     return (
         <div className="driver-details-container">
             <div className="driver-card">
-                <div className="driver-avatar">
-                    <div>
+                {/* odavde krece slika i biografija - leva strana */}
+                <div className="driver-biography-card">
+                    <div className="driver-avatar">
                         <img src={`/avatars/${driverDetails.Driver.driverId}.jpg`} alt="Avatar" width="100" />
                     </div>
                     <div className="driver-name">
                         <h2>
-                            <Flag country={getCodeByNationality(countryList, driverDetails.Driver.nationality)} />
+                            {/* odavde krece ime i zastavica - takodje, leva strana */}
+                            <Flag className="country-flags" country={getCodeByNationality(countryList, driverDetails.Driver.nationality)} />
                             {driverDetails.Driver.givenName} {driverDetails.Driver.familyName}
                         </h2>
                     </div>
                 </div>
+                {/* Drzava, Rodjendan itd - leva strana */}
                 <div className="driver-info">
                     <p>Country: {driverDetails.Driver.nationality}</p>
                     <p>Team: {driverDetails.Constructors[0].name}</p>
@@ -73,9 +76,9 @@ export default function DriverDetails({ countryList }) {
                     <p className="biography"><Link to={driverDetails.Driver.url} target="_blank">Biography<LaunchIcon fontSize="small" sx={{ fontSize: 16 }} /></Link></p>
                 </div>
             </div>
-
-            <div className="drivers">
-                <table>
+            {/* Tabela - desna strana */}
+            <div className="driver-details">
+                <table className="driver-details-table">
                     <thead>
                         <tr>
                             <th colSpan={5}>
