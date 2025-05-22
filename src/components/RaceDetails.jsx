@@ -2,13 +2,15 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import Loader from "./Loader";
-import Flags from "./Flags";
+import Flag from "react-flagkit";
+import { getCodeByCountryName } from "../FlagCodes";
 
-export default function RaceDetails() {
+
+export default function RaceDetails({ countryList }) {
     const { raceId } = useParams();
     const [qualifying, setQualifying] = useState([]);
     const [race, setRace] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         getQualifying();
@@ -17,9 +19,8 @@ export default function RaceDetails() {
     const getQualifying = async () => {
         const urlQualifying = `http://ergast.com/api/f1/2013/${raceId}/qualifying.json`
         const qualifyingResponse = await axios.get(urlQualifying);
-        console.log(qualifyingResponse.data.MRData.RaceTable.Races[0].QualifyingResults);
-        const data1 = qualifyingResponse.data.MRData.RaceTable.Races[0].QualifyingResults;
-        setQualifying(data1);
+        console.log("1 ", qualifyingResponse.data.MRData.RaceTable.Races[0]);
+        setQualifying(qualifyingResponse.data.MRData.RaceTable.Races[0]);
 
         const urlResults = `http://ergast.com/api/f1/2013/${raceId}/results.json`
         const resultResponse = await axios.get(urlResults)
@@ -34,8 +35,6 @@ export default function RaceDetails() {
 
     console.log("qualifying", qualifying);
 
-
-
     if (isLoading) {
         return <Loader />;
     }
@@ -44,7 +43,7 @@ export default function RaceDetails() {
         <div className="raceDetails">
             <div className="race-card">
                 <div className="race-driver">
-                    <Flags nationality={qualifying.Driver?.nationality} />
+                    <Flag country={getCodeByCountryName(countryList, qualifying.Circuit.Location.country)} />
                     <h2>Australian</h2>
                 </div>
                 <div className="race-details">
@@ -73,7 +72,7 @@ export default function RaceDetails() {
                         </thead>
                         <tbody>
 
-                            {qualifying.map((driver) => {
+                            {qualifying.QualifyingResults.map((driver) => {
                                 let fastestTime = "";
                                 if (driver.Q3) {
                                     fastestTime = driver.Q3
