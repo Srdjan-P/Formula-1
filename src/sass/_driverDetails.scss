@@ -3,18 +3,18 @@
 .driver-details-container {
     margin: 20px;
     display: flex;
-    background-color: #464242;
+
     justify-content: space-between;
     cursor: pointer;
 
     .driver-card {
         font-size: 14px;
+        height: 300px;
         border-radius: 20px 0 0px 0px;
         background-color: #8f8080;
         color: white;
         padding: 20px;
         gap: 10px;
-
 
         .driver-biography-card {
             display: flex;
@@ -24,7 +24,6 @@
         .driver-avatar {
             text-align: center;
             margin-bottom: 15px;
-
         }
 
         .driver-name {
