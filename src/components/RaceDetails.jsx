@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import Loader from "./Loader";
 import Flag from "react-flagkit";
-import { getCodeByCountryName } from "../FlagCodes";
+import { getCodeByCountryName, getCodeByNationality } from "../FlagCodes";
 
 
 export default function RaceDetails({ countryList }) {
@@ -33,7 +33,7 @@ export default function RaceDetails({ countryList }) {
 
     console.log("race", race);
 
-    console.log("qualifying", qualifying);
+    // console.log("qualifying", qualifying);
 
     if (isLoading) {
         return <Loader />;
@@ -44,6 +44,7 @@ export default function RaceDetails({ countryList }) {
             <div className="race-card">
                 <div className="race-driver">
                     <Flag country={getCodeByCountryName(countryList, qualifying.Circuit.Location.country)} />
+
                     <h2>Australian</h2>
                 </div>
                 <div className="race-details">
@@ -86,8 +87,8 @@ export default function RaceDetails({ countryList }) {
                                 return (
                                     <tr key={driver.position}>
                                         <td>{driver.position}</td>
-                                        <td>    <Flag country={getCodeByCountryName(countryList, qualifying.Circuit.Location.country)} /></td>
-                                        {/* <td><Flag country={getCodeByNationality(countryList, qualifyingResults.[0].Driver.nationality)} /></td> */}
+                                        <td>    <Flag country={getCodeByNationality(countryList, driver.Driver.nationality)} /></td>
+
                                         <td>{driver.Driver.nationality}{driver.Driver.familyName}</td>
                                         <td>{driver.Constructor.name}</td>
                                         <td>{fastestTime}</td>
@@ -116,6 +117,7 @@ export default function RaceDetails({ countryList }) {
                                 return (
                                     <tr key={lap.position}>
                                         <td>{lap.position}</td>
+                                        <td>    <Flag country={getCodeByNationality(countryList, lap.Driver.nationality)} /></td>
                                         <td>{lap.Driver.familyName}</td>
                                         <td>{lap.Constructor.name}</td>
                                         <td>{lap.Time ? lap.Time.time : lap.status}</td>
