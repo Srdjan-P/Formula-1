@@ -121,28 +121,23 @@
         }
 
 
-
         td {
             padding: 8px 20px;
             border: 2px solid #ddd;
 
             span {
-                display: block;
-
-
+                display: flex;
                 align-items: center;
+                gap: 10px;
 
                 .flag {
                     margin-right: 10px;
-                    gap: 20px;
                 }
-
 
                 &:hover {
                     color: variable.$primaryColor;
                 }
             }
-
         }
     }
 
