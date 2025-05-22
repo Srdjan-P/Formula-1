@@ -4,9 +4,10 @@ import { useNavigate, useParams } from "react-router";
 import { Link } from "react-router";
 import Loader from "./Loader";
 import LaunchIcon from '@mui/icons-material/Launch';
-import Flags from "./Flags";
+import { getCodeByCountryName, getCodeByNationality } from "../FlagCodes";
+import Flag from "react-flagkit";
 
-export default function TeamDetails() {
+export default function TeamDetails({ countryList }) {
     const { teamsId } = useParams();
     const [teamDetails, setTeamDetails] = useState({});
     const [teamResults, setTeamResults] = useState([]);
@@ -54,7 +55,8 @@ export default function TeamDetails() {
                 </div>
                 <div>
                     <h2>
-                        <Flags nationality={teamDetails.Constructor.nationality} />{teamDetails.Constructor.name}</h2>
+                        <Flag country={getCodeByNationality(countryList, teamDetails.Constructor.nationality)} />
+                        {teamDetails.Constructor.name}</h2>
                 </div>
                 <ul>
                     <li>Country:{teamDetails.Constructor?.nationality}</li>
@@ -83,10 +85,11 @@ export default function TeamDetails() {
                     </thead>
                     <tbody>
                         {teamResults.map((teamResult) => {
+                            console.log("teamResult", teamResult);
                             return (
                                 <tr>
                                     <td>{teamResult.round}</td>
-                                    <td><Flags nationality={teamDetails.Constructor.nationality} />{teamResult.raceName}
+                                    <td><Flag country={getCodeByCountryName(countryList, teamResult.Circuit.Location.country)} />{teamResult.raceName}
                                     </td>
                                     <td onClick={() => { handleTeams(teamResult.Results[0].Constructor.constructorId) }}>
                                         {teamResult.Results[0].Constructor.name}</td>
