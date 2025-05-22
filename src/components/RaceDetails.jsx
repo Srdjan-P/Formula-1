@@ -54,6 +54,7 @@ export default function RaceDetails({ countryList, selectedYear }) {
                         <li>Date: 2013-03-17</li>
                         <li>Full Report:</li>
                         <img src="/img/australiaCarbon.png" className="staza" />
+                        <img src="/img/formulaCar.png" alt="" srcset="" className="bolid" />
                     </ul>
                 </div>
             </div>
