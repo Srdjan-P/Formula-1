@@ -14,7 +14,7 @@ export default function Teams({selectedYear, countryList}) {
 
     useEffect(() => {
         getTeams();
-    }, []);
+    }, [selectedYear]);
 
     const getTeams = async () => {
         const url = `http://ergast.com/api/f1/${selectedYear}/constructorStandings.json`;

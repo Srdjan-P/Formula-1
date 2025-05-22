@@ -14,7 +14,7 @@ export default function RaceDetails({ countryList, selectedYear }) {
 
     useEffect(() => {
         getQualifying();
-    }, []);
+    }, [selectedYear]);
 
     const getQualifying = async () => {
         const urlQualifying = `http://ergast.com/api/f1/${selectedYear}/${raceId}/qualifying.json`
