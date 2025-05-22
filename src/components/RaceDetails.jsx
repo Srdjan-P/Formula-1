@@ -43,7 +43,7 @@ export default function RaceDetails({ countryList }) {
         <div className="raceDetails">
             <div className="race-card">
                 <div className="race-driver">
-                    <Flag country={getCodeByCountryName(countryList, qualifying.Circuit.Location.country)} />
+                    <Flag className="flag" country={getCodeByCountryName(countryList, qualifying.Circuit.Location.country)} />
 
                     <h2>Australian</h2>
                 </div>
