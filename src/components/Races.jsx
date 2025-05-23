@@ -24,7 +24,9 @@ export default function Races({ countryList, selectedYear }) {
         navigate(linkTo)
 
     }
-    console.log("countryList", countryList);
+    // console.log("countryList", countryList);
+    console.log("races");
+
 
 
     return (
