@@ -85,6 +85,7 @@ export default function Teams({ selectedYear, countryList }) {
 
             </div>
             <img src="/img/formulaNissan.png" alt="Formula Nissan Bolid" className="bolid2" />
+            <img src="/img/pitStop.png" alt="pit stop" className="pitStop" />
         </div>
     );
 }
