@@ -26,6 +26,18 @@
             margin-bottom: 15px;
         }
 
+        .driver-img {
+            width: 110px;
+            height: 110px;
+            border-radius: 20%;
+        }
+
+        .driver-img[src$="avatar.png"] {
+            opacity: 0.4;
+            filter: grayscale(100%);
+
+        }
+
         .driver-name {
             display: flex;
 
