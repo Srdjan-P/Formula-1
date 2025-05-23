@@ -1,18 +1,27 @@
 .team-details {
     display: flex;
+    margin: 20px;
+}
+
+.team-card {
+    border-radius: 10px;
+    border: 1px solid rgb(255, 255, 255, 0.18);
+    box-shadow: 0px 5px 30px 0px rgb(22, 32, 220, 0.37),
+        0px 0px 15px white incent;
+    background-image: linear-gradient(45deg, blue, white, orange);
+    color: rgb(116, 108, 108);
+    font-size: large;
     margin-top: 5px;
     margin-left: 5px;
     padding: 20px;
     height: 100%;
     gap: 2px;
-    background-image: linear-gradient(45deg, blue, white, orange);
-    color: rgb(116, 108, 108);
-    font-size: large;
     justify-content: space-between;
-    border-radius: 10px;
-    border: 1px solid rgb(255, 255, 255, 0.18);
-    box-shadow: 0px 5px 30px 0px rgb(22, 32, 220, 0.37),
-        0px 0px 15px white incent;
+}
+
+.team-avatar {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .team-info {

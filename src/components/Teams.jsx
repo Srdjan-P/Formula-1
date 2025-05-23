@@ -7,7 +7,7 @@ import LaunchIcon from '@mui/icons-material/Launch';
 import Flag from "react-flagkit";
 import { getCodeByNationality } from "../FlagCodes";
 
-export default function Teams({selectedYear, countryList}) {
+export default function Teams({ selectedYear, countryList }) {
     const [teams, setTeams] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const navigate = useNavigate();
