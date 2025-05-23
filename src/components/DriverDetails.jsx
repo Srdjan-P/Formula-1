@@ -7,7 +7,6 @@ import LaunchIcon from '@mui/icons-material/Launch';
 import { getCodeByCountryName, getCodeByNationality } from "../FlagCodes";
 import Flag from "react-flagkit";
 
-
 export default function DriverDetails({ countryList, selectedYear }) {
     const { driverId } = useParams();
     const [driverDetails, setDriverDetails] = useState({});
@@ -32,25 +31,18 @@ export default function DriverDetails({ countryList, selectedYear }) {
     };
 
     const handleTeams = (id) => {
-        //console.log("id", id);
         const linkTo = `/teams/${id}`;
         navigate(linkTo);
     };
 
     const handleRaces = (id) => {
-        console.log("id", id);
         const linkTo = `/races/${id}`
         navigate(linkTo)
     };
 
-
-
-
     if (isLoading) {
         return <Loader />;
     }
-
-    console.log("driverRaces", driverRaces);
 
     return (
         <div className="driver-details-container">
@@ -99,8 +91,10 @@ export default function DriverDetails({ countryList, selectedYear }) {
                                 <tr>
                                     <td>{driverRace.round}</td>
                                     <td onClick={() => { handleRaces(driverRace.round) }}>
-                                        <Flag country={getCodeByCountryName(countryList, driverRace.Circuit.Location.country)} />
-                                        {driverRace.raceName}
+                                        <span>
+                                            <Flag country={getCodeByCountryName(countryList, driverRace.Circuit.Location.country)} />
+                                            {driverRace.raceName}
+                                        </span>
                                     </td>
                                     <td onClick={() => { handleTeams(driverRace.Results[0].Constructor.constructorId) }}>
                                         {driverRace.Results[0].Constructor.name}
