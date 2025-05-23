@@ -43,6 +43,7 @@ export default function DriverDetails({ countryList, selectedYear }) {
     if (isLoading) {
         return <Loader />;
     }
+    console.log("driverDetails", driverDetails);
 
     return (
         <div className="driver-details-container">
@@ -50,8 +51,17 @@ export default function DriverDetails({ countryList, selectedYear }) {
                 {/* odavde krece slika i biografija - leva strana */}
                 <div className="driver-biography-card">
                     <div className="driver-avatar">
-                        <img src={`/avatars/${driverDetails.Driver.driverId}.jpg`} alt="Avatar" width="100" />
+                        <img
+                            src={`/avatars/${driverDetails.Driver.driverId}.jpg`}
+                            alt="/avatars/avatar.png" width="100"
+                            onError={(e) => {
+                                e.target.onerror = null;
+                                e.target.src = "/avatars/avatar.png";
+                            }}
+                            className="driver-img"
+                        />
                     </div>
+
                     <div className="driver-name">
                         <h2>
                             {/* odavde krece ime i zastavica - takodje, leva strana */}
