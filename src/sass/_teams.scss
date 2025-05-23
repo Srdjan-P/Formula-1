@@ -1,5 +1,44 @@
 @use "variables" as variable;
 
+.pitStop {
+    position: absolute;
+    left: 1%;
+    bottom: 0%;
+    width: 100px;
+    height: auto;
+    opacity: 1;
+    z-index: -2;
+}
+
+
+@keyframes moveBolid {
+
+    0% {
+        right: 0;
+    }
+
+    100% {
+        right: 100%;
+        left: 3%;
+
+    }
+
+}
+
+
+.bolid2 {
+    position: absolute;
+    top: 80%;
+    right: 100px;
+    width: 400px;
+    height: auto;
+    animation: moveBolid 6s linear forwards;
+    z-index: -1;
+    opacity: 0.9;
+}
+
+
+
 .teams {
     display: flex;
     justify-content: center;
@@ -15,6 +54,10 @@
         font-size: 15px;
         font-weight: 600;
 
+        .flag {
+            margin-right: 10px;
+        }
+
         thead {
             th {
                 border-radius: 10px 10px 0 0;
@@ -25,6 +68,10 @@
                 background-color: variable.$primaryColor;
                 color: #fff;
                 font-size: 25px;
+            }
+
+            .flag {
+                margin-right: 10px;
             }
         }
 
