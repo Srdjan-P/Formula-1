@@ -54,14 +54,15 @@ export default function Races({ countryList, selectedYear }) {
                                 <tr>
                                     <td>{race.round}</td>
                                     <td onClick={() => { handleRaces(race.round) }}>
-                                        <Flag country={getCodeByCountryName(countryList, race.Circuit.Location.country)} />
+                                        <Flag
+                                            country={getCodeByCountryName(countryList, race.Circuit.Location.country)} className="flag" />
                                         {race.raceName}
                                     </td>
                                     <td>{race.Circuit.circuitName}</td>
                                     <td>{race.date}</td>
 
                                     <td>
-                                        <Flag country={getCodeByNationality(countryList, race.Results[0].Driver.nationality)} />
+                                        <Flag country={getCodeByNationality(countryList, race.Results[0].Driver.nationality)} className="flag" />
                                         {race.Results[0].Driver.nationality} {race.Results[0].Driver.familyName}</td>
 
                                 </tr>
