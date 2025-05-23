@@ -9,7 +9,7 @@ export function getCodeByNationality(flags, nationality) {
         return "KR"
     }
     if (nationality === "British") {
-        return "GR"
+        return "GB"
     }
 
     const flag = flags.find((flag) => flag.nationality === nationality)
