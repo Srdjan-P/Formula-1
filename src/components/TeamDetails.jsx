@@ -52,11 +52,19 @@ export default function TeamDetails({ countryList, selectedYear }) {
             <div className="team-card">
                 <div className="team-bio-card">
                     <div className="team-avatar">
-                        <img src={`/avatars/${teamDetails.Constructor.constructorId}.png`} alt="Team" width="80" />W
+                        <img src={`/avatars/${teamDetails.Constructor.constructorId}.png`}
+                            alt="/avatars/team.png" width="100"
+                            onError={(e) => {
+                                e.target.onerror = null;
+                                e.target.src = "/avatars/team.png";
+                            }}
+                            className="teams-img"
+                        />
+
                     </div>
                     <div>
                         <h2>
-                            <Flag country={getCodeByNationality(countryList, teamDetails.Constructor.nationality)} />
+                            <Flag className="flag" country={getCodeByNationality(countryList, teamDetails.Constructor.nationality)} />
                             {teamDetails.Constructor.name}</h2>
                     </div>
                 </div>
@@ -69,7 +77,7 @@ export default function TeamDetails({ countryList, selectedYear }) {
             </div>
 
             <div className="drivers">
-                <table className="team-results">
+                <table className="team-results-tables">
                     <thead>
                         <tr>
                             <th colSpan={5}>
