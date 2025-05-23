@@ -33,7 +33,7 @@ export default function RaceDetails({ countryList, selectedYear }) {
 
     console.log("race", race);
 
-    // console.log("qualifying", qualifying);
+    console.log("qualifying", qualifying);
 
     if (isLoading) {
         return <Loader />;
@@ -45,13 +45,13 @@ export default function RaceDetails({ countryList, selectedYear }) {
                 <div className="race-driver">
                     <Flag className="flag" country={getCodeByCountryName(countryList, qualifying.Circuit.Location.country)} />
 
-                    <h2>Australian</h2>
+                    <h2>{qualifying.raceName}</h2>
                 </div>
                 <div className="race-details">
                     <ul>
-                        <li>Country: Australia</li>
-                        <li>Location: Melbourne</li>
-                        <li>Date: 2013-03-17</li>
+                        <li>Country: {qualifying.Circuit.Location.country}</li>
+                        <li>Location: {qualifying.Circuit.Location.locality}</li>
+                        <li>Date: {qualifying.date}</li>
                         <li>Full Report:</li>
                         <img src="/img/australiaCarbon.png" className="staza" />
                         <img src="/img/formulaCar.png" alt="" srcset="" className="bolid" />
