@@ -1,48 +1,57 @@
 export function getCodeByNationality(flags, nationality) {
-    if (!flags) {
-        return null
-    }
-    if (nationality === "Dutch") {
-        return "NL"
-    }
-    if (nationality === "Korean") {
-        return "KR"
-    }
-    if (nationality === "British") {
-        return "GB"
-    }
+  if (!flags) {
+    return null;
+  }
+  if (nationality === "Dutch") {
+    return "NL";
+  }
+  if (nationality === "Korean") {
+    return "KR";
+  }
+  if (nationality === "British") {
+    return "GB";
+  }
+  if (nationality === "Monegasque") {
+    return "MC";
+  }
+  if (nationality === "New Zealander") {
+    return "NZ";
+  }
+  if (nationality === "Argentinian ") {
+    return "AR";
+  }
 
-    const flag = flags.find((flag) => flag.nationality === nationality)
-    if (!flag) {
-        return null;
-    }
-    return flag.alpha_2_code;
+  const flag = flags.find((flag) => flag.nationality === nationality);
+  if (!flag) {
+    return null;
+  }
+  return flag.alpha_2_code;
 }
 
 export function getCodeByCountryName(flags, name) {
-    //console.log("flags", flags);
+  //console.log("flags", flags);
 
-    if (!flags) {
-        return null;
-    }
+  if (!flags) {
+    return null;
+  }
 
-    if (name === "Korea")
-        return "KR";
+  if (name === "Korea") return "KR";
 
-    if (name === "UK") {
-        return "GB";
-    }
-    if (name === "USA") {
-        return "US";
-    }
-    if (name === "UAE")
-        return "AE";
+  if (name === "UK") {
+    return "GB";
+  }
+  if (name === "USA") {
+    return "US";
+  }
+  if (name === "UAE") return "AE";
+  if (name === "Russia") return "RU";
+  if (name === "Azerbaijan") return "AZ";
+  if (name === "United States") return "US";
 
-    const country = flags.find((flag) => flag.en_short_name === name);
+  const country = flags.find((flag) => flag.en_short_name === name);
 
-    if (!country) {
-        return null
-    }
-    return country.alpha_2_code;
-
+  if (!country) {
+    return null;
+  }
+  return country.alpha_2_code;
 }

@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, NavLink,} from "react-router";
+import { BrowserRouter as Router, Routes, Route, NavLink } from "react-router";
 import Drivers from "./components/Drivers";
 import Races from "./components/Races";
 import Teams from "./components/Teams";
@@ -46,7 +46,12 @@ export default function App() {
           </div>
           <ul>
             <li>
-              <NavLink to="/drivers">Drivers</NavLink>
+              <NavLink
+                to="/drivers"
+                className={({ isActive }) => (isActive ? "active" : "")}
+              >
+                Drivers
+              </NavLink>
             </li>
             <li>
               <NavLink to="/races">Races</NavLink>
@@ -65,17 +70,57 @@ export default function App() {
         </nav>
 
         <Routes>
-          <Route path="/" element={<Home countryList={countryList} selectedYear={selectedYear} />} />
-          <Route path="/drivers" element={
-          <Drivers countryList={countryList} selectedYear={selectedYear} />}/>
-          <Route path="/drivers/:driverId" element={
-          <DriverDetails countryList={countryList} selectedYear={selectedYear} />}/>
-          <Route path="/races" element={
-          <Races countryList={countryList} selectedYear={selectedYear} />} />
-          <Route path="/races/:raceId" element={
-          <RaceDetails countryList={countryList} selectedYear={selectedYear} />}/>
-          <Route path="/teams" element={<Teams countryList={countryList} selectedYear={selectedYear}/>} />
-          <Route path="/teams/:teamsId" element={<TeamDetails countryList={countryList} selectedYear={selectedYear}/>}/>
+          <Route
+            path="/"
+            element={
+              <Home countryList={countryList} selectedYear={selectedYear} />
+            }
+          />
+          <Route
+            path="/drivers"
+            element={
+              <Drivers countryList={countryList} selectedYear={selectedYear} />
+            }
+          />
+          <Route
+            path="/drivers/:driverId"
+            element={
+              <DriverDetails
+                countryList={countryList}
+                selectedYear={selectedYear}
+              />
+            }
+          />
+          <Route
+            path="/races"
+            element={
+              <Races countryList={countryList} selectedYear={selectedYear} />
+            }
+          />
+          <Route
+            path="/races/:raceId"
+            element={
+              <RaceDetails
+                countryList={countryList}
+                selectedYear={selectedYear}
+              />
+            }
+          />
+          <Route
+            path="/teams"
+            element={
+              <Teams countryList={countryList} selectedYear={selectedYear} />
+            }
+          />
+          <Route
+            path="/teams/:teamsId"
+            element={
+              <TeamDetails
+                countryList={countryList}
+                selectedYear={selectedYear}
+              />
+            }
+          />
         </Routes>
       </Router>
     </>

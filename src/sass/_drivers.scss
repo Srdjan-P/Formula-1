@@ -22,39 +22,57 @@
         text-align: left;
         padding: 10px;
         height: 30px;
-        background-color: variable.$primaryColor;
+        background-color: variable.$secondaryColor;
         color: #fff;
         font-size: 25px;
       }
     }
 
     tr:first-child {
-      background-color: rgb(230, 195, 1);
+      // background-color: rgb(246, 217, 52);
+      box-shadow: 0 0 70px 0 rgb(246, 217, 52) inset;
     }
 
     tr:nth-child(2) {
-      background-color: rgb(192, 192, 192, 0.7);
+      // background-color: rgb(192, 192, 192, 0.7);
+      box-shadow: 0 0 70px 0 rgb(192, 192, 192, 0.7) inset;
     }
 
     tr:nth-child(3) {
-      background-color: rgba(206, 138, 70, 0.6);
+      // background-color: rgba(206, 138, 70, 0.6);
+      box-shadow: 0 0 70px 0 rgba(206, 138, 70, 0.6) inset;
     }
 
-    td {
-      padding: 8px 20px;
-      border: 2px solid #ddd;
-      vertical-align: middle;
+    tr {
+      td {
+        height: 40px;
+        padding: 8px 20px;
+        border: 2px solid #ddd;
+        vertical-align: middle;
 
-      span {
-        display: flex;
-        align-items: center;
-
-        .flag {
-          margin-right: 10px;
-        }
         &:hover {
-          color: variable.$primaryColor;
+          box-shadow: 0 0 5px 0 black;
         }
+
+        span {
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+
+          .flag {
+            margin-right: 10px;
+          }
+          &:hover {
+            color: variable.$primaryColor;
+            font-size: 16px;
+          }
+        }
+      }
+    }
+
+    tr:nth-child(n + 4) {
+      &:hover {
+        background-color: #ffeeee;
       }
     }
   }
