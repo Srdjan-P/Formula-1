@@ -9,8 +9,12 @@ export function getCodeByNationality(flags, nationality) {
         return "KR"
     }
     if (nationality === "British") {
-        return "GR"
+        return "GB"
     }
+    if (nationality === "Azerbaijani" || nationality === "Azeri") {
+        return "AZ";
+    }
+
 
     const flag = flags.find((flag) => flag.nationality === nationality)
     if (!flag) {
@@ -38,7 +42,17 @@ export function getCodeByCountryName(flags, name) {
     if (name === "UAE")
         return "AE";
 
+    if (name === "AZE" || name === "Azerbaijan") {
+        return "AZ";
+    }
+
+
+    console.log("Flags Data:", flags);
+
+
+
     const country = flags.find((flag) => flag.en_short_name === name);
+
 
     if (!country) {
         return null
@@ -46,3 +60,4 @@ export function getCodeByCountryName(flags, name) {
     return country.alpha_2_code;
 
 }
+
