@@ -18,6 +18,7 @@ export default function App() {
   const currentYear = new Date().getFullYear();
   const [selectedYear, setSelectedYear] = useState(currentYear - 1);
   const years = Array.from({ length: 50 }, (_, i) => currentYear - 1 - i);
+  const [searchInput, setSearchInput] = useState("")
 
   console.log(selectedYear);
 
@@ -37,6 +38,10 @@ export default function App() {
     setSelectedYear(event.target.value);
   };
 
+  const handleSearchInput = (event) => {
+    setSearchInput(event.target.value)
+  }
+
   return (
     <>
       <Router>
@@ -45,26 +50,26 @@ export default function App() {
             <Breadcrumbs />
           </div>
           <div className="search">
-            <Search />
+            <Search value={searchInput} onChange={handleSearchInput} />
           </div>
         </div>
         <nav>
           <div className="nav-bottom">
 
             <div className="logo-container">
-              <NavLink to="/">
+              <NavLink to="/" onClick={() => setSearchInput("")}>
                 <div className="logo"></div>
               </NavLink>
             </div>
             <ul>
               <li>
-                <NavLink to="/drivers">Drivers</NavLink>
+                <NavLink to="/drivers" onClick={() => setSearchInput("")}>Drivers</NavLink>
               </li>
               <li>
-                <NavLink to="/races">Races</NavLink>
+                <NavLink to="/races" onClick={() => setSearchInput("")}>Races</NavLink>
               </li>
               <li>
-                <NavLink to="/teams">Teams</NavLink>
+                <NavLink to="/teams" onClick={() => setSearchInput("")}>Teams</NavLink>
               </li>
             </ul>
             <div className="select">
@@ -81,7 +86,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home countryList={countryList} selectedYear={selectedYear} />} />
           <Route path="/drivers" element={
-            <Drivers countryList={countryList} selectedYear={selectedYear} />} />
+            <Drivers countryList={countryList} selectedYear={selectedYear} searchInput={searchInput} />} />
           <Route path="/drivers/:driverId" element={
             <DriverDetails countryList={countryList} selectedYear={selectedYear} />} />
           <Route path="/races" element={
