@@ -28,9 +28,9 @@ $secondaryColor: rgb(185, 33, 33);
     height: 40px;
     border: 2px solid #ddd;
     vertical-align: middle;
-  
+
     &:hover {
-      box-shadow: 0 0 5px 0 black;
-      transition: 0.2s ease-out;
+        box-shadow: 0 0 5px 0 black;
+        transition: 0.2s ease-out;
     }
 }

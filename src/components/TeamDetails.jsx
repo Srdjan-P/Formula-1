@@ -36,7 +36,6 @@ export default function TeamDetails({ countryList, selectedYear }) {
         console.log("TeamDetails", teamDetails);
     };
 
-
     const handleTeams = (id) => {
         console.log("id", id);
         const linkTo = `/constructors/${id}`;
@@ -47,16 +46,25 @@ export default function TeamDetails({ countryList, selectedYear }) {
         return <Loader />;
     }
 
+    console.log("TeamDetails", teamDetails);
     return (
         <div className="team-details">
             <div className="team-card">
                 <div className="team-bio-card">
                     <div className="team-avatar">
-                        <img src={`/avatars/${teamDetails.Constructor.constructorId}.png`} alt="Team" width="80" />
+                        <img src={`/avatars/${teamDetails.Constructor.constructorId}.png`}
+                            alt="/avatars/team.png" width="100"
+                            onError={(e) => {
+                                e.target.onerror = null;
+                                e.target.src = "/avatars/team.png";
+                            }}
+                            className="teams-img"
+                        />
+
                     </div>
                     <div>
                         <h2>
-                            <Flag country={getCodeByNationality(countryList, teamDetails.Constructor.nationality)} />
+                            <Flag className="flag" country={getCodeByNationality(countryList, teamDetails.Constructor.nationality)} />
                             {teamDetails.Constructor.name}</h2>
                     </div>
                 </div>
@@ -64,13 +72,12 @@ export default function TeamDetails({ countryList, selectedYear }) {
                     <li>Country:{teamDetails.Constructor?.nationality}</li>
                     <li>Position:{teamDetails?.position}</li>
                     <li>Points:{teamDetails?.points}</li>
-                    <li>History: <Link to={teamDetails?.history} /><LaunchIcon fontSize="small" sx={{ fontSize: 16 }} />
-                    </li>
+                    <li>History: <Link to={teamDetails.Constructor.url} target="_blank"><LaunchIcon fontSize="small" sx={{ fontSize: 16 }} /></Link></li>
                 </ul>
             </div>
 
             <div className="drivers">
-                <table>
+                <table className="team-results-tables">
                     <thead>
                         <tr>
                             <th colSpan={5}>
@@ -103,7 +110,7 @@ export default function TeamDetails({ countryList, selectedYear }) {
                     </tbody>
                 </table>
             </div>
-        </div>
+        </div >
 
 
     );

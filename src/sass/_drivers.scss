@@ -10,20 +10,23 @@
 
     thead {
       th {
-      @include variable.th;
+        @include variable.th;
       }
     }
 
     tr:first-child {
-      background-color: rgb(230, 195, 1);
+      // background-color: rgb(246, 217, 52);
+      box-shadow: 0 0 70px 0 rgb(246, 217, 52) inset;
     }
 
     tr:nth-child(2) {
-      background-color: rgb(192, 192, 192, 0.7);
+      // background-color: rgb(192, 192, 192, 0.7);
+      box-shadow: 0 0 70px 0 rgb(192, 192, 192, 0.7) inset;
     }
 
     tr:nth-child(3) {
-      background-color: rgba(206, 138, 70, 0.6);
+      // background-color: rgba(206, 138, 70, 0.6);
+      box-shadow: 0 0 70px 0 rgba(206, 138, 70, 0.6) inset;
     }
 
     td {
@@ -39,11 +42,33 @@
         .flag {
           margin-right: 10px;
         }
+
         &:hover {
           // color: variable.$primaryColor;
           font-size: 16px;
           transition: 0.1 ease-in;
         }
+
+        span {
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+
+          .flag {
+            margin-right: 10px;
+          }
+
+          &:hover {
+            color: variable.$primaryColor;
+            font-size: 16px;
+          }
+        }
+      }
+    }
+
+    tr:nth-child(n + 4) {
+      &:hover {
+        background-color: #ffeeee;
       }
     }
   }
