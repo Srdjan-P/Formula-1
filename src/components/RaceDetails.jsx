@@ -9,7 +9,7 @@ import LaunchIcon from '@mui/icons-material/Launch';
 
 export default function RaceDetails({ countryList, selectedYear }) {
     const { raceId } = useParams();
-    const [qualifying, setQualifying] = useState([]);
+    const [qualifying, setQualifying] = useState({});
     const [race, setRace] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
@@ -36,104 +36,110 @@ export default function RaceDetails({ countryList, selectedYear }) {
 
     // console.log("qualifying", qualifying);
 
-    if (isLoading) {
-        return <Loader />;
-    }
+
 
     return (
-        <div className="raceDetails">
-            <div className="race-card">
-                <div className="race-driver">
-                    <Flag className="flag" country={getCodeByCountryName(countryList, qualifying.Circuit.Location.country)} />
+        <>
+            {isLoading ? (
+                <Loader />
+            ) : (
+                <div className="raceDetails">
+                    <div className="race-card">
+                        <div className="race-driver">
+                            <Flag className="flag" country={getCodeByCountryName(countryList, qualifying.Circuit.Location.country)} />
 
-                    <h2>{qualifying.raceName}</h2>
-                </div>
-                <div className="race-details">
-                    <ul>
-                        <li>Country: {qualifying.Circuit.Location.country}</li>
-                        <li>Location: {qualifying.Circuit.Location.locality}</li>
-                        <li>Date: {qualifying.date}</li>
-                        <li> <Link target="_blank" to={qualifying.url}>
-                            Full Report: <LaunchIcon fontSize="small" />
-                        </Link></li>
-                        <img src="/img/australiaCarbon.png" className="staza" />
-                        <img src="/img/formulaCar.png" alt="" srcset="" className="bolid" />
-                    </ul>
-                </div>
-            </div>
-            <div className="race-tables">
-                <div className="race-table1">
+                            <h2>{qualifying.raceName}</h2>
+                        </div>
+                        <div className="race-details">
+                            <ul>
+                                <li>Country: {qualifying.Circuit.Location.country}</li>
+                                <li>Location: {qualifying.Circuit.Location.locality}</li>
+                                <li>Date: {qualifying.date}</li>
+                                <li> <Link target="_blank" to={qualifying.url}>
+                                    Full Report: <LaunchIcon fontSize="small" />
+                                </Link></li>
+                                <img src="/img/australiaCarbon.png" className="staza" />
+                                <img src="/img/formulaCar.png" alt="" srcset="" className="bolid" />
+                            </ul>
+                        </div>
+                    </div>
+                    <div className="race-tables">
+                        <div className="race-table1">
 
-                    <table>
-                        <thead>
-                            <tr>
-                                <th colspan={4}>Qualifying Results</th>
-                            </tr>
-                            <tr>
-                                <th>Position</th>
-
-                                <th>Driver</th>
-
-                                <th>Team</th>
-                                <th>Best Time</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            {qualifying.QualifyingResults.map((driver) => {
-                                let fastestTime = "";
-                                if (driver.Q3) {
-                                    fastestTime = driver.Q3
-                                } else if (driver.Q2) {
-                                    fastestTime = driver.Q2
-                                } else {
-                                    fastestTime = driver.Q1
-                                }
-                                return (
-                                    <tr key={driver.position}>
-                                        <td>{driver.position}</td>
-                                        <td>    <Flag country={getCodeByNationality(countryList, driver.Driver.nationality)} /></td>
-
-                                        <td>{driver.Driver.nationality}{driver.Driver.familyName}</td>
-                                        <td>{driver.Constructor.name}</td>
-                                        <td>{fastestTime}</td>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th colspan={4}>Qualifying Results</th>
                                     </tr>
-                                );
-                            })}
-                        </tbody>
-                    </table>
-                </div>
-                <div className="race-table2">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th colspan={5}>Race Results</th>
-                            </tr>
-                            <tr>
-                                <th>Position</th>
-                                <th>Driver</th>
-                                <th>Team</th>
-                                <th>Results</th>
-                                <th>Points</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {race.map((lap) => {
-                                return (
-                                    <tr key={lap.position}>
-                                        <td>{lap.position}</td>
-                                        <td>    <Flag country={getCodeByNationality(countryList, lap.Driver.nationality)} /></td>
-                                        <td>{lap.Driver.familyName}</td>
-                                        <td>{lap.Constructor.name}</td>
-                                        <td>{lap.Time ? lap.Time.time : lap.status}</td>
-                                        <td>{lap.points}</td>
+                                    <tr>
+                                        <th>Position</th>
+
+                                        <th>Driver</th>
+
+                                        <th>Team</th>
+                                        <th>Best Time</th>
                                     </tr>
-                                )
-                            })}
-                        </tbody>
-                    </table>
+                                </thead>
+                                <tbody>
+
+                                    {qualifying.QualifyingResults.map((driver) => {
+                                        let fastestTime = "";
+                                        if (driver.Q3) {
+                                            fastestTime = driver.Q3
+                                        } else if (driver.Q2) {
+                                            fastestTime = driver.Q2
+                                        } else {
+                                            fastestTime = driver.Q1
+                                        }
+                                        return (
+                                            <tr key={driver.position}>
+                                                <td width="5%">{driver.position}</td>
+                                                <td >    <Flag country={getCodeByNationality(countryList, driver.Driver.nationality)} /></td>
+
+                                                <td width="40%">{driver.Driver.familyName}</td>
+                                                <td>{driver.Constructor.name}</td>
+                                                <td>{fastestTime}</td>
+                                            </tr>
+                                        );
+                                    })}
+                                </tbody>
+                            </table>
+                        </div>
+                        <div className="race-table2">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th colspan={5}>Race Results</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Position</th>
+                                        <th>Driver</th>
+                                        <th>Team</th>
+                                        <th>Results</th>
+                                        <th>Points</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {race.map((lap) => {
+                                        return (
+                                            <tr key={lap.position}>
+                                                <td>{lap.position}</td>
+                                                <td>    <Flag country={getCodeByNationality(countryList, lap.Driver.nationality)} /></td>
+                                                <td>{lap.Driver.familyName}</td>
+                                                <td>{lap.Constructor.name}</td>
+                                                <td>{lap.Time ? lap.Time.time : lap.status}</td>
+                                                <td>{lap.points}</td>
+                                            </tr>
+                                        )
+                                    })}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
+            )}
+
+        </>
+
     )
 }
