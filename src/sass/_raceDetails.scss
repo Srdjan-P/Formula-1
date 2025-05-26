@@ -46,27 +46,46 @@
 
 
         .bolid {
-            width: 800px;
+            width: 700px;
             /* Adjust the size */
             position: absolute;
-            bottom: 10px;
+            bottom: 15px;
             left: 0;
-            animation: drive 6s linear infinite;
+            animation: drive 7s linear infinite;
         }
 
         @keyframes drive {
+
+
             from {
-                left: 0;
+                left: -500px;
+                opacity: 0.7;
+                transform: scale(0.8);
+            }
+
+            20% {
+                opacity: 1;
+                transform: scale(0.8);
+            }
+
+            80% {
+                opacity: 1;
+                transform: scale(0.8);
             }
 
             to {
+
                 left: 100%;
+                opacity: 0;
+                transform: scale(0.8);
+
             }
+
         }
 
-
-
     }
+
+
 
     .race-tables {
         display: flex;
