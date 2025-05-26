@@ -12,7 +12,6 @@ export default function DriverDetails({ countryList, selectedYear }) {
     const [driverDetails, setDriverDetails] = useState({});
     const [isLoading, setIsLoading] = useState(true);
     const [driverRaces, setDriverRaces] = useState([]);
-    const params = useParams();
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -22,10 +21,11 @@ export default function DriverDetails({ countryList, selectedYear }) {
     const getDriverDetails = async () => {
         const driverStandingsUrl = `http://ergast.com/api/f1/${selectedYear}/drivers/${driverId}/driverStandings.json`;
         const driverStandingsResponse = await axios.get(driverStandingsUrl);
-        setDriverDetails(driverStandingsResponse.data.MRData.StandingsTable.StandingsLists[0].DriverStandings[0]);
 
         const driverResult = `http://ergast.com/api/f1/${selectedYear}/drivers/${driverId}/results.json`;
         const driverResultResponse = await axios.get(driverResult);
+
+        setDriverDetails(driverStandingsResponse.data.MRData.StandingsTable.StandingsLists[0].DriverStandings[0]);
         setDriverRaces(driverResultResponse.data.MRData.RaceTable.Races);
         setIsLoading(false);
     };
@@ -40,84 +40,89 @@ export default function DriverDetails({ countryList, selectedYear }) {
         navigate(linkTo)
     };
 
-    if (isLoading) {
-        return <Loader />;
-    }
-    console.log("driverDetails", driverDetails);
-
     return (
-        <div className="driver-details-container">
-            <div className="driver-card">
-                {/* odavde krece slika i biografija - leva strana */}
-                <div className="driver-biography-card">
-                    <div className="driver-avatar">
-                        <img
-                            src={`/avatars/${driverDetails.Driver.driverId}.jpg`}
-                            alt="/avatars/avatar.png" width="100"
-                            onError={(e) => {
-                                e.target.onerror = null;
-                                e.target.src = "/avatars/avatar.png";
-                            }}
-                            className="driver-img"
-                        />
-                    </div>
+        <>
+            {isLoading ? (
+                <Loader />
+            ) : (
+                <div className="driver-details-container">
+                    <div className="driver-card">
+                        {/* odavde krece slika i biografija - leva strana */}
+                        <div className="driver-biography-card">
+                            <div className="driver-avatar">
+                                <img
+                                    src={`/avatars/${driverDetails.Driver.driverId}.jpg`}
+                                    alt="/avatars/avatar.png" width="100"
+                                    onError={(e) => {
+                                        e.target.onerror = null;
+                                        e.target.src = "/avatars/avatar.png";
+                                    }}
+                                    className="driver-img"
+                                />
+                            </div>
 
-                    <div className="driver-name">
-                        <h2>
-                            {/* odavde krece ime i zastavica - takodje, leva strana */}
-                            <Flag className="country-flags" country={getCodeByNationality(countryList, driverDetails.Driver.nationality)} />
-                            {driverDetails.Driver.givenName} {driverDetails.Driver.familyName}
-                        </h2>
+                            <div className="driver-name">
+                                <h2>
+                                    {/* odavde krece ime i zastavica - takodje, leva strana */}
+                                    <Flag className="country-flags" country={getCodeByNationality(countryList, driverDetails.Driver.nationality)} />
+                                    {driverDetails.Driver.givenName} {driverDetails.Driver.familyName}
+                                </h2>
+                            </div>
+                        </div>
+                        {/* Drzava, Rodjendan itd - leva strana */}
+                        <div className="driver-info">
+                            <p>Country: {driverDetails.Driver.nationality}</p>
+                            <p>Team: {driverDetails.Constructors[0].name}</p>
+                            <p>Birth: {driverDetails.Driver.dateOfBirth}</p>
+                            <p className="biography"><Link to={driverDetails.Driver.url} target="_blank">Biography<LaunchIcon fontSize="small" sx={{ fontSize: 16 }} /></Link></p>
+                        </div>
+                    </div>
+                    {/* Tabela - desna strana */}
+                    <div className="driver-details">
+                        <table className="driver-details-table">
+                            <thead>
+                                <tr>
+                                    <th colSpan={5}>
+                                        <p>Formula 1 {selectedYear} Results</p>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>Round</th>
+                                    <th>Grand Prix</th>
+                                    <th>Team</th>
+                                    <th>Grid</th>
+                                    <th>Race</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {driverRaces.map((driverRace) => {
+                                    return (
+                                        <tr key={driverRace.Results[0].Driver.driverId}>
+                                            <td>{driverRace.round}</td>
+                                            <td
+                                                onClick={() => { handleRaces(driverRace.round) }}
+                                                style={{ cursor: 'pointer' }}>
+                                                <span>
+                                                    <Flag country={getCodeByCountryName(countryList, driverRace.Circuit.Location.country)} />
+                                                    {driverRace.raceName}
+                                                </span>
+                                            </td>
+                                            <td
+                                                onClick={() => { handleTeams(driverRace.Results[0].Constructor.constructorId) }}
+                                                style={{ cursor: 'pointer' }}>
+                                                {driverRace.Results[0].Constructor.name}
+                                            </td>
+                                            <td>{driverRace.Results[0].grid}</td>
+                                            <td>{driverRace.Results[0].position}</td>
+                                        </tr>
+                                    );
+                                })}
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-                {/* Drzava, Rodjendan itd - leva strana */}
-                <div className="driver-info">
-                    <p>Country: {driverDetails.Driver.nationality}</p>
-                    <p>Team: {driverDetails.Constructors[0].name}</p>
-                    <p>Birth: {driverDetails.Driver.dateOfBirth}</p>
-                    <p className="biography"><Link to={driverDetails.Driver.url} target="_blank">Biography<LaunchIcon fontSize="small" sx={{ fontSize: 16 }} /></Link></p>
-                </div>
-            </div>
-            {/* Tabela - desna strana */}
-            <div className="driver-details">
-                <table className="driver-details-table">
-                    <thead>
-                        <tr>
-                            <th colSpan={5}>
-                                <p>Formula 1 {selectedYear} Results</p>
-                            </th>
-                        </tr>
-                        <tr>
-                            <th>Round</th>
-                            <th>Grand Prix</th>
-                            <th>Team</th>
-                            <th>Grid</th>
-                            <th>Race</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {driverRaces.map((driverRace) => {
-                            return (
-                                <tr>
-                                    <td>{driverRace.round}</td>
-                                    <td onClick={() => { handleRaces(driverRace.round) }}>
-                                        <span>
-                                            <Flag country={getCodeByCountryName(countryList, driverRace.Circuit.Location.country)} />
-                                            {driverRace.raceName}
-                                        </span>
-                                    </td>
-                                    <td onClick={() => { handleTeams(driverRace.Results[0].Constructor.constructorId) }}>
-                                        {driverRace.Results[0].Constructor.name}
-                                    </td>
-                                    <td>{driverRace.Results[0].grid}</td>
-                                    <td>{driverRace.Results[0].position}</td>
-                                </tr>
-                            );
-                        })}
-                    </tbody>
-                </table>
-            </div>
-        </div>
+            )}
+        </>
     );
 }
 

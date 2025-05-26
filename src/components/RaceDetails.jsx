@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import Loader from "./Loader";
 import Flag from "react-flagkit";
 import { getCodeByCountryName, getCodeByNationality } from "../FlagCodes";
@@ -12,6 +12,8 @@ export default function RaceDetails({ countryList, selectedYear }) {
     const [qualifying, setQualifying] = useState({});
     const [race, setRace] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const navigate = useNavigate();
+
 
     useEffect(() => {
         getQualifying();
@@ -34,7 +36,16 @@ export default function RaceDetails({ countryList, selectedYear }) {
 
     console.log("race", race);
 
-    // console.log("qualifying", qualifying);
+    console.log("qualifying", qualifying);
+    const handleClickDriver = (id) => {
+        const linkTo = `/drivers/${id}`;
+        navigate(linkTo);
+    };
+
+    const handleClickTeam = (id) => {
+        const linkTo = `/teams/${id}`;
+        navigate(linkTo);
+    }
 
 
 
@@ -94,10 +105,12 @@ export default function RaceDetails({ countryList, selectedYear }) {
                                         return (
                                             <tr key={driver.position}>
                                                 <td width="5%">{driver.position}</td>
-                                                <td >    <Flag country={getCodeByNationality(countryList, driver.Driver.nationality)} /></td>
-
-                                                <td width="40%">{driver.Driver.familyName}</td>
-                                                <td>{driver.Constructor.name}</td>
+                                                <td onClick={() => handleClickDriver(driver.Driver.driverId)}
+                                                    width="40%">
+                                                    <Flag country={getCodeByNationality(countryList, driver.Driver.nationality)} />
+                                                    {driver.Driver.familyName}</td>
+                                                <td onClick={() => handleClickTeam(driver.Constructor.constructorId)}>
+                                                    {driver.Constructor.name}</td>
                                                 <td>{fastestTime}</td>
                                             </tr>
                                         );
@@ -124,9 +137,11 @@ export default function RaceDetails({ countryList, selectedYear }) {
                                         return (
                                             <tr key={lap.position}>
                                                 <td>{lap.position}</td>
-                                                <td>    <Flag country={getCodeByNationality(countryList, lap.Driver.nationality)} /></td>
-                                                <td>{lap.Driver.familyName}</td>
-                                                <td>{lap.Constructor.name}</td>
+                                                <td onClick={() => handleClickDriver(lap.Driver.driverId)}>
+                                                    <Flag country={getCodeByNationality(countryList, lap.Driver.nationality)} />
+                                                    {lap.Driver.familyName}</td>
+                                                <td onClick={() => handleClickTeam(lap.Constructor.constructorId)}>
+                                                    {lap.Constructor.name}</td>
                                                 <td>{lap.Time ? lap.Time.time : lap.status}</td>
                                                 <td>{lap.points}</td>
                                             </tr>
