@@ -17,7 +17,7 @@
         height: 100%;
         justify-content: space-between;
         line-height: 1.5;
-        opacity: 0.9;
+        opacity: 0.8;
 
 
         .team-avatar {
@@ -26,7 +26,6 @@
         }
 
         .teams-img {
-            opacity: 0.8;
             width: 150px;
             height: 100px;
         }
@@ -47,7 +46,7 @@
 
     .team-info {
         border-radius: 5px;
-        background-image: linear-gradient(45deg, rgb(230, 176, 77), rgb(20, 70, 20));
+        background-image: linear-gradient(45deg, rgb(230, 176, 77), rgb(190, 61, 158));
         color: rgb(70, 6, 6);
         padding: 80px;
         margin-top: 20px;
