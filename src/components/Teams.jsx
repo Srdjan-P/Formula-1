@@ -19,11 +19,9 @@ export default function Teams({ selectedYear, countryList }) {
     const getTeams = async () => {
         const url = `http://ergast.com/api/f1/${selectedYear}/constructorStandings.json`;
         const response = await axios.get(url);
-        const data =
-            response.data.MRData.StandingsTable.StandingsLists[0]
-                .ConstructorStandings;
-        console.log("data", data);
-        setTeams(data);
+
+        setTeams(response.data.MRData.StandingsTable.StandingsLists[0]
+            .ConstructorStandings);
         setIsLoading(false);
     };
 
@@ -31,7 +29,7 @@ export default function Teams({ selectedYear, countryList }) {
         const linkTo = `/teams/${id}`;
         navigate(linkTo);
     };
-    console.log(teams);
+
 
     return (
         <div className="teams-container">
@@ -48,10 +46,10 @@ export default function Teams({ selectedYear, countryList }) {
                             </tr>
                         </thead>
                         <tbody>
-                            {teams.map((team, i) => {
+                            {teams.map((team) => {
                                 console.log("team", team);
                                 return (
-                                    <tr key={i}>
+                                    <tr key={team.position}>
                                         <td>{team.position}</td>
                                         <td
                                             onClick={() => {
@@ -82,7 +80,6 @@ export default function Teams({ selectedYear, countryList }) {
                     </table>
                 )}
 
-
             </div>
             <img src="/img/formulaNissan.png" alt="Formula Nissan Bolid" className="bolid2" />
             <img src="/img/pitStop.png" alt="pit stop" className="pitStop" />
@@ -90,6 +87,3 @@ export default function Teams({ selectedYear, countryList }) {
     );
 }
 
-
-//
-//
