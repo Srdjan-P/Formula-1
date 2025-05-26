@@ -1,8 +1,118 @@
-.homepage-container {
+// .homepage-container {
+//     display: flex;
+//     flex-direction: column;
+//     min-height: 100vh;
+
+//     .flag {
+//         height: 300px;
+//         max-width: fit-content;
+//     }
+
+//     .welcome {
+//         font-size: 30px;
+//         text-align: center;
+//         margin: 15px;
+//     }
+// }
+
+.header-container {
     display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    align-items: center;
+    gap: 20px;
+
+
 }
+
+.flag {
+    height: 120px;
+    width: 220px;
+
+}
+
+.welcome-container {
+    background-color: #faf9f9;
+    height: 100px;
+    max-width: fit-content;
+
+
+}
+
+.welcome {
+    font-size: 30px;
+    text-align: left;
+
+}
+
+
+/* CAROUSEL POCETAK */
+
+.carousel {
+    width: 600px;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-container {
+    display: flex;
+    width: max-content;
+    animation: slide 10s linear infinite;
+}
+
+img {
+    width: 600px;
+    height: 400px;
+}
+
+
+
+@keyframes slide {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+
+.carousel-container {
+    display: flex;
+    width: 3600px;
+    /* 6 slika × 600px width */
+    animation: slide 6s infinite linear;
+}
+
+
+.carousel-container {
+    display: flex;
+    width: 3600px;
+    margin-bottom: 40px;
+
+    animation: slide 30s infinite linear;
+}
+
+
+
+/* CAROUSEL KRAJ */
+
+/* VIDEO POCETAK */
+
+.video-monaco {
+    display: flex;
+    justify-content: center;
+    /* centrira horiz */
+    align-items: center;
+    /* centrira vert */
+    margin-top: 40px;
+    margin-bottom: 40px;
+    height: auto;
+
+}
+
+
+/* VIDEO KRAJ */
+
 
 .footer {
     position: fixed;
