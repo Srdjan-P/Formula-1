@@ -96,7 +96,7 @@ export default function RaceDetails({ countryList, selectedYear }) {
                                                 <td width="5%">{driver.position}</td>
                                                 <td >    <Flag country={getCodeByNationality(countryList, driver.Driver.nationality)} /></td>
 
-                                                <td width="40%">{driver.Driver.nationality}{driver.Driver.familyName}</td>
+                                                <td width="40%">{driver.Driver.familyName}</td>
                                                 <td>{driver.Constructor.name}</td>
                                                 <td>{fastestTime}</td>
                                             </tr>
