@@ -97,7 +97,7 @@ export default function DriverDetails({ countryList, selectedYear }) {
                             <tbody>
                                 {driverRaces.map((driverRace) => {
                                     return (
-                                        <tr key={driverRace.Results[0].Driver.driverId}>
+                                        <tr key={driverRace.round}>
                                             <td>{driverRace.round}</td>
                                             <td
                                                 onClick={() => { handleRaces(driverRace.round) }}
