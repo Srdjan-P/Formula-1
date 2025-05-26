@@ -42,6 +42,12 @@ export default function TeamDetails({ countryList, selectedYear }) {
         navigate(linkTo);
     };
 
+    const handleRaces = (id) => {
+        console.log("id", id);
+        const linkTo = `/races/${id}`
+        navigate(linkTo);
+    }
+
     if (isLoading) {
         return <Loader />;
     }
@@ -98,7 +104,8 @@ export default function TeamDetails({ countryList, selectedYear }) {
                             return (
                                 <tr>
                                     <td>{teamResult.round}</td>
-                                    <td><Flag country={getCodeByCountryName(countryList, teamResult.Circuit.Location.country)} />{teamResult.raceName}
+                                    <td onClick={() => handleRaces(teamResult.raceName)}>
+                                        <Flag country={getCodeByCountryName(countryList, teamResult.Circuit.Location.country)} />{teamResult.raceName}
                                     </td>
                                     <td onClick={() => { handleTeams(teamResult.Results[0].Constructor.constructorId) }}>
                                         {teamResult.Results[0].Constructor.name}</td>
@@ -111,7 +118,5 @@ export default function TeamDetails({ countryList, selectedYear }) {
                 </table>
             </div>
         </div >
-
-
     );
 }
