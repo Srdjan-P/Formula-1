@@ -63,7 +63,7 @@ export default function Races({ countryList, selectedYear }) {
 
                                     <td>
                                         <Flag country={getCodeByNationality(countryList, race.Results[0].Driver.nationality)} className="flag" />
-                                        {race.Results[0].Driver.nationality} {race.Results[0].Driver.familyName}</td>
+                                        {race.Results[0].Driver.familyName}</td>
 
                                 </tr>
                             </>
