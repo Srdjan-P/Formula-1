@@ -5,13 +5,14 @@ import Loader from "./Loader";
 import { getCodeByNationality } from "../FlagCodes";
 import Flag from "react-flagkit";
 
-export default function Drivers({ countryList, selectedYear }) {
+export default function Drivers({ countryList, selectedYear, searchInput }) {
   const [drivers, setDrivers] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
     getDrivers();
+    setIsLoading(true)
   }, [selectedYear]);
 
   console.log("drivers", drivers);
@@ -35,6 +36,17 @@ export default function Drivers({ countryList, selectedYear }) {
     navigate(linkTo);
   };
 
+  const filteredData = drivers.filter((item) => {
+    if (searchInput === "") {
+      return item;
+    } else {
+      return (
+        item.Driver.givenName.toLowerCase().includes(searchInput) ||
+        item.Driver.familyName.toLowerCase().includes(searchInput)
+      )
+    }
+  })
+
   return (
     <div className="drivers">
       {isLoading ? (
@@ -49,7 +61,7 @@ export default function Drivers({ countryList, selectedYear }) {
             </tr>
           </thead>
           <tbody>
-            {drivers.map((driver) => {
+            {filteredData.map((driver) => {
               return (
                 <tr key={driver.Driver.driverId}>
                   <td style={{ textAlign: "center" }}>{driver.position}</td>
