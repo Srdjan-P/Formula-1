@@ -4,7 +4,8 @@ import { useParams } from "react-router";
 import Loader from "./Loader";
 import Flag from "react-flagkit";
 import { getCodeByCountryName, getCodeByNationality } from "../FlagCodes";
-
+import { Link } from "react-router";
+import LaunchIcon from '@mui/icons-material/Launch';
 
 export default function RaceDetails({ countryList, selectedYear }) {
     const { raceId } = useParams();
@@ -45,14 +46,16 @@ export default function RaceDetails({ countryList, selectedYear }) {
                 <div className="race-driver">
                     <Flag className="flag" country={getCodeByCountryName(countryList, qualifying.Circuit.Location.country)} />
 
-                    <h2>Australian</h2>
+                    <h2>{qualifying.raceName}</h2>
                 </div>
                 <div className="race-details">
                     <ul>
-                        <li>Country: Australia</li>
-                        <li>Location: Melbourne</li>
-                        <li>Date: 2013-03-17</li>
-                        <li>Full Report:</li>
+                        <li>Country: {qualifying.Circuit.Location.country}</li>
+                        <li>Location: {qualifying.Circuit.Location.locality}</li>
+                        <li>Date: {qualifying.date}</li>
+                        <li> <Link target="_blank" to={qualifying.url}>
+                            Full Report: <LaunchIcon fontSize="small" />
+                        </Link></li>
                         <img src="/img/australiaCarbon.png" className="staza" />
                         <img src="/img/formulaCar.png" alt="" srcset="" className="bolid" />
                     </ul>

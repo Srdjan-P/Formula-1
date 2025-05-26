@@ -1,33 +1,66 @@
 .team-details {
     display: flex;
     margin: 20px;
-}
 
-.team-card {
-    border-radius: 10px;
-    border: 1px solid rgb(255, 255, 255, 0.18);
-    box-shadow: 0px 5px 30px 0px rgb(22, 32, 220, 0.37),
-        0px 0px 15px white incent;
-    background-image: linear-gradient(45deg, blue, white, orange);
-    color: rgb(116, 108, 108);
-    font-size: large;
-    margin-top: 5px;
-    margin-left: 5px;
-    padding: 20px;
-    height: 100%;
-    gap: 2px;
-    justify-content: space-between;
-}
+    .team-card {
+        border-radius: 10px;
+        border: 1px solid rgb(255, 255, 255, 0.18);
+        box-shadow: 0px 5px 30px 0px rgb(22, 32, 220, 0.37),
+            0px 0px 15px white incent;
+        background-image: linear-gradient(45deg, blue, white, orange);
+        color: rgb(53, 36, 36);
+        font-size: 25px;
+        font-weight: bold;
+        margin-top: 5px;
+        margin-left: 5px;
+        padding: 20px;
+        height: 100%;
+        justify-content: space-between;
+        line-height: 1.5;
+        opacity: 0.9;
 
-.team-avatar {
-    text-align: center;
-    margin-bottom: 20px;
-}
 
-.team-info {
-    border-radius: 5px;
-    background-image: linear-gradient(45deg, rgb(230, 176, 77), rgb(20, 70, 20));
-    color: white;
-    padding: 80px;
-    margin-top: 20px;
+        .team-avatar {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .teams-img {
+            opacity: 0.8;
+            width: 150px;
+            height: 100px;
+        }
+
+        .h2 {
+            font-size: 25px;
+            text-align: center;
+        }
+
+        .flag {
+            width: 110px;
+            height: 100px;
+            margin-top: 10px;
+            margin-bottom: 50px;
+
+        }
+    }
+
+    .team-info {
+        border-radius: 5px;
+        background-image: linear-gradient(45deg, rgb(230, 176, 77), rgb(20, 70, 20));
+        color: rgb(70, 6, 6);
+        padding: 80px;
+        margin-top: 20px;
+        line-height: 1.5;
+    }
+
+    .team-results-table {
+        display: flex;
+        border-collapse: collapse;
+        justify-content: space-between;
+        border: 5px solid white;
+        align-items: center;
+        width: 100%;
+
+    }
 }
