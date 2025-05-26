@@ -59,7 +59,7 @@ export default function Drivers({ countryList, selectedYear }) {
                       handleClickDetails(driver.Driver.driverId);
                     }}
                   >
-                    <span style={{ cursor: "pointer" }}>
+                    <span >
                       <Flag
                         className="flag"
                         country={getCodeByNationality(
@@ -72,7 +72,6 @@ export default function Drivers({ countryList, selectedYear }) {
                   </td>
                   <td width="45%">
                     <span
-                      style={{ cursor: "pointer" }}
                       onClick={() =>
                         handleClickTeams(driver.Constructors[0].constructorId)
                       }

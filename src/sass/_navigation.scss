@@ -1,39 +1,104 @@
-nav {
-    height: 70px;
+@use "variables" as variable;
+
+.nav-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px;
+    height: 45px;
+    width: 100%;
+    background-color: white;
+    padding: 0 20px;
+
+    .bread-crumbs-container {
+        background-color: #fff;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+
+        .bread-crumbs {
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 30px;
+
+            li {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                a,
+                span {
+                    color: red;
+                    padding: 5px 8px;
+                    font-weight: 600;
+                    font-size: 14px;
+
+                    &:hover {
+                        box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.308);
+                    }
+                }
+
+                .bread-crumbs-current {
+                    background-color: black;
+
+                    &:hover {}
+                }
+            }
+        }
+    }
+
+    .search {
+        width: 200px;
+    }
+}
+
+nav {
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     padding-left: 5%;
     background-color: rgb(225, 6, 0);
     width: 100%;
 
-    .logo {
-        background-image: url("../img/Logo.png");
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-        width: 200px;
-        height: 70px;
-    }
-
-    ul {
-        margin: 0 5%;
+    .nav-bottom {
         display: flex;
-        width: 80%;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
 
-        li {
-            padding: 0 30px;
-
-            a {
-                font-size: 25px;
-                color: #fff;
-                font-weight: 600;
-                text-decoration: none;
-            }
+        .logo {
+            background-image: url("../img/Logo.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 200px;
+            height: 60px;
         }
+
         .select {
-            margin-right: 5%;
+            margin-right: 20px;
+        }
+
+        ul {
+            margin: 0 5%;
+            display: flex;
+            width: 80%;
+
+            li {
+                padding: 0 30px;
+
+                a {
+                    font-size: 25px;
+                    color: #fff;
+                    font-weight: 600;
+                    text-decoration: none;
+                }
+            }
+
+
         }
     }
 }

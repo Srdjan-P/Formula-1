@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, NavLink,} from "react-router";
+import { BrowserRouter as Router, Routes, Route, NavLink, } from "react-router";
 import Drivers from "./components/Drivers";
 import Races from "./components/Races";
 import Teams from "./components/Teams";
@@ -10,6 +10,8 @@ import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 import Select from "./components/Select";
+import Breadcrumbs from "./components/Breadcrumbs";
+import Search from "./components/Search";
 
 export default function App() {
   const [countryList, setCountryList] = useState([]);
@@ -38,44 +40,56 @@ export default function App() {
   return (
     <>
       <Router>
+        <div className="nav-top">
+          <div className="bread-crumbs-container">
+            <Breadcrumbs />
+          </div>
+          <div className="search">
+            <Search />
+          </div>
+        </div>
         <nav>
-          <div className="logo-container">
-            <NavLink to="/">
-              <div className="logo"></div>
-            </NavLink>
+          <div className="nav-bottom">
+
+            <div className="logo-container">
+              <NavLink to="/">
+                <div className="logo"></div>
+              </NavLink>
+            </div>
+            <ul>
+              <li>
+                <NavLink to="/drivers">Drivers</NavLink>
+              </li>
+              <li>
+                <NavLink to="/races">Races</NavLink>
+              </li>
+              <li>
+                <NavLink to="/teams">Teams</NavLink>
+              </li>
+            </ul>
+            <div className="select">
+              <Select
+                array={years}
+                value={selectedYear}
+                onChange={handleYearChange}
+              />
+            </div>
           </div>
-          <ul>
-            <li>
-              <NavLink to="/drivers">Drivers</NavLink>
-            </li>
-            <li>
-              <NavLink to="/races">Races</NavLink>
-            </li>
-            <li>
-              <NavLink to="/teams">Teams</NavLink>
-            </li>
-          </ul>
-          <div className="select">
-            <Select
-              array={years}
-              value={selectedYear}
-              onChange={handleYearChange}
-            />
-          </div>
+
         </nav>
 
         <Routes>
           <Route path="/" element={<Home countryList={countryList} selectedYear={selectedYear} />} />
           <Route path="/drivers" element={
-          <Drivers countryList={countryList} selectedYear={selectedYear} />}/>
+            <Drivers countryList={countryList} selectedYear={selectedYear} />} />
           <Route path="/drivers/:driverId" element={
-          <DriverDetails countryList={countryList} selectedYear={selectedYear} />}/>
+            <DriverDetails countryList={countryList} selectedYear={selectedYear} />} />
           <Route path="/races" element={
-          <Races countryList={countryList} selectedYear={selectedYear} />} />
+            <Races countryList={countryList} selectedYear={selectedYear} />} />
           <Route path="/races/:raceId" element={
-          <RaceDetails countryList={countryList} selectedYear={selectedYear} />}/>
-          <Route path="/teams" element={<Teams countryList={countryList} selectedYear={selectedYear}/>} />
-          <Route path="/teams/:teamsId" element={<TeamDetails countryList={countryList} selectedYear={selectedYear}/>}/>
+            <RaceDetails countryList={countryList} selectedYear={selectedYear} />} />
+          <Route path="/teams" element={<Teams countryList={countryList} selectedYear={selectedYear} />} />
+          <Route path="/teams/:teamsId" element={<TeamDetails countryList={countryList} selectedYear={selectedYear} />} />
         </Routes>
       </Router>
     </>

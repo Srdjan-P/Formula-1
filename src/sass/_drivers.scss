@@ -6,25 +6,11 @@
   padding: 30px;
 
   table {
-    width: 96vw;
-    max-width: 800px;
-    margin: 30px;
-    box-shadow: 0 0 20px 5px #ddd;
-    border-radius: 20px 20px 0 0;
-    background-color: #fff;
-    font-size: 15px;
-    font-weight: 600;
+    @include variable.table;
 
     thead {
       th {
-        border-radius: 10px 10px 0 0;
-        box-shadow: 0 0 10px 1px #fff;
-        text-align: left;
-        padding: 10px;
-        height: 30px;
-        background-color: variable.$primaryColor;
-        color: #fff;
-        font-size: 25px;
+      @include variable.th;
       }
     }
 
@@ -41,19 +27,22 @@
     }
 
     td {
-      padding: 8px 20px;
-      border: 2px solid #ddd;
-      vertical-align: middle;
+      @include variable.td;
 
       span {
         display: flex;
         align-items: center;
+        cursor: pointer;
+        height: 40px;
+        padding: 0 20px;
 
         .flag {
           margin-right: 10px;
         }
         &:hover {
-          color: variable.$primaryColor;
+          // color: variable.$primaryColor;
+          font-size: 16px;
+          transition: 0.1 ease-in;
         }
       }
     }

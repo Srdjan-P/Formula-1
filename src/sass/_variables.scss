@@ -1,1 +1,36 @@
 $primaryColor: rgb(225, 6, 0);
+
+$secondaryColor: rgb(185, 33, 33);
+
+@mixin table {
+    width: 96vw;
+    max-width: 800px;
+    margin: 30px;
+    box-shadow: 0 0 20px 5px #ddd;
+    border-radius: 20px 20px 0 0;
+    background-color: #ffffffd0;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+@mixin th {
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0 0 10px 1px #fff;
+    text-align: left;
+    padding: 10px;
+    height: 30px;
+    background-color: $secondaryColor;
+    color: #fff;
+    font-size: 25px;
+}
+
+@mixin td {
+    height: 40px;
+    border: 2px solid #ddd;
+    vertical-align: middle;
+  
+    &:hover {
+      box-shadow: 0 0 5px 0 black;
+      transition: 0.2s ease-out;
+    }
+}

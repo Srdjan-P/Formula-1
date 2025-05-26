@@ -5,7 +5,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
-export default function BasicSelect({array, value, onChange}) {
+export default function BasicSelect({ array, value, onChange }) {
   return (
     <Box sx={{ minWidth: 90 }}>
       <FormControl fullWidth>
@@ -23,6 +23,7 @@ export default function BasicSelect({array, value, onChange}) {
           id="demo-simple-select"
           value={value}
           label="Year"
+          size="small"
           onChange={onChange}
           sx={{
             backgroundColor: "#f0f0f0",
@@ -54,7 +55,7 @@ export default function BasicSelect({array, value, onChange}) {
                 },
               },
             },
-        }}
+          }}
         >
 
           {array.map((item) => {
