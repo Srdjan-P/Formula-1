@@ -9,7 +9,7 @@ import LaunchIcon from '@mui/icons-material/Launch';
 
 export default function RaceDetails({ countryList, selectedYear }) {
     const { raceId } = useParams();
-    const [qualifying, setQualifying] = useState([]);
+    const [qualifying, setQualifying] = useState({});
     const [race, setRace] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
@@ -91,10 +91,10 @@ export default function RaceDetails({ countryList, selectedYear }) {
                                 }
                                 return (
                                     <tr key={driver.position}>
-                                        <td>{driver.position}</td>
-                                        <td>    <Flag country={getCodeByNationality(countryList, driver.Driver.nationality)} /></td>
+                                        <td width="5%">{driver.position}</td>
+                                        <td >    <Flag country={getCodeByNationality(countryList, driver.Driver.nationality)} /></td>
 
-                                        <td>{driver.Driver.nationality}{driver.Driver.familyName}</td>
+                                        <td width="40%">{driver.Driver.nationality}{driver.Driver.familyName}</td>
                                         <td>{driver.Constructor.name}</td>
                                         <td>{fastestTime}</td>
                                     </tr>

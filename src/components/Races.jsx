@@ -48,10 +48,11 @@ export default function Races({ countryList, selectedYear }) {
                     </tr>
                 </thead>
                 <tbody>
-                    {races.map((race) => {
+
+                    {races.map((race, i) => {
                         return (
                             <>
-                                <tr>
+                                <tr key={i}>
                                     <td>{race.round}</td>
                                     <td onClick={() => { handleRaces(race.round) }}>
                                         <Flag
