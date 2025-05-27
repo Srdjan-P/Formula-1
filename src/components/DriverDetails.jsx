@@ -121,7 +121,7 @@ export default function DriverDetails({ countryList, selectedYear, searchInput }
                                                     {driverRace.raceName}
                                                 </span>
                                             </td>
-                                            <td width="45%"
+                                            <td width="30%"
                                                 onClick={() => { handleTeams(driverRace.Results[0].Constructor.constructorId) }}
                                                 style={{ cursor: 'pointer' }}>
                                                 <span>
