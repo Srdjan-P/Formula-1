@@ -28,7 +28,20 @@ footer {
     }
 
     .social-icons {
-        color: #ccc;
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+        font-size: 28px;
+
+    }
+
+    .social-icons a {
+        color: white;
+
+        &:hover {
+            color: rgb(225, 6, 0);
+
+        }
     }
 
 }
