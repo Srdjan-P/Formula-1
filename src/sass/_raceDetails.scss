@@ -5,6 +5,7 @@
     margin: 10px;
     padding: 10px;
     height: 100%;
+    margin-bottom: 80px;
 
 
     .race-card {
@@ -60,12 +61,8 @@
         @keyframes drive {
 
             from {
-<<<<<<< HEAD
-                left: -20vw;
-                opacity: 0.7;
-=======
                 left: -50%;
->>>>>>> 1541f102c6619d560853cb1ffcbd5b1e99642e53
+                opacity: 0.7;
                 transform: scale(0.8);
             }
 
@@ -75,17 +72,9 @@
             }
 
             to {
-<<<<<<< HEAD
                 left: calc(65vw - 150px);
                 opacity: 0.3;
                 transform: scale(0.7);
-=======
-
-                left: 59%;
-                opacity: 0.8;
-                // transform: scale(0.8);
-
->>>>>>> 1541f102c6619d560853cb1ffcbd5b1e99642e53
             }
         }
 
@@ -103,7 +92,7 @@
         // width: 100%;
         display: flex;
         justify-content: space-between;
-        z-index: 1000;
+        z-index: 10;
 
 
         .race-table1 {
