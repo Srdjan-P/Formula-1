@@ -12,6 +12,7 @@ import axios from "axios";
 import Select from "./components/Select";
 import Breadcrumbs from "./components/Breadcrumbs";
 import Search from "./components/Search";
+import Footer from "./components/Footer";
 
 export default function App() {
   const [countryList, setCountryList] = useState([]);
@@ -82,6 +83,10 @@ export default function App() {
           </div>
 
         </nav>
+
+        <footer>
+          <Footer />
+        </footer>
 
         <Routes>
           <Route path="/" element={<Home countryList={countryList} selectedYear={selectedYear} />} />

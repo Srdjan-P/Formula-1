@@ -4,7 +4,7 @@
     margin: 20px;
     display: flex;
 
-    justify-content: space-between;
+    // justify-content: space-between;
 
     .driver-card {
         font-size: 14px;
@@ -79,8 +79,8 @@
 
 .driver-details {
     display: flex;
-    width: 100%;
-    justify-content: center;
+    width: 1000px;
+    margin-bottom: 50px;
 
     .driver-details-table {
         width: 100%;
@@ -92,7 +92,8 @@
         background-color: lightgrey;
         opacity: 0.9;
         font-size: 15px;
-        font-weight: 600px;
+        font-weight: 600;
+        max-width: 1000px;
 
         thead {
 

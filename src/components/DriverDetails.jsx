@@ -99,7 +99,7 @@ export default function DriverDetails({ countryList, selectedYear }) {
                                     return (
                                         <tr key={driverRace.round}>
                                             <td>{driverRace.round}</td>
-                                            <td
+                                            <td width="45%"
                                                 onClick={() => { handleRaces(driverRace.round) }}
                                                 style={{ cursor: 'pointer' }}>
                                                 <span>
@@ -107,7 +107,7 @@ export default function DriverDetails({ countryList, selectedYear }) {
                                                     {driverRace.raceName}
                                                 </span>
                                             </td>
-                                            <td
+                                            <td width="45%"
                                                 onClick={() => { handleTeams(driverRace.Results[0].Constructor.constructorId) }}
                                                 style={{ cursor: 'pointer' }}>
                                                 {driverRace.Results[0].Constructor.name}
