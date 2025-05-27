@@ -22,15 +22,14 @@ export default function RaceDetails({ countryList, selectedYear }) {
     const getQualifying = async () => {
         const urlQualifying = `http://ergast.com/api/f1/${selectedYear}/${raceId}/qualifying.json`
         const qualifyingResponse = await axios.get(urlQualifying);
-        console.log("1 ", qualifyingResponse.data.MRData.RaceTable.Races[0]);
-        setQualifying(qualifyingResponse.data.MRData.RaceTable.Races[0]);
+        // console.log("1 ", qualifyingResponse.data.MRData.RaceTable.Races[0]);
 
         const urlResults = `http://ergast.com/api/f1/${selectedYear}/${raceId}/results.json`
         const resultResponse = await axios.get(urlResults)
-        console.log(resultResponse.data.MRData.RaceTable.Races[0].Results);
-        const data2 = resultResponse.data.MRData.RaceTable.Races[0].Results;
+        // console.log(resultResponse.data.MRData.RaceTable.Races[0].Results);
 
-        setRace(data2);
+        setQualifying(qualifyingResponse.data.MRData.RaceTable.Races[0]);
+        setRace(resultResponse.data.MRData.RaceTable.Races[0].Results);
         setIsLoading(false);
     };
 
