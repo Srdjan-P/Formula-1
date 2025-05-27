@@ -45,15 +45,22 @@
     padding: 30px;
 
     table {
-        width: 96vw;
-        max-width: 800px;
-        margin: 30px;
-        box-shadow: 0 0 20px 5px #ddd;
-        border-radius: 20px 20px 0 0;
-        background-color: #fff;
-        font-size: 15px;
-        font-weight: 600;
-        opacity: 0.8;
+        @include variable.table;
+        font-size: 18px;
+        // width: 96vw;
+        // max-width: 800px;
+        // margin: 30px;
+        // box-shadow: 0 0 20px 5px #ddd;
+        // border-radius: 20px 20px 0 0;
+        // background-color: #fff;
+        // font-size: 15px;
+        // font-weight: 600;
+        // opacity: 0.8;
+
+        p {
+            font-size: 20px;
+            text-align: center;
+        }
 
         .flag {
             margin-right: 10px;
@@ -61,14 +68,17 @@
 
         thead {
             th {
-                border-radius: 10px 10px 0 0;
-                box-shadow: 0 0 10px 1px #fff;
-                text-align: left;
-                padding: 15px;
-                height: 40px;
-                background-color: variable.$primaryColor;
-                color: #fff;
-                font-size: 25px;
+                @include variable.th;
+                text-align: justify;
+
+                // border-radius: 10px 10px 0 0;
+                // box-shadow: 0 0 10px 1px #fff;
+                // text-align: left;
+                // padding: 15px;
+                // height: 40px;
+                // background-color: variable.$primaryColor;
+                // color: #fff;
+                // font-size: 25px;
             }
 
             .flag {
@@ -89,8 +99,10 @@
         }
 
         td {
-            padding: 10px 20px;
-            border: 2px solid #ddd;
+            @include variable.td;
+            text-align: center;
+            // padding: 10px 20px;
+            // border: 2px solid #ddd;
         }
     }
 }
