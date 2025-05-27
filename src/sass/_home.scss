@@ -1,95 +1,139 @@
-// .homepage-container {
-//     display: flex;
-//     flex-direction: column;
-//     min-height: 100vh;
-
-//     .flag {
-//         height: 300px;
-//         max-width: fit-content;
-//     }
-
-//     .welcome {
-//         font-size: 30px;
-//         text-align: center;
-//         margin: 15px;
-//     }
-// }
-
-.header-container {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-
-    .flag {
-        height: 120px;
-        width: 220px;
+// tamna pozadina
+@media (min-width: 768px) {
+    .dark-theme {
+        background-color: rgb(24, 24, 24);
+        color: white;
+        min-height: 100vh;
+        padding: 20px;
     }
 
+    // Header
 
-}
+    .homepage-container {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
 
-.welcome-container {
-    background-color: #faf9f9;
-    height: 100px;
-    max-width: fit-content;
+        // .flag {
+        //     height: 100px;
+        //     max-width: fit-content;
+        // }
+
+        .welcome {
+            font-size: 30px;
+            text-align: center;
+            margin: 15px;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .header-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+            .flag {
+                height: 100px;
+                width: 200px;
+            }
+
+        }
+
+        .welcome-container {
+            background-color: #faf9f9;
+            height: 100px;
+            width: 100%;
+
+            margin-bottom: auto;
+            padding-top: 25px;
 
 
-}
 
-.welcome {
-    font-size: 30px;
-    text-align: left;
+        }
 
+        .welcome {
+            font-size: 40px;
+            text-align: left;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bolder;
+            font-style: italic;
+            color: rgb(58, 59, 59);
+
+
+        }
+    }
 }
 
 
 /* CAROUSEL POCETAK */
 
-.carousel {
-    width: 600px;
+.carousel-wrapper {
+    display: flex;
+    justify-content: center;
     overflow: hidden;
-    position: relative;
+    width: 100%;
 }
 
 .carousel-container {
     display: flex;
-    width: max-content;
-    animation: slide 10s linear infinite;
+    // overflow-x: auto;
+    /* horizontal skrol */
+    scroll-snap-type: x mandatory;
+    width: 100%;
+    gap: 3px;
 }
 
 
-@keyframes slide {
-    from {
-        transform: translateX(0);
+
+.carousel-container img {
+    // width: 100%;
+    max-width: 30%;
+    /* za manje ekrane */
+    height: auto;
+    opacity: 0.9;
+    border-radius: 2px;
+}
+
+
+
+@media (min-width: 768px) {
+    @keyframes slide {
+        from {
+            transform: translateX(0);
+        }
+
+        to {
+            transform: translateX(-50%);
+        }
     }
 
-    to {
-        transform: translateX(-50%);
+    .carousel-container {
+        display: flex;
+        width: 2400px;
+        animation: slide 25s infinite linear;
     }
 }
 
 
-.carousel-container {
-    display: flex;
-    width: 2400px;
-    /* 6 slika × 600px width */
-    animation: slide 6s infinite linear;
 
-    img {
-        height: 400px;
-        width: 550px;
+@media (max-width: 768px) {
+    .carousel-container {
+        display: flex;
+        flex-direction: column;
+        /* za manje od 768px */
+        align-items: center;
+        gap: 8px;
+        /* razmak izmedju slika */
+        width: 100%;
     }
 
+    .carousel-container img {
+        width: 90%;
+        max-width: 400px;
+        /* za mobilni */
+        height: auto;
 
-}
-
-
-.carousel-container {
-    display: flex;
-    width: 3600px;
-    margin-bottom: 40px;
-
-    animation: slide 30s infinite linear;
+    }
 }
 
 
@@ -99,16 +143,29 @@
 /* VIDEO POCETAK */
 
 .video-monaco {
-    display: flex;
-    justify-content: center;
-    /* centrira horiz */
-    align-items: center;
-    /* centrira vert */
-    margin-top: 40px;
-    margin-bottom: 40px;
-    height: auto;
-
+    margin-top: 50px;
 }
+
+
+@media (max-width: 768px) {
+    .video-monaco video {
+        max-width: 100%;
+        height: auto;
+        margin: 10px auto;
+
+        /* margina */
+    }
+}
+
+@media (max-width: 480px) {
+    .video-monaco video {
+        width: 90%;
+        /* na mobilnim */
+        height: auto;
+    }
+}
+
+
 
 
 /* VIDEO KRAJ */

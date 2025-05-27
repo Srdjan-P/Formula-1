@@ -56,9 +56,8 @@
 
         @keyframes drive {
 
-
             from {
-                left: -500px;
+                left: -20vw;
                 opacity: 0.7;
                 transform: scale(0.8);
             }
@@ -74,14 +73,12 @@
             }
 
             to {
-
-                left: 100%;
-                opacity: 0;
-                transform: scale(0.8);
-
+                left: calc(65vw - 150px);
+                opacity: 0.3;
+                transform: scale(0.7);
             }
-
         }
+
 
     }
 
