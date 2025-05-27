@@ -1,3 +1,5 @@
+@use "variables" as variable;
+
 .team-details {
     display: flex;
     margin: 20px;
@@ -58,12 +60,60 @@
 
     }
 
-    .team-results-table {
+    .team-details-table {
         display: flex;
-        border-collapse: collapse;
-        justify-content: space-between;
-        border: 5px solid white;
-        align-items: left;
-        width: 50%;
+        justify-content: center;
+        padding: 30px;
+
+
+        table {
+            @include variable.table;
+
+            border-collapse: collapse;
+            border: 5px solid white;
+            align-items: center;
+            max-width: 800px;
+
+            thead {
+                th {
+                    @include variable.th;
+                }
+            }
+
+            tr:first-child {
+                // background-color: rgb(246, 217, 52);
+                box-shadow: 0 0 70px 0 rgb(246, 217, 52) inset;
+            }
+
+            tr:nth-child(2) {
+                // background-color: rgb(192, 192, 192, 0.7);
+                box-shadow: 0 0 70px 0 rgb(192, 192, 192, 0.7) inset;
+            }
+
+            tr:nth-child(3) {
+                // background-color: rgba(206, 138, 70, 0.6);
+                box-shadow: 0 0 70px 0 rgba(206, 138, 70, 0.6) inset;
+            }
+
+            td {
+                @include variable.td;
+                vertical-align: middle;
+                text-align: center;
+
+                span {
+                    display: flex;
+                    align-items: center;
+                    cursor: pointer;
+                    height: 40px;
+                    gap: 10px;
+                    margin-left: 10px;
+
+                    &:hover {
+                        font-size: 16px;
+                        transition: 0.1s ease-in;
+                    }
+                }
+            }
+        }
     }
 }

@@ -30,11 +30,6 @@ export default function TeamDetails({ countryList, selectedYear }) {
         setIsLoading(false);
     };
 
-    const handleTeams = (id) => {
-        const linkTo = `/constructors/${id}`;
-        navigate(linkTo);
-    };
-
     const handleRaces = (id) => {
         const linkTo = `/races/${id}`
         navigate(linkTo);
@@ -73,8 +68,8 @@ export default function TeamDetails({ countryList, selectedYear }) {
                         </ul>
                     </div>
 
-                    <div className="drivers">
-                        <table className="team-results-tables">
+                    <div className="team-details-table">
+                        <table>
                             <thead>
                                 <tr>
                                     <th colSpan={5}>
@@ -95,11 +90,12 @@ export default function TeamDetails({ countryList, selectedYear }) {
                                     return (
                                         <tr key={teamResult.round}>
                                             <td>{teamResult.round}</td>
-                                            <td onClick={() => handleRaces(teamResult.raceName)}>
-                                                <Flag country={getCodeByCountryName(countryList, teamResult.Circuit.Location.country)} />{teamResult.raceName}
+                                            <td onClick={() => handleRaces(teamResult.round)} width="80%">
+                                                <span>
+                                                    <Flag country={getCodeByCountryName(countryList, teamResult.Circuit.Location.country)} />{teamResult.raceName}
+                                                </span>
                                             </td>
-                                            <td onClick={() => { handleTeams(teamResult.Results[0].Constructor.constructorId) }}>
-                                                {teamResult.Results[0].Constructor.name}</td>
+                                            <td width="30%" style={{ cursor: "pointer" }}>{teamResult.Results[0].Constructor.name}</td>
                                             <td>{teamResult.Results[0].grid}</td>
                                             <td>{teamResult.Results[0].position}</td>
                                         </tr>

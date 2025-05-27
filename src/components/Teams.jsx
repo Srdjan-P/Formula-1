@@ -40,7 +40,7 @@ export default function Teams({ selectedYear, countryList }) {
                         <thead>
                             <tr>
                                 <th colSpan={4}>
-                                    <p>Constructor Championship Standings - 2013</p>
+                                    <p>Constructor Championship Standings - {selectedYear}</p>
                                 </th>
                             </tr>
                         </thead>
