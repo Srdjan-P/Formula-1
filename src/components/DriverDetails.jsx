@@ -110,7 +110,9 @@ export default function DriverDetails({ countryList, selectedYear }) {
                                             <td width="45%"
                                                 onClick={() => { handleTeams(driverRace.Results[0].Constructor.constructorId) }}
                                                 style={{ cursor: 'pointer' }}>
-                                                {driverRace.Results[0].Constructor.name}
+                                                <span>
+                                                    {driverRace.Results[0].Constructor.name}
+                                                </span>
                                             </td>
                                             <td>{driverRace.Results[0].grid}</td>
                                             <td>{driverRace.Results[0].position}</td>
