@@ -5,7 +5,6 @@
     margin-top: 0px;
     margin-bottom: 60px;
 
-
     .team-card {
         border-radius: 20px 0 0px 20px;
         border: 1px solid white;
@@ -24,16 +23,10 @@
         opacity: 0.9;
         height: 400px;
 
-
-
-
-
-
         .team-avatar {
             text-align: center;
             padding-top: 30px;
             padding-bottom: 20px;
-
         }
 
         .teams-img {
@@ -45,7 +38,7 @@
         }
 
         .h2 {
-            font-size: 16px;
+            font-size: 18px;
             text-align: left;
         }
 
@@ -66,12 +59,15 @@
         color: rgb(226, 221, 221);
         height: 110px;
         box-shadow: 0px 0px 12px burlywood;
-
     }
 
     .team-details-table {
         display: flex;
         justify-content: center;
+
+        p {
+            font-size: 20px;
+        }
 
         table {
             @include variable.table;
@@ -83,10 +79,9 @@
             thead {
                 th {
                     @include variable.th;
+                    font-size: 18px
                 }
             }
-
-
 
             td {
                 @include variable.td;
