@@ -21,7 +21,7 @@ export default function App() {
   const years = Array.from({ length: 50 }, (_, i) => currentYear - 1 - i);
   const [searchInput, setSearchInput] = useState("")
 
-  console.log(selectedYear);
+  // console.log(selectedYear);
 
   useEffect(() => {
     getCountryList();
@@ -93,13 +93,13 @@ export default function App() {
           <Route path="/drivers" element={
             <Drivers countryList={countryList} selectedYear={selectedYear} searchInput={searchInput} />} />
           <Route path="/drivers/:driverId" element={
-            <DriverDetails countryList={countryList} selectedYear={selectedYear} />} />
+            <DriverDetails countryList={countryList} selectedYear={selectedYear} searchInput={searchInput} />} />
           <Route path="/races" element={
-            <Races countryList={countryList} selectedYear={selectedYear} />} />
+            <Races countryList={countryList} selectedYear={selectedYear} searchInput={searchInput} />} />
           <Route path="/races/:raceId" element={
-            <RaceDetails countryList={countryList} selectedYear={selectedYear} />} />
-          <Route path="/teams" element={<Teams countryList={countryList} selectedYear={selectedYear} />} />
-          <Route path="/teams/:teamsId" element={<TeamDetails countryList={countryList} selectedYear={selectedYear} />} />
+            <RaceDetails countryList={countryList} selectedYear={selectedYear} searchInput={searchInput} />} />
+          <Route path="/teams" element={<Teams countryList={countryList} selectedYear={selectedYear} searchInput={searchInput} />} />
+          <Route path="/teams/:teamsId" element={<TeamDetails countryList={countryList} selectedYear={selectedYear} searchInput={searchInput} />} />
         </Routes >
       </Router >
     </>

@@ -7,9 +7,9 @@ import { getCodeByCountryName, getCodeByNationality } from "../FlagCodes";
 import { Link } from "react-router";
 import LaunchIcon from '@mui/icons-material/Launch';
 
-export default function RaceDetails({ countryList, selectedYear }) {
+export default function RaceDetails({ countryList, selectedYear, searchInput }) {
     const { raceId } = useParams();
-    const [qualifying, setQualifying] = useState({});
+    const [qualifying, setQualifying] = useState({ QualifyingResults: [] });
     const [race, setRace] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const navigate = useNavigate();
@@ -46,7 +46,29 @@ export default function RaceDetails({ countryList, selectedYear }) {
         navigate(linkTo);
     }
 
+    console.log("qualifying", qualifying);
 
+    const filteredData = qualifying.QualifyingResults.filter((item) => {
+        if (searchInput === "") {
+            return item;
+        } else {
+            return (
+                item.Driver.familyName.toLowerCase().includes(searchInput) ||
+                item.Constructor.name.toLowerCase().includes(searchInput)
+            )
+        }
+    })
+
+    const filteredData2 = race.filter((item) => {
+        if (searchInput === "") {
+            return item;
+        } else {
+            return (
+                item.Driver.familyName.toLowerCase().includes(searchInput) ||
+                item.Constructor.name.toLowerCase().includes(searchInput)
+            )
+        }
+    })
 
     return (
         <>
@@ -92,7 +114,7 @@ export default function RaceDetails({ countryList, selectedYear }) {
                                 </thead>
                                 <tbody>
 
-                                    {qualifying.QualifyingResults.map((driver) => {
+                                    {filteredData.map((driver) => {
                                         let fastestTime = "";
                                         if (driver.Q3) {
                                             fastestTime = driver.Q3
@@ -138,7 +160,7 @@ export default function RaceDetails({ countryList, selectedYear }) {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {race.map((lap) => {
+                                    {filteredData2.map((lap) => {
                                         return (
                                             <tr key={lap.position}>
                                                 <td>{lap.position}</td>

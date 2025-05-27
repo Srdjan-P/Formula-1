@@ -7,7 +7,7 @@ import LaunchIcon from '@mui/icons-material/Launch';
 import { getCodeByCountryName, getCodeByNationality } from "../FlagCodes";
 import Flag from "react-flagkit";
 
-export default function DriverDetails({ countryList, selectedYear }) {
+export default function DriverDetails({ countryList, selectedYear, searchInput }) {
     const { driverId } = useParams();
     const [driverDetails, setDriverDetails] = useState({});
     const [isLoading, setIsLoading] = useState(true);
@@ -39,6 +39,17 @@ export default function DriverDetails({ countryList, selectedYear }) {
         const linkTo = `/races/${id}`
         navigate(linkTo)
     };
+
+    const filteredData = driverRaces.filter((item) => {
+        if (searchInput === "") {
+            return item;
+        } else {
+            return (
+                item.raceName.toLowerCase().includes(searchInput) ||
+                item.Results[0].Constructor.name.toLowerCase().includes(searchInput)
+            )
+        }
+    })
 
     return (
         <>
@@ -98,7 +109,7 @@ export default function DriverDetails({ countryList, selectedYear }) {
                                 </tr>
                             </thead>
                             <tbody>
-                                {driverRaces.map((driverRace) => {
+                                {filteredData.map((driverRace) => {
                                     return (
                                         <tr key={driverRace.round}>
                                             <td>{driverRace.round}</td>

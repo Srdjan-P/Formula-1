@@ -7,7 +7,7 @@ import LaunchIcon from '@mui/icons-material/Launch';
 import { getCodeByCountryName, getCodeByNationality } from "../FlagCodes";
 import Flag from "react-flagkit";
 
-export default function TeamDetails({ countryList, selectedYear }) {
+export default function TeamDetails({ countryList, selectedYear, searchInput }) {
     const { teamsId } = useParams();
     const [teamDetails, setTeamDetails] = useState({});
     const [teamResults, setTeamResults] = useState([]);
@@ -34,8 +34,18 @@ export default function TeamDetails({ countryList, selectedYear }) {
         const linkTo = `/races/${id}`
         navigate(linkTo);
     }
-    console.log("teamResults", teamResults);
+    // console.log("teamResults", teamResults);
     // console.log("teamDetails", teamDetails);
+
+    const filteredData = teamResults.filter((item) => {
+        if (searchInput === "") {
+            return item;
+        } else {
+            return (
+                item.raceName.toLowerCase().includes(searchInput)
+            )
+        }
+    })
 
 
     return (
@@ -89,7 +99,7 @@ export default function TeamDetails({ countryList, selectedYear }) {
                                 </tr>
                             </thead>
                             <tbody>
-                                {teamResults.map((teamResult) => {
+                                {filteredData.map((teamResult) => {
 
                                     return (
                                         <tr key={teamResult.round}>
