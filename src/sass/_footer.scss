@@ -9,6 +9,7 @@ footer {
     background-color: rgb(56, 56, 63);
     padding: 10px 20px;
     border-top: 1px solid #ccc;
+    z-index: 1000;
 
     .footer-left {
         height: 30px;
@@ -19,11 +20,25 @@ footer {
         margin: 0;
         font-size: 14px;
         color: white;
-
     }
 
     .logo-footer {
         height: 30px;
+    }
+
+    .social-icons {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+        font-size: 28px;
+    }
+
+    .social-icons a {
+        color: white;
+
+        &:hover {
+            color: rgb(225, 6, 0);
+        }
     }
 
 }

@@ -1,6 +1,10 @@
+@use "variables" as variable;
+
 .team-details {
     display: flex;
-    margin: 20px;
+    margin-top: 0px;
+    margin-bottom: 60px;
+
 
     .team-card {
         border-radius: 20px 0 0px 20px;
@@ -11,19 +15,24 @@
         color: rgb(241, 232, 232);
         font-size: 18px;
         font-weight: bold;
-        margin-top: 5px;
-        margin-left: 5px;
+        margin-top: 30px;
+        margin-left: 10px;
         padding: 20px;
         background-color: #8f8080;
         justify-content: space-between;
         line-height: 1.5;
         opacity: 0.9;
+        height: 400px;
+
+
+
 
 
 
         .team-avatar {
             text-align: center;
-            padding-top: 20px;
+            padding-top: 30px;
+            padding-bottom: 20px;
 
         }
 
@@ -32,6 +41,7 @@
             height: 80px;
             box-shadow: 5px 5px 5px 5px burlywood;
             margin-right: 100px;
+            padding: 10px;
         }
 
         .h2 {
@@ -41,11 +51,12 @@
 
         .flag {
             width: 100px;
-            height: 50px;
+            height: 80px;
             margin-left: 100px;
             margin-bottom: 10px;
             padding-left: 30px;
             padding-top: 10px;
+            padding-bottom: 20px;
 
         }
     }
@@ -58,12 +69,44 @@
 
     }
 
-    .team-results-table {
+    .team-details-table {
         display: flex;
-        border-collapse: collapse;
-        justify-content: space-between;
-        border: 5px solid white;
-        align-items: left;
-        width: 50%;
+        justify-content: center;
+
+        table {
+            @include variable.table;
+            border-collapse: collapse;
+            border: 5px solid white;
+            align-items: center;
+            max-width: 800px;
+
+            thead {
+                th {
+                    @include variable.th;
+                }
+            }
+
+
+
+            td {
+                @include variable.td;
+                vertical-align: middle;
+                text-align: center;
+
+                span {
+                    display: flex;
+                    align-items: center;
+                    cursor: pointer;
+                    height: 40px;
+                    gap: 10px;
+                    margin-left: 10px;
+
+                    &:hover {
+                        font-size: 16px;
+                        transition: 0.1s ease-in;
+                    }
+                }
+            }
+        }
     }
 }

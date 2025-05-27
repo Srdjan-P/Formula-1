@@ -4,7 +4,7 @@
     margin: 20px;
     display: flex;
 
-    justify-content: space-between;
+    // justify-content: space-between;
 
     .driver-card {
         font-size: 14px;
@@ -79,8 +79,8 @@
 
 .driver-details {
     display: flex;
-    width: 100%;
-    justify-content: center;
+    width: 1000px;
+    margin-bottom: 50px;
 
     .driver-details-table {
         width: 100%;
@@ -92,14 +92,15 @@
         background-color: lightgrey;
         opacity: 0.9;
         font-size: 15px;
-        font-weight: 600px;
+        font-weight: 600;
+        max-width: 1000px;
 
         thead {
 
             th {
 
                 box-shadow: 0 0 10px 1px #fff;
-                text-align: left;
+                text-align: center;
                 padding: 10px;
                 height: 30px;
                 background-color: variable.$primaryColor;
@@ -163,19 +164,16 @@
             background-color: rgba(255, 245, 204, 1);
         }
 
-
         td {
             padding: 8px 20px;
             border: 2px solid #ddd;
+            vertical-align: middle;
+            text-align: center;
 
             span {
                 display: flex;
                 align-items: center;
                 gap: 10px;
-
-                .flag {
-                    margin-right: 10px;
-                }
 
                 &:hover {
                     color: variable.$primaryColor;
@@ -183,5 +181,4 @@
             }
         }
     }
-
 }

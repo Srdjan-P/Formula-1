@@ -40,13 +40,12 @@ export default function Teams({ selectedYear, countryList }) {
                         <thead>
                             <tr>
                                 <th colSpan={4}>
-                                    <p>Constructor Championship Standings - 2013</p>
+                                    <p>Constructor Championship Standings - {selectedYear}</p>
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
                             {teams.map((team) => {
-                                console.log("team", team);
                                 return (
                                     <tr key={team.position}>
                                         <td>{team.position}</td>
@@ -71,7 +70,7 @@ export default function Teams({ selectedYear, countryList }) {
                                                 Details <LaunchIcon fontSize="small" />
                                             </Link>
                                         </td>
-                                        <td>{team.points}</td>
+                                        <td style={{ textAlign: "center" }}>{team.points}</td>
                                     </tr>
                                 );
                             })}

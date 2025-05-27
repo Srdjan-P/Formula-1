@@ -30,15 +30,13 @@ export default function TeamDetails({ countryList, selectedYear }) {
         setIsLoading(false);
     };
 
-    const handleTeams = (id) => {
-        const linkTo = `/constructors/${id}`;
-        navigate(linkTo);
-    };
-
     const handleRaces = (id) => {
         const linkTo = `/races/${id}`
         navigate(linkTo);
     }
+    console.log("teamResults", teamResults);
+    // console.log("teamDetails", teamDetails);
+
 
     return (
         <>
@@ -73,8 +71,8 @@ export default function TeamDetails({ countryList, selectedYear }) {
                         </ul>
                     </div>
 
-                    <div className="drivers">
-                        <table className="team-results-tables">
+                    <div className="team-details-table">
+                        <table>
                             <thead>
                                 <tr>
                                     <th colSpan={5}>
@@ -84,9 +82,10 @@ export default function TeamDetails({ countryList, selectedYear }) {
                                 <tr>
                                     <th>Round</th>
                                     <th>Grand Prix</th>
-                                    <th>Team</th>
-                                    <th>Grid</th>
-                                    <th>Race</th>
+                                    <th>{teamResults[0].Results[0].Driver.familyName}</th>
+                                    <th>{teamResults[0].Results[1].Driver.familyName}</th>
+                                    <th>Points</th>
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -95,13 +94,14 @@ export default function TeamDetails({ countryList, selectedYear }) {
                                     return (
                                         <tr key={teamResult.round}>
                                             <td>{teamResult.round}</td>
-                                            <td onClick={() => handleRaces(teamResult.raceName)}>
-                                                <Flag country={getCodeByCountryName(countryList, teamResult.Circuit.Location.country)} />{teamResult.raceName}
+                                            <td onClick={() => handleRaces(teamResult.round)} width="80%">
+                                                <span>
+                                                    <Flag country={getCodeByCountryName(countryList, teamResult.Circuit.Location.country)} />{teamResult.raceName}
+                                                </span>
                                             </td>
-                                            <td onClick={() => { handleTeams(teamResult.Results[0].Constructor.constructorId) }}>
-                                                {teamResult.Results[0].Constructor.name}</td>
-                                            <td>{teamResult.Results[0].grid}</td>
-                                            <td>{teamResult.Results[0].position}</td>
+                                            <td width="30%" style={{ cursor: "pointer" }}>{teamResult.Results[0].position}</td>
+                                            <td>{teamResult.Results[1].position}</td>
+                                            <td>{parseInt(teamResult.Results[0].points) + parseInt(teamResult.Results[1].points)} </td>
                                         </tr>
                                     );
                                 })}
