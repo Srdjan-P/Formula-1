@@ -15,8 +15,6 @@ export default function Drivers({ countryList, selectedYear, searchInput }) {
     setIsLoading(true)
   }, [selectedYear]);
 
-  console.log("drivers", drivers);
-
   const getDrivers = async () => {
     const url = `http://ergast.com/api/f1/${selectedYear}/driverStandings.json`;
     const response = await axios.get(url);
@@ -66,14 +64,13 @@ export default function Drivers({ countryList, selectedYear, searchInput }) {
                 <tr key={driver.Driver.driverId}>
                   <td style={{ textAlign: "center" }}>{driver.position}</td>
                   <td
-                    width="45%"
+                    width="40%"
                     onClick={() => {
                       handleClickDetails(driver.Driver.driverId);
                     }}
                   >
                     <span >
                       <Flag
-                        className="flag"
                         country={getCodeByNationality(
                           countryList,
                           driver.Driver.nationality
@@ -82,7 +79,7 @@ export default function Drivers({ countryList, selectedYear, searchInput }) {
                       {driver.Driver.givenName} {driver.Driver.familyName}
                     </span>
                   </td>
-                  <td width="45%">
+                  <td width="40%">
                     <span
                       onClick={() =>
                         handleClickTeams(driver.Constructors[0].constructorId)

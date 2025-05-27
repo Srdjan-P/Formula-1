@@ -7,6 +7,7 @@
 
   table {
     @include variable.table;
+    box-shadow: 0 0 10px 1px #fff;
 
     thead {
       th {
@@ -37,11 +38,8 @@
         align-items: center;
         cursor: pointer;
         height: 40px;
-        padding: 0 20px;
-
-        .flag {
-          margin-right: 10px;
-        }
+        margin-left: 10px;
+        gap: 10px;
 
         &:hover {
           // color: variable.$primaryColor;
@@ -53,10 +51,6 @@
           display: flex;
           align-items: center;
           cursor: pointer;
-
-          .flag {
-            margin-right: 10px;
-          }
 
           &:hover {
             color: variable.$primaryColor;

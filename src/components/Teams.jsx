@@ -20,7 +20,6 @@ export default function Teams({ selectedYear, countryList, searchInput }) {
         const url = `http://ergast.com/api/f1/${selectedYear}/constructorStandings.json`;
         const response = await axios.get(url);
 
-        console.log("team data", response.data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings);
         setTeams(response.data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings);
         setIsLoading(false);
     };
@@ -31,7 +30,6 @@ export default function Teams({ selectedYear, countryList, searchInput }) {
     };
 
     const filteredData = teams.filter((team) => {
-        console.log("inside filtere data function", searchInput);
         if (!searchInput) {
             return team;
         } else {
@@ -63,16 +61,13 @@ export default function Teams({ selectedYear, countryList, searchInput }) {
                                         <td
                                             onClick={() => {
                                                 handleClickDetails(team.Constructor.constructorId);
-                                            }}
-                                        >
-                                            <span style={{ cursor: "pointer" }}>
+                                            }}>
+                                            <span>
                                                 <Flag
-                                                    className="flag"
                                                     country={getCodeByNationality(
                                                         countryList,
                                                         team.Constructor.nationality
-                                                    )}
-                                                />
+                                                    )} />
                                                 {team.Constructor.name}
                                             </span>
                                         </td>
@@ -88,7 +83,6 @@ export default function Teams({ selectedYear, countryList, searchInput }) {
                         </tbody>
                     </table>
                 )}
-
             </div>
             <img src="/img/formulaNissan.png" alt="Formula Nissan Bolid" className="bolid2" />
             <img src="/img/pitStop.png" alt="pit stop" className="pitStop" />

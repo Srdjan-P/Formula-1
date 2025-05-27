@@ -2,8 +2,9 @@
 
 .team-details {
     display: flex;
-    margin-top: 0px;
+    justify-content: center;
     margin-bottom: 60px;
+    padding: 30px;
 
     .team-card {
         border-radius: 20px 0 0px 20px;
@@ -14,7 +15,6 @@
         color: rgb(241, 232, 232);
         font-size: 18px;
         font-weight: bold;
-        margin-top: 30px;
         margin-left: 10px;
         padding: 20px;
         background-color: #8f8080;
@@ -71,15 +71,15 @@
 
         table {
             @include variable.table;
-            border-collapse: collapse;
-            border: 5px solid white;
-            align-items: center;
-            max-width: 800px;
+            max-width: 700px;
+            box-shadow: 0 0 10px 1px #fff;
+
 
             thead {
                 th {
                     @include variable.th;
-                    font-size: 18px
+                    font-size: 18px;
+                    border-radius: 0;
                 }
             }
 

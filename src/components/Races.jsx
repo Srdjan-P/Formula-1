@@ -25,7 +25,6 @@ export default function Races({ countryList, selectedYear, searchInput }) {
     const handleRaces = (id) => {
         const linkTo = `/races/${id}`
         navigate(linkTo)
-
     }
 
     const filteredData = races.filter((item) => {
@@ -40,56 +39,59 @@ export default function Races({ countryList, selectedYear, searchInput }) {
         }
     })
 
-
     return (
-
-        <div className="races">
+        <>
             {isLoading ? (
                 <Loader />
             ) : (
-                <table>
-                    <thead>
-                        <tr>
-                            <th colSpan={5}>
-                                <p>Race Calendar - {selectedYear}</p>
-                            </th>
-                        </tr>
-                        <tr>
-                            <th>Round</th>
-                            <th>Grand Prix</th>
-                            <th>Circuit</th>
-                            <th>Date</th>
-                            <th>Winner</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        {filteredData.map((race) => {
-                            return (
-                                <>
-                                    <tr key={race.round}>
-                                        <td>{race.round}</td>
-                                        <td style={{ cursor: "pointer" }}
-                                            onClick={() => { handleRaces(race.round) }}>
-                                            <Flag
-                                                country={getCodeByCountryName(countryList, race.Circuit.Location.country)} className="flag" />
-                                            {race.raceName}
-                                        </td>
-                                        <td>{race.Circuit.circuitName}</td>
-                                        <td>{race.date}</td>
-
-                                        <td>
-                                            <Flag country={getCodeByNationality(countryList, race.Results[0].Driver.nationality)} className="flag" />
-                                            {race.Results[0].Driver.familyName}</td>
-
-                                    </tr>
-                                </>
-
-                            )
-                        })}
-                    </tbody>
-                </table>
+                <div className="races">
+                    <div className="races-data">
+                        <h2>Race Calendar - {selectedYear}</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Round</th>
+                                    <th>Grand Prix</th>
+                                    <th>Circuit</th>
+                                    <th>Date</th>
+                                    <th>Winner</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {filteredData.map((race) => {
+                                    return (
+                                        <>
+                                            <tr key={race.round}>
+                                                <td width="5%">{race.round}</td>
+                                                <td style={{ cursor: "pointer" }}
+                                                    onClick={() => { handleRaces(race.round) }}>
+                                                    <span>
+                                                        <Flag
+                                                            country={getCodeByCountryName(countryList, race.Circuit.Location.country)} className="flag" />
+                                                        {race.raceName}
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    <span>
+                                                        {race.Circuit.circuitName}
+                                                    </span>
+                                                </td>
+                                                <td>{race.date}</td>
+                                                <td>
+                                                    <span>
+                                                        <Flag country={getCodeByNationality(countryList, race.Results[0].Driver.nationality)} className="flag" />
+                                                        {race.Results[0].Driver.familyName}
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        </>
+                                    )
+                                })}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             )}
-        </div>
+        </>
     )
 }

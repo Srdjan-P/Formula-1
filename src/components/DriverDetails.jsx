@@ -71,11 +71,9 @@ export default function DriverDetails({ countryList, selectedYear, searchInput }
                                     className="driver-img"
                                 />
                             </div>
-
                             <div className="driver-name">
                                 <h2>
                                     <span>
-
                                         {/* odavde krece ime i zastavica - takodje, leva strana */}
                                         <Flag className="country-flags" country={getCodeByNationality(countryList, driverDetails.Driver.nationality)} />
                                         {driverDetails.Driver.givenName} {driverDetails.Driver.familyName}

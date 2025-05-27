@@ -9,7 +9,7 @@ import TeamDetails from "./components/TeamDetails";
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
-import Select from "./components/Select";
+import BasicSelect from "./components/BasicSelect";
 import Breadcrumbs from "./components/Breadcrumbs";
 import Search from "./components/Search";
 import Footer from "./components/Footer";
@@ -21,8 +21,6 @@ export default function App() {
   const years = Array.from({ length: 50 }, (_, i) => currentYear - 1 - i);
   const [searchInput, setSearchInput] = useState("")
 
-  // console.log(selectedYear);
-
   useEffect(() => {
     getCountryList();
   }, []);
@@ -32,7 +30,6 @@ export default function App() {
       "https://raw.githubusercontent.com/Dinuks/country-nationality-list/master/countries.json";
     const response = await axios.get(url);
     setCountryList(response.data);
-    console.log(response);
   };
 
   const handleYearChange = (event) => {
@@ -56,7 +53,6 @@ export default function App() {
         </div>
         <nav>
           <div className="nav-bottom">
-
             <div className="logo-container">
               <NavLink to="/" onClick={() => setSearchInput("")}>
                 <div className="logo"></div>
@@ -74,16 +70,14 @@ export default function App() {
               </li>
             </ul>
             <div className="select">
-              <Select
+              <BasicSelect
                 array={years}
                 value={selectedYear}
                 onChange={handleYearChange}
               />
             </div>
           </div>
-
         </nav>
-
         <footer>
           <Footer />
         </footer>

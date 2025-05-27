@@ -1,105 +1,103 @@
 @use "variables" as variable;
 
 .nav-top {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 45px;
+  width: 100%;
+  background-color: white;
+  padding: 0 20px;
+
+  .bread-crumbs-container {
+    background-color: #fff;
+    justify-content: center;
     align-items: center;
-    height: 45px;
-    width: 100%;
-    background-color: white;
-    padding: 0 20px;
+    display: flex;
 
-    .bread-crumbs-container {
-        background-color: #fff;
-        justify-content: center;
-        align-items: center;
+    .bread-crumbs {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 30px;
+
+      li {
         display: flex;
+        align-items: center;
+        justify-content: center;
 
-        .bread-crumbs {
+        a,
+        span {
+          color: variable.$primaryColor;
+          padding: 5px 5px;
+          margin-left: 5px;
+          font-weight: 600;
+          font-size: 14px;
 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 30px;
-
-            li {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-
-                a,
-                span {
-                    color: red;
-                    padding: 5px 5px;
-                    margin-left: 5px;
-                    font-weight: 600;
-                    font-size: 14px;
-
-                    &:hover {
-                        box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.308);
-                    }
-                }
-
-                .bread-crumbs-current {
-                    background-color: variable.$primaryColor;
-                    color: white;
-                    border-radius: 3px;
-
-                    &:hover {}
-                }
-            }
+          &:hover {
+            box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.308);
+          }
         }
-    }
 
-    .search {
-        width: 200px;
+        .bread-crumbs-current {
+          background-color: variable.$primaryColor;
+          color: white;
+          border-radius: 3px;
+
+        }
+      }
     }
+  }
+
+  .search {
+    width: 200px;
+  }
 }
 
 nav {
-    height: 60px;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 5%;
+  background-color: variable.$primaryColor;
+  width: 100%;
+
+  .nav-bottom {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    padding-left: 5%;
-    background-color: rgb(225, 6, 0);
     width: 100%;
 
-    .nav-bottom {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-
-        .logo {
-            background-image: url("../img/Logo.png");
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            width: 200px;
-            height: 60px;
-        }
-
-        .select {
-            margin-right: 20px;
-        }
-
-        ul {
-            margin: 0 5%;
-            display: flex;
-            width: 80%;
-
-            li {
-                padding: 0 30px;
-
-                a {
-                    font-size: 25px;
-                    color: #fff;
-                    font-weight: 600;
-                    text-decoration: none;
-                }
-            }
-        }
+    .logo {
+      background-image: url("../img/Logo.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 200px;
+      height: 60px;
     }
+
+    .select {
+      margin-right: 20px;
+    }
+
+    ul {
+      margin: 0 5%;
+      display: flex;
+      width: 80%;
+
+      li {
+        padding: 0 30px;
+
+        a {
+          font-size: 25px;
+          color: #fff;
+          font-weight: 600;
+          text-decoration: none;
+        }
+      }
+    }
+  }
 }

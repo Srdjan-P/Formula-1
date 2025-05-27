@@ -14,7 +14,6 @@ export default function RaceDetails({ countryList, selectedYear, searchInput }) 
     const [isLoading, setIsLoading] = useState(true);
     const navigate = useNavigate();
 
-
     useEffect(() => {
         getQualifying();
     }, [selectedYear]);
@@ -22,20 +21,15 @@ export default function RaceDetails({ countryList, selectedYear, searchInput }) 
     const getQualifying = async () => {
         const urlQualifying = `http://ergast.com/api/f1/${selectedYear}/${raceId}/qualifying.json`
         const qualifyingResponse = await axios.get(urlQualifying);
-        // console.log("1 ", qualifyingResponse.data.MRData.RaceTable.Races[0]);
 
         const urlResults = `http://ergast.com/api/f1/${selectedYear}/${raceId}/results.json`
         const resultResponse = await axios.get(urlResults)
-        // console.log(resultResponse.data.MRData.RaceTable.Races[0].Results);
 
         setQualifying(qualifyingResponse.data.MRData.RaceTable.Races[0]);
         setRace(resultResponse.data.MRData.RaceTable.Races[0].Results);
         setIsLoading(false);
     };
 
-    // console.log("race", race);
-
-    // console.log("qualifying", qualifying);
     const handleClickDriver = (id) => {
         const linkTo = `/drivers/${id}`;
         navigate(linkTo);
@@ -45,8 +39,6 @@ export default function RaceDetails({ countryList, selectedYear, searchInput }) 
         const linkTo = `/teams/${id}`;
         navigate(linkTo);
     }
-
-    console.log("qualifying", qualifying);
 
     const filteredData = qualifying.QualifyingResults.filter((item) => {
         if (searchInput === "") {
@@ -79,7 +71,6 @@ export default function RaceDetails({ countryList, selectedYear, searchInput }) 
                     <div className="race-card">
                         <div className="race-driver">
                             <Flag className="flag" country={getCodeByCountryName(countryList, qualifying.Circuit.Location.country)} />
-
                             <h2>{qualifying.raceName}</h2>
                         </div>
                         <div className="race-card-details">
@@ -92,17 +83,14 @@ export default function RaceDetails({ countryList, selectedYear, searchInput }) 
                                 </Link></li>
                             </ul>
                             <img src="/img/australiaCarbon.png" className="staza" />
-                            <img src="/img/formulaCar.png" alt="" srcset="" className="bolid" />
+                            <img src="/img/formulaCar.png" alt="formulaCar.png" className="bolid" />
                         </div>
                     </div>
                     <div className="race-tables">
                         <div className="race-table1">
-
+                            <h2>Qualifying Results</h2>
                             <table>
                                 <thead>
-                                    <tr>
-                                        <th colspan={4}>Qualifying Results</th>
-                                    </tr>
                                     <tr>
                                         <th>Pos</th>
                                         <th>Driver</th>
@@ -111,7 +99,6 @@ export default function RaceDetails({ countryList, selectedYear, searchInput }) 
                                     </tr>
                                 </thead>
                                 <tbody>
-
                                     {filteredData.map((driver) => {
                                         let fastestTime = "";
                                         if (driver.Q3) {
@@ -144,11 +131,9 @@ export default function RaceDetails({ countryList, selectedYear, searchInput }) 
                             </table>
                         </div>
                         <div className="race-table2">
+                            <h2>Race Results</h2>
                             <table>
                                 <thead>
-                                    <tr>
-                                        <th colspan={5}>Race Results</th>
-                                    </tr>
                                     <tr>
                                         <th>Pos</th>
                                         <th>Driver</th>
@@ -162,7 +147,7 @@ export default function RaceDetails({ countryList, selectedYear, searchInput }) 
                                         return (
                                             <tr key={lap.position}>
                                                 <td>{lap.position}</td>
-                                                <td width="40%"
+                                                <td width="30%"
                                                     style={{ cursor: "pointer" }}
                                                     onClick={() => handleClickDriver(lap.Driver.driverId)}>
                                                     <span>
@@ -170,7 +155,6 @@ export default function RaceDetails({ countryList, selectedYear, searchInput }) 
                                                         {lap.Driver.familyName}
                                                     </span>
                                                 </td>
-
                                                 <td
                                                     style={{ cursor: "pointer" }}
                                                     onClick={() => handleClickTeam(lap.Constructor.constructorId)}>
@@ -186,8 +170,6 @@ export default function RaceDetails({ countryList, selectedYear, searchInput }) 
                     </div>
                 </div>
             )}
-
         </>
-
     )
 }

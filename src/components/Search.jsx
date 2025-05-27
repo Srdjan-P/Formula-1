@@ -14,7 +14,7 @@ export default function Search({ value, onChange }) {
                 sx={{
                     backgroundColor: "#f0f0f0",
                     "& .MuiOutlinedInput-notchedOutline": {
-                        borderColor: "red",
+                        borderColor: "lightGray",
                     },
                     "&:hover .MuiOutlinedInput-notchedOutline": {
                         borderColor: "black",

@@ -34,8 +34,6 @@ export default function TeamDetails({ countryList, selectedYear, searchInput }) 
         const linkTo = `/races/${id}`
         navigate(linkTo);
     }
-    // console.log("teamResults", teamResults);
-    // console.log("teamDetails", teamDetails);
 
     const filteredData = teamResults.filter((item) => {
         if (searchInput === "") {
@@ -46,7 +44,6 @@ export default function TeamDetails({ countryList, selectedYear, searchInput }) 
             )
         }
     })
-
 
     return (
         <>
@@ -65,7 +62,6 @@ export default function TeamDetails({ countryList, selectedYear, searchInput }) 
                                     }}
                                     className="teams-img"
                                 />
-
                             </div>
                             <div>
                                 <h2>
@@ -80,7 +76,6 @@ export default function TeamDetails({ countryList, selectedYear, searchInput }) 
                             <li>History: <Link to={teamDetails.Constructor.url} target="_blank"><LaunchIcon fontSize="small" sx={{ fontSize: 16 }} /></Link></li>
                         </ul>
                     </div>
-
                     <div className="team-details-table">
                         <table>
                             <thead>
@@ -95,7 +90,6 @@ export default function TeamDetails({ countryList, selectedYear, searchInput }) 
                                     <th>{teamResults[0].Results[0].Driver.familyName}</th>
                                     <th>{teamResults[0].Results[1].Driver.familyName}</th>
                                     <th>Points</th>
-
                                 </tr>
                             </thead>
                             <tbody>
@@ -121,6 +115,5 @@ export default function TeamDetails({ countryList, selectedYear, searchInput }) 
                 </div >
             )}
         </>
-
     );
 }

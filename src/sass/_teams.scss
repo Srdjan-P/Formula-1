@@ -62,10 +62,6 @@
             text-align: center;
         }
 
-        .flag {
-            margin-right: 10px;
-        }
-
         thead {
             th {
                 @include variable.th;
@@ -80,22 +76,18 @@
                 // color: #fff;
                 // font-size: 25px;
             }
-
-            .flag {
-                margin-right: 10px;
-            }
         }
 
-        tr:first-child {
-            background-color: rgb(255, 217, 0);
+        span {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-left: 10px;
+            cursor: pointer;
         }
 
-        tr:nth-child(2) {
-            background-color: rgb(192, 192, 192, 0.7);
-        }
-
-        tr:nth-child(3) {
-            background-color: rgba(206, 138, 70, 0.6);
+        a {
+            color: lightcoral;
         }
 
         td {

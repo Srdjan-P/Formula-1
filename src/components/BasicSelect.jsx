@@ -1,4 +1,3 @@
-import * as React from "react";
 import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
@@ -10,7 +9,7 @@ export default function BasicSelect({ array, value, onChange }) {
     <Box sx={{ minWidth: 90 }}>
       <FormControl fullWidth>
         <InputLabel
-          id="demo-simple-select-label"
+          id="select-label"
           sx={{
             color: "Text.secondary",
             fontWeight: "600",
@@ -19,8 +18,8 @@ export default function BasicSelect({ array, value, onChange }) {
           {"Years"}
         </InputLabel>
         <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
+          labelId="select-label"
+          id="select"
           value={value}
           label="Year"
           size="small"
@@ -28,10 +27,10 @@ export default function BasicSelect({ array, value, onChange }) {
           sx={{
             backgroundColor: "#f0f0f0",
             "& .MuiOutlinedInput-notchedOutline": {
-              borderColor: "red",
+              borderColor: "lightGray",
             },
             "&:hover .MuiOutlinedInput-notchedOutline": {
-              borderColor: "blue",
+              borderColor: "black",
             },
           }}
           MenuProps={{
@@ -57,7 +56,6 @@ export default function BasicSelect({ array, value, onChange }) {
             },
           }}
         >
-
           {array.map((item) => {
             return (
               <MenuItem key={item} value={item}>
