@@ -18,44 +18,48 @@
         border-radius: 20px 20px 0 0;
         height: 400px;
 
-
         .race-driver {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
             h2 {
                 font-size: 20px;
                 color: wheat;
                 margin-left: 20px;
+                padding: 20px;
 
             }
         }
-
-
 
         .flag {
             width: 100px;
             height: 100px;
             margin-top: 0px;
             margin-left: 20px;
-
-
         }
 
         .race-card-details {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
 
             li {
                 color: white;
-                margin-left: 20px;
+
             }
         }
 
 
         .staza {
-            width: 200px;
-            height: 150px;
+            width: 100%;
+            max-width: 180px;
             border: 2px solid black;
             box-shadow: 0 0 10px rgba(214, 63, 63, 0.8);
             border-radius: 10px;
-            margin-top: 20px;
-
+            margin-top: 10px;
         }
 
 
@@ -113,6 +117,7 @@
             // background-color: rgb(223, 216, 207);
             // opacity: 0.7;
             width: 50%;
+            margin-right: 30px;
 
             table {
                 @include variable.table;
