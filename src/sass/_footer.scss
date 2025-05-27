@@ -1,0 +1,29 @@
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: rgb(56, 56, 63);
+    padding: 10px 20px;
+    border-top: 1px solid #ccc;
+
+    .footer-left {
+        height: 30px;
+        width: auto;
+    }
+
+    .footer-right p {
+        margin: 0;
+        font-size: 14px;
+        color: white;
+
+    }
+
+    .logo-footer {
+        height: 30px;
+    }
+
+}

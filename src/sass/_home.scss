@@ -112,32 +112,3 @@
 
 
 /* VIDEO KRAJ */
-
-
-.footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    background-color: rgb(56, 56, 63);
-    padding: 10px 20px;
-    border-top: 1px solid #ccc;
-
-    .footer-left {
-        height: 40px;
-    }
-
-    .footer-right p {
-        margin: 0;
-        font-size: 14px;
-    }
-
-    .logo-footer {
-        color: black;
-    }
-
-
-}
