@@ -26,8 +26,6 @@ export default function Footer() {
                     <YouTubeIcon />
                 </a>
             </div>
-
-
         </>
     );
 }
