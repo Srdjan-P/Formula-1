@@ -63,9 +63,12 @@ export default function DriverDetails({ countryList, selectedYear }) {
 
                             <div className="driver-name">
                                 <h2>
-                                    {/* odavde krece ime i zastavica - takodje, leva strana */}
-                                    <Flag className="country-flags" country={getCodeByNationality(countryList, driverDetails.Driver.nationality)} />
-                                    {driverDetails.Driver.givenName} {driverDetails.Driver.familyName}
+                                    <span>
+
+                                        {/* odavde krece ime i zastavica - takodje, leva strana */}
+                                        <Flag className="country-flags" country={getCodeByNationality(countryList, driverDetails.Driver.nationality)} />
+                                        {driverDetails.Driver.givenName} {driverDetails.Driver.familyName}
+                                    </span>
                                 </h2>
                             </div>
                         </div>
