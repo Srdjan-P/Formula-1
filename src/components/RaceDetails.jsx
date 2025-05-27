@@ -29,7 +29,7 @@ export default function RaceDetails({ countryList, selectedYear }) {
         const resultResponse = await axios.get(urlResults)
         console.log(resultResponse.data.MRData.RaceTable.Races[0].Results);
         const data2 = resultResponse.data.MRData.RaceTable.Races[0].Results;
-        setRace(data2);
+
 
         setIsLoading(false);
     };
