@@ -30,7 +30,7 @@ export default function RaceDetails({ countryList, selectedYear }) {
         console.log(resultResponse.data.MRData.RaceTable.Races[0].Results);
         const data2 = resultResponse.data.MRData.RaceTable.Races[0].Results;
 
-
+        setRace(data2);
         setIsLoading(false);
     };
 

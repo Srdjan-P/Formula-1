@@ -17,7 +17,8 @@ export default function Races({ countryList, selectedYear }) {
     const getRaces = async () => {
         const url = `http://ergast.com/api/f1/${selectedYear}/results/1.json`;
         const response = await axios.get(url);
-        const data = response.data.MRData.RaceTable.Races
+        const data = response.data.MRData.RaceTable.Races;
+
         setRaces(data);
         setIsLoading(false)
     };
@@ -28,7 +29,7 @@ export default function Races({ countryList, selectedYear }) {
 
     }
     // console.log("countryList", countryList);
-    console.log("races");
+    console.log("races", races);
 
 
 
@@ -55,12 +56,13 @@ export default function Races({ countryList, selectedYear }) {
                     </thead>
                     <tbody>
 
-                        {races.map((race, i) => {
+                        {races.map((race) => {
                             return (
                                 <>
-                                    <tr key={i}>
+                                    <tr key={race.round}>
                                         <td>{race.round}</td>
-                                        <td onClick={() => { handleRaces(race.round) }}>
+                                        <td style={{ cursor: "pointer" }}
+                                            onClick={() => { handleRaces(race.round) }}>
                                             <Flag
                                                 country={getCodeByCountryName(countryList, race.Circuit.Location.country)} className="flag" />
                                             {race.raceName}

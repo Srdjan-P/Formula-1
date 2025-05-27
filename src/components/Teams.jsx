@@ -20,8 +20,7 @@ export default function Teams({ selectedYear, countryList }) {
         const url = `http://ergast.com/api/f1/${selectedYear}/constructorStandings.json`;
         const response = await axios.get(url);
 
-        setTeams(response.data.MRData.StandingsTable.StandingsLists[0]
-            .ConstructorStandings);
+        setTeams(response.data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings);
         setIsLoading(false);
     };
 

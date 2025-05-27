@@ -25,10 +25,7 @@ export default function TeamDetails({ countryList, selectedYear }) {
         const teamResultUrl = `http://ergast.com/api/f1/${selectedYear}/constructors/${teamsId}/results.json`;
         const teamResultResponse = await axios.get(teamResultUrl);
 
-        setTeamDetails(
-            teamStandingResponse.data.MRData.StandingsTable.StandingsLists[0]
-                .ConstructorStandings[0]
-        );
+        setTeamDetails(teamStandingResponse.data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings[0]);
         setTeamResults(teamResultResponse.data.MRData.RaceTable.Races);
         setIsLoading(false);
     };
