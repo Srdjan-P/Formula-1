@@ -34,6 +34,9 @@ export default function TeamDetails({ countryList, selectedYear }) {
         const linkTo = `/races/${id}`
         navigate(linkTo);
     }
+    console.log("teamResults", teamResults);
+    // console.log("teamDetails", teamDetails);
+
 
     return (
         <>
@@ -79,9 +82,10 @@ export default function TeamDetails({ countryList, selectedYear }) {
                                 <tr>
                                     <th>Round</th>
                                     <th>Grand Prix</th>
-                                    <th>Team</th>
-                                    <th>Grid</th>
-                                    <th>Race</th>
+                                    <th>{teamResults[0].Results[0].Driver.familyName}</th>
+                                    <th>{teamResults[0].Results[1].Driver.familyName}</th>
+                                    <th>Points</th>
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -95,9 +99,9 @@ export default function TeamDetails({ countryList, selectedYear }) {
                                                     <Flag country={getCodeByCountryName(countryList, teamResult.Circuit.Location.country)} />{teamResult.raceName}
                                                 </span>
                                             </td>
-                                            <td width="30%" style={{ cursor: "pointer" }}>{teamResult.Results[0].Constructor.name}</td>
-                                            <td>{teamResult.Results[0].grid}</td>
-                                            <td>{teamResult.Results[0].position}</td>
+                                            <td width="30%" style={{ cursor: "pointer" }}>{teamResult.Results[0].position}</td>
+                                            <td>{teamResult.Results[1].position}</td>
+                                            <td>{parseInt(teamResult.Results[0].points) + parseInt(teamResult.Results[1].points)} </td>
                                         </tr>
                                     );
                                 })}

@@ -33,9 +33,9 @@ export default function RaceDetails({ countryList, selectedYear }) {
         setIsLoading(false);
     };
 
-    console.log("race", race);
+    // console.log("race", race);
 
-    console.log("qualifying", qualifying);
+    // console.log("qualifying", qualifying);
     const handleClickDriver = (id) => {
         const linkTo = `/drivers/${id}`;
         navigate(linkTo);
@@ -60,7 +60,7 @@ export default function RaceDetails({ countryList, selectedYear }) {
 
                             <h2>{qualifying.raceName}</h2>
                         </div>
-                        <div className="race-details">
+                        <div className="race-card-details">
                             <ul>
                                 <li>Country: {qualifying.Circuit.Location.country}</li>
                                 <li>Location: {qualifying.Circuit.Location.locality}</li>
@@ -82,7 +82,7 @@ export default function RaceDetails({ countryList, selectedYear }) {
                                         <th colspan={4}>Qualifying Results</th>
                                     </tr>
                                     <tr>
-                                        <th>Position</th>
+                                        <th>Pos</th>
 
                                         <th>Driver</th>
 
@@ -104,11 +104,17 @@ export default function RaceDetails({ countryList, selectedYear }) {
                                         return (
                                             <tr key={driver.position}>
                                                 <td width="5%">{driver.position}</td>
-                                                <td onClick={() => handleClickDriver(driver.Driver.driverId)}
-                                                    width="40%">
-                                                    <Flag country={getCodeByNationality(countryList, driver.Driver.nationality)} />
-                                                    {driver.Driver.familyName}</td>
-                                                <td onClick={() => handleClickTeam(driver.Constructor.constructorId)}>
+                                                <td style={{ cursor: "pointer" }}
+                                                    onClick={() => handleClickDriver(driver.Driver.driverId)}
+                                                >
+                                                    <span>
+                                                        <Flag country={getCodeByNationality(countryList, driver.Driver.nationality)} />
+                                                        {driver.Driver.familyName}
+                                                    </span>
+                                                </td>
+                                                <td
+                                                    style={{ cursor: "pointer" }}
+                                                    onClick={() => handleClickTeam(driver.Constructor.constructorId)}>
                                                     {driver.Constructor.name}</td>
                                                 <td>{fastestTime}</td>
                                             </tr>
@@ -124,7 +130,7 @@ export default function RaceDetails({ countryList, selectedYear }) {
                                         <th colspan={5}>Race Results</th>
                                     </tr>
                                     <tr>
-                                        <th>Position</th>
+                                        <th>Pos</th>
                                         <th>Driver</th>
                                         <th>Team</th>
                                         <th>Results</th>
@@ -136,10 +142,18 @@ export default function RaceDetails({ countryList, selectedYear }) {
                                         return (
                                             <tr key={lap.position}>
                                                 <td>{lap.position}</td>
-                                                <td onClick={() => handleClickDriver(lap.Driver.driverId)}>
-                                                    <Flag country={getCodeByNationality(countryList, lap.Driver.nationality)} />
-                                                    {lap.Driver.familyName}</td>
-                                                <td onClick={() => handleClickTeam(lap.Constructor.constructorId)}>
+                                                <td width="40%"
+                                                    style={{ cursor: "pointer" }}
+                                                    onClick={() => handleClickDriver(lap.Driver.driverId)}>
+                                                    <span>
+                                                        <Flag country={getCodeByNationality(countryList, lap.Driver.nationality)} />
+                                                        {lap.Driver.familyName}
+                                                    </span>
+                                                </td>
+
+                                                <td
+                                                    style={{ cursor: "pointer" }}
+                                                    onClick={() => handleClickTeam(lap.Constructor.constructorId)}>
                                                     {lap.Constructor.name}</td>
                                                 <td>{lap.Time ? lap.Time.time : lap.status}</td>
                                                 <td>{lap.points}</td>
