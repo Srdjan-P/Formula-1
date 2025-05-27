@@ -1,3 +1,4 @@
+import { Link } from "@mui/material";
 import Footer from "./Footer";
 
 export default function Home() {
@@ -37,7 +38,35 @@ export default function Home() {
 
                     <div className="video-monaco">
 
-                        <video src="../img/video/formulaVideo2.mp4" controls width="700" autoplay muted></video>
+                        <div><p>Most Stunning Race Tracks</p></div>
+
+                        <div className="kartice">
+
+                            <div className="kartica1">
+                                <img src="../img/circuitDeMonaco.jpg" alt="monaco track" srcset="" />
+                                {/* <Link target="_blank" top={"https://www.monacograndprixticket.com/formula1monaco/the-circuit-of-monaco"}></Link> */}
+                                {/* <a href="https://www.monacograndprixticket.com/formula1monaco/the-circuit-of-monaco"></a> */}
+                            </div>
+
+                            <div className="kartica2">
+                                <img src="../img/circuitDeSilverstone.jpg" alt="monaco track" srcset="" />
+                            </div>
+
+                            <div className="kartica3">
+                                <img src="../img/circuitDeHungaroring.jpg" alt="monaco track" srcset="" />
+                            </div>
+
+                            <div className="kartica4">
+                                <img src="../img/circuitDeSuzuka.jpg" alt="monaco track" srcset="" />
+                            </div>
+
+                            <div className="kartica5">
+                                <img src="../img/circuitDeVilleneuve.jpg" alt="monaco track" srcset="" />
+                            </div>
+
+                        </div>
+
+                        {/* <video src="../img/video/formulaVideo2.mp4" controls width="700" autoplay muted></video> */}
 
                     </div>
                 </div>
