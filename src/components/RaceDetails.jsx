@@ -82,7 +82,7 @@ export default function RaceDetails({ countryList, selectedYear }) {
                                         <th colspan={4}>Qualifying Results</th>
                                     </tr>
                                     <tr>
-                                        <th>Position</th>
+                                        <th>Pos</th>
 
                                         <th>Driver</th>
 
@@ -130,7 +130,7 @@ export default function RaceDetails({ countryList, selectedYear }) {
                                         <th colspan={5}>Race Results</th>
                                     </tr>
                                     <tr>
-                                        <th>Position</th>
+                                        <th>Pos</th>
                                         <th>Driver</th>
                                         <th>Team</th>
                                         <th>Results</th>
