@@ -41,7 +41,8 @@ export default function Drivers({ countryList, selectedYear, searchInput }) {
     } else {
       return (
         item.Driver.givenName.toLowerCase().includes(searchInput) ||
-        item.Driver.familyName.toLowerCase().includes(searchInput)
+        item.Driver.familyName.toLowerCase().includes(searchInput) ||
+        item.Constructors[0].name.toLowerCase().includes(searchInput)
       )
     }
   })

@@ -5,7 +5,7 @@ import Flag from "react-flagkit";
 import { getCodeByCountryName, getCodeByNationality } from "../FlagCodes";
 import Loader from "./Loader";
 
-export default function Races({ countryList, selectedYear }) {
+export default function Races({ countryList, selectedYear, searchInput }) {
     const [races, setRaces] = useState([]);
     const [isLoading, setIsLoading] = useState(true)
     const navigate = useNavigate();
@@ -27,9 +27,18 @@ export default function Races({ countryList, selectedYear }) {
         navigate(linkTo)
 
     }
-    // console.log("countryList", countryList);
-    console.log("races", races);
 
+    const filteredData = races.filter((item) => {
+        if (searchInput === "") {
+            return item;
+        } else {
+            return (
+                item.raceName.toLowerCase().includes(searchInput) ||
+                item.Circuit.circuitName.toLowerCase().includes(searchInput) ||
+                item.Results[0].Driver.familyName.toLowerCase().includes(searchInput)
+            )
+        }
+    })
 
 
     return (
@@ -55,7 +64,7 @@ export default function Races({ countryList, selectedYear }) {
                     </thead>
                     <tbody>
 
-                        {races.map((race) => {
+                        {filteredData.map((race) => {
                             return (
                                 <>
                                     <tr key={race.round}>

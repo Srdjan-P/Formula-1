@@ -7,7 +7,7 @@ import LaunchIcon from '@mui/icons-material/Launch';
 import Flag from "react-flagkit";
 import { getCodeByNationality } from "../FlagCodes";
 
-export default function Teams({ selectedYear, countryList }) {
+export default function Teams({ selectedYear, countryList, searchInput }) {
     const [teams, setTeams] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const navigate = useNavigate();
@@ -20,6 +20,7 @@ export default function Teams({ selectedYear, countryList }) {
         const url = `http://ergast.com/api/f1/${selectedYear}/constructorStandings.json`;
         const response = await axios.get(url);
 
+        console.log("team data", response.data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings);
         setTeams(response.data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings);
         setIsLoading(false);
     };
@@ -29,6 +30,16 @@ export default function Teams({ selectedYear, countryList }) {
         navigate(linkTo);
     };
 
+    const filteredData = teams.filter((team) => {
+        console.log("inside filtere data function", searchInput);
+        if (!searchInput) {
+            return team;
+        } else {
+            return (
+                team.Constructor.name.toLowerCase().includes(searchInput.toLowerCase())
+            )
+        }
+    })
 
     return (
         <div className="teams-container">
@@ -45,9 +56,9 @@ export default function Teams({ selectedYear, countryList }) {
                             </tr>
                         </thead>
                         <tbody>
-                            {teams.map((team) => {
+                            {filteredData.map((team) => {
                                 return (
-                                    <tr key={team.position}>
+                                    <tr key={team.Constructor.constructorId}>
                                         <td>{team.position}</td>
                                         <td
                                             onClick={() => {

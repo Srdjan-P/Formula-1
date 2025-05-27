@@ -7,7 +7,7 @@ import LaunchIcon from '@mui/icons-material/Launch';
 import { getCodeByCountryName, getCodeByNationality } from "../FlagCodes";
 import Flag from "react-flagkit";
 
-export default function DriverDetails({ countryList, selectedYear }) {
+export default function DriverDetails({ countryList, selectedYear, searchInput }) {
     const { driverId } = useParams();
     const [driverDetails, setDriverDetails] = useState({});
     const [isLoading, setIsLoading] = useState(true);
@@ -40,6 +40,17 @@ export default function DriverDetails({ countryList, selectedYear }) {
         navigate(linkTo)
     };
 
+    const filteredData = driverRaces.filter((item) => {
+        if (searchInput === "") {
+            return item;
+        } else {
+            return (
+                item.raceName.toLowerCase().includes(searchInput) ||
+                item.Results[0].Constructor.name.toLowerCase().includes(searchInput)
+            )
+        }
+    })
+
     return (
         <>
             {isLoading ? (
@@ -63,9 +74,12 @@ export default function DriverDetails({ countryList, selectedYear }) {
 
                             <div className="driver-name">
                                 <h2>
-                                    {/* odavde krece ime i zastavica - takodje, leva strana */}
-                                    <Flag className="country-flags" country={getCodeByNationality(countryList, driverDetails.Driver.nationality)} />
-                                    {driverDetails.Driver.givenName} {driverDetails.Driver.familyName}
+                                    <span>
+
+                                        {/* odavde krece ime i zastavica - takodje, leva strana */}
+                                        <Flag className="country-flags" country={getCodeByNationality(countryList, driverDetails.Driver.nationality)} />
+                                        {driverDetails.Driver.givenName} {driverDetails.Driver.familyName}
+                                    </span>
                                 </h2>
                             </div>
                         </div>
@@ -95,7 +109,7 @@ export default function DriverDetails({ countryList, selectedYear }) {
                                 </tr>
                             </thead>
                             <tbody>
-                                {driverRaces.map((driverRace) => {
+                                {filteredData.map((driverRace) => {
                                     return (
                                         <tr key={driverRace.round}>
                                             <td>{driverRace.round}</td>
