@@ -2,7 +2,8 @@
 
 .team-details {
     display: flex;
-    margin: 20px;
+    margin-top: 0px;
+
 
     .team-card {
         border-radius: 20px 0 0px 20px;
@@ -13,8 +14,8 @@
         color: rgb(241, 232, 232);
         font-size: 18px;
         font-weight: bold;
-        margin-top: 5px;
-        margin-left: 5px;
+        margin-top: 30px;
+        margin-left: 10px;
         padding: 20px;
         background-color: #8f8080;
         justify-content: space-between;
@@ -25,7 +26,8 @@
 
         .team-avatar {
             text-align: center;
-            padding-top: 20px;
+            padding-top: 30px;
+            padding-bottom: 20px;
 
         }
 
@@ -34,6 +36,7 @@
             height: 80px;
             box-shadow: 5px 5px 5px 5px burlywood;
             margin-right: 100px;
+            padding: 10px;
         }
 
         .h2 {
@@ -43,11 +46,12 @@
 
         .flag {
             width: 100px;
-            height: 50px;
+            height: 80px;
             margin-left: 100px;
             margin-bottom: 10px;
             padding-left: 30px;
             padding-top: 10px;
+            padding-bottom: 20px;
 
         }
     }
@@ -63,12 +67,9 @@
     .team-details-table {
         display: flex;
         justify-content: center;
-        padding: 30px;
-
 
         table {
             @include variable.table;
-
             border-collapse: collapse;
             border: 5px solid white;
             align-items: center;
@@ -80,20 +81,7 @@
                 }
             }
 
-            tr:first-child {
-                // background-color: rgb(246, 217, 52);
-                box-shadow: 0 0 70px 0 rgb(246, 217, 52) inset;
-            }
 
-            tr:nth-child(2) {
-                // background-color: rgb(192, 192, 192, 0.7);
-                box-shadow: 0 0 70px 0 rgb(192, 192, 192, 0.7) inset;
-            }
-
-            tr:nth-child(3) {
-                // background-color: rgba(206, 138, 70, 0.6);
-                box-shadow: 0 0 70px 0 rgba(206, 138, 70, 0.6) inset;
-            }
 
             td {
                 @include variable.td;

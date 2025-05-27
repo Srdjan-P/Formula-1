@@ -46,7 +46,6 @@ export default function Teams({ selectedYear, countryList }) {
                         </thead>
                         <tbody>
                             {teams.map((team) => {
-                                console.log("team", team);
                                 return (
                                     <tr key={team.position}>
                                         <td>{team.position}</td>
@@ -71,7 +70,7 @@ export default function Teams({ selectedYear, countryList }) {
                                                 Details <LaunchIcon fontSize="small" />
                                             </Link>
                                         </td>
-                                        <td>{team.points}</td>
+                                        <td style={{ textAlign: "center" }}>{team.points}</td>
                                     </tr>
                                 );
                             })}

@@ -53,6 +53,7 @@
         background-color: #fff;
         font-size: 15px;
         font-weight: 600;
+        opacity: 0.8;
 
         .flag {
             margin-right: 10px;
@@ -85,6 +86,34 @@
 
         tr:nth-child(3) {
             background-color: rgba(206, 138, 70, 0.6);
+        }
+
+        tr:nth-child(4) {
+            background-color: rgba(50, 243, 92, 0.6);
+        }
+
+        tr:nth-child(5) {
+            background-color: rgba(224, 33, 33, 0.6);
+        }
+
+        tr:nth-child(6) {
+            background-color: rgba(69, 83, 218, 0.6);
+        }
+
+        tr:nth-child(7) {
+            background-color: rgba(5, 116, 38, 0.6);
+        }
+
+        tr:nth-child(8) {
+            background-color: rgba(245, 143, 117, 0.6);
+        }
+
+        tr:nth-child(9) {
+            background-color: rgba(46, 148, 243, 0.6);
+        }
+
+        tr:nth-child(10) {
+            background-color: rgba(71, 2, 2, 0.6);
         }
 
         td {
