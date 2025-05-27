@@ -90,9 +90,9 @@ export default function RaceDetails({ countryList, selectedYear, searchInput }) 
                                 <li> <Link target="_blank" to={qualifying.url}>
                                     Full Report: <LaunchIcon fontSize="small" />
                                 </Link></li>
-                                <img src="/img/australiaCarbon.png" className="staza" />
-                                <img src="/img/formulaCar.png" alt="" srcset="" className="bolid" />
                             </ul>
+                            <img src="/img/australiaCarbon.png" className="staza" />
+                            <img src="/img/formulaCar.png" alt="" srcset="" className="bolid" />
                         </div>
                     </div>
                     <div className="race-tables">
@@ -105,9 +105,7 @@ export default function RaceDetails({ countryList, selectedYear, searchInput }) 
                                     </tr>
                                     <tr>
                                         <th>Pos</th>
-
                                         <th>Driver</th>
-
                                         <th>Team</th>
                                         <th>Best Time</th>
                                     </tr>
