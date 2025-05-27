@@ -85,7 +85,7 @@ export default function DriverDetails({ countryList, selectedYear, searchInput }
                         </div>
                         {/* Drzava, Rodjendan itd - leva strana */}
                         <div className="driver-info">
-                            <p>Country: {driverDetails.Driver.nationality}</p>
+                            <p>Nationality: {driverDetails.Driver.nationality}</p>
                             <p>Team: {driverDetails.Constructors[0].name}</p>
                             <p>Birth: {driverDetails.Driver.dateOfBirth}</p>
                             <p className="biography"><Link to={driverDetails.Driver.url} target="_blank">Biography<LaunchIcon fontSize="small" sx={{ fontSize: 16 }} /></Link></p>
