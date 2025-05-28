@@ -1,10 +1,11 @@
 // tamna pozadina
 @media (min-width: 768px) {
     .dark-theme {
-        background-color: rgb(56, 56, 63);
+        background-color: rgb(25, 25, 27);
         color: rgb(17, 17, 17);
         min-height: 100vh;
         padding: 20px;
+
     }
 
     // Header
@@ -13,11 +14,6 @@
         display: flex;
         flex-direction: column;
         min-height: 100vh;
-
-        // .flag {
-        //     height: 100px;
-        //     max-width: fit-content;
-        // }
 
         .welcome {
             font-size: 30px;
@@ -70,23 +66,13 @@
 
 .carousel-container {
     display: flex;
-    overflow-x: hidden;
-    /* da nema horizontalni scroll */
+    overflow: hidden;
     scroll-snap-type: x mandatory;
-    // max-width: 100%;
-    // width: 100%;
-    width: 100vw;
-    /* sirina kontejnera */
-    gap: 3px;
-    justify-content: center;
-
+    max-width: 100vw;
 }
 
-
-
-
 .carousel-container img {
-    width: calc(100vw / 3);
+    width: calc(100vw/3);
     /* prikaz 3 slike odjednom */
     height: auto;
 }
@@ -162,35 +148,58 @@
 /* CAROUSEL KRAJ */
 
 /* VIDEO POCETAK */
+@media (min-width: 768px) {
 
-.video-monaco {
-    margin-top: 50px;
-    text-align: center;
+
+    .kartice-div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        margin-top: 50px;
+    }
+
+    .header-h3 {
+        font-size: 40px;
+        opacity: 0.9;
+    }
+
+    .kartice {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 kolone */
+        grid-template-rows: repeat(2, auto);
+        /* 2 reda */
+        gap: 5px;
+        width: 100%;
+        max-width: 100vw;
+        justify-content: center;
+    }
+
+
+    .kartica img {
+        filter: grayscale(100%);
+        transition: filter 0.5s ease-in-out;
+        width: 100%;
+        /* popuni kontejner */
+        max-width: 250px;
+        /* da ne budu prevelike slike */
+        height: auto;
+    }
+
+    .kartica img:hover {
+        filter: grayscale(0%);
+        /* vraca u original boju */
+    }
+
 }
-
-.kartice {
-    display: flex;
-    width: 100vw;
-    gap: 10px;
-    justify-content: space-around;
-
-}
-
-.kartice img {
-    width: 200px;
-    height: 200px;
-    border-radius: 20px;
-}
-
-
-
-
 
 /* KARTICE KRAJ */
 
 /* Logo - sponzori */
 .sponsors {
-    width: 100vw;
+    width: 100%;
     padding: 40px 20px;
     background-color: rgba(0, 0, 0, 0.75);
     color: white;

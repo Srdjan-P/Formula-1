@@ -29,49 +29,38 @@ export default function Home() {
                             <img src="../img/carousel1.jpg" alt="formula f" />
                             <img src="../img/carousel2.avif" alt="formula f" />
                             <img src="../img/carousel3.avif" alt="formula f" />
-                            <img src="../img/carousel4.jpg" alt="formula f" />
-                            <img src="../img/carousel5.jpg" alt="formula f" />
-                            <img src="../img/carousel6.png" alt="formula f" />
-
 
                             <img src="../img/carousel1.jpg" alt="formula f" />
                             <img src="../img/carousel2.avif" alt="formula f" />
                             <img src="../img/carousel3.avif" alt="formula f" />
-                            <img src="../img/carousel4.jpg" alt="formula f" />
-                            <img src="../img/carousel5.jpg" alt="formula f" />
-                            <img src="../img/carousel6.png" alt="formula f" />
 
                         </div>
+                        {/* <Link target="_blank" top={"https://www.monacograndprixticket.com/formula1monaco/the-circuit-of-monaco"}></Link> */}
+                        {/* <a href="https://www.monacograndprixticket.com/formula1monaco/the-circuit-of-monaco"></a> */}
 
                     </div>
 
-                    <div className="video-monaco">
+                    <div className="kartice-div">
 
                         <div><p className="header-h3">The Most Stunning Race Tracks in the World</p></div>
 
                         <div className="kartice">
 
-                            <div className="kartica1">
+                            <div className="kartica">
                                 <img src="../img/circuitDeMonaco.jpg" alt="monaco track" srcset="" />
-                                {/* <Link target="_blank" top={"https://www.monacograndprixticket.com/formula1monaco/the-circuit-of-monaco"}></Link> */}
-                                {/* <a href="https://www.monacograndprixticket.com/formula1monaco/the-circuit-of-monaco"></a> */}
                             </div>
 
-                            <div className="kartica2">
+                            <div className="kartica">
                                 <img src="../img/circuitDeSilverstone.jpg" alt="monaco track" srcset="" />
                             </div>
 
-                            <div className="kartica3">
+                            <div className="kartica">
                                 <img src="../img/circuitDeHungaroring.jpg" alt="monaco track" srcset="" />
                             </div>
 
-                            <div className="kartica4">
+                            <div className="kartica">
                                 <img src="../img/circuitDeSuzuka.jpg" alt="monaco track" srcset="" />
                             </div>
-                            <div className="kartica5">
-                                <img src="../img/circuitDeVilleneuve.jpg" alt="monaco track" srcset="" />
-                            </div>
-
 
                         </div>
 
