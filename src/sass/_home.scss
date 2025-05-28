@@ -70,27 +70,39 @@
 
 .carousel-container {
     display: flex;
-    // overflow-x: auto;
-    /* horizontal skrol */
+    overflow-x: hidden;
+    /* da nema horizontalni scroll */
     scroll-snap-type: x mandatory;
-    max-width: 100%;
+    // max-width: 100%;
+    // width: 100%;
+    width: 100vw;
+    /* sirina kontejnera */
     gap: 3px;
+    justify-content: center;
+
 }
+
 
 
 
 .carousel-container img {
-    // width: 100%;
-    max-width: 30%;
-    /* za manje ekrane */
+    width: calc(100vw / 3);
+    /* prikaz 3 slike odjednom */
     height: auto;
-    opacity: 0.9;
-    border-radius: 2px;
 }
 
 
 
+
 @media (min-width: 768px) {
+
+    .carousel-container {
+        display: flex;
+        width: max-content;
+        animation: slide 25s linear infinite;
+
+    }
+
     @keyframes slide {
         from {
             transform: translateX(0);
@@ -98,19 +110,19 @@
 
         to {
             transform: translateX(-50%);
+            /* stalno pomeranje */
         }
     }
 
-    .carousel-container {
-        display: flex;
-        width: 2400px;
-        animation: slide 25s infinite linear;
-    }
+
+
+
 }
 
 
 
 @media (max-width: 768px) {
+
     .carousel-container {
         display: flex;
         flex-direction: column;
@@ -120,6 +132,7 @@
         /* razmak izmedju slika */
         width: 100%;
     }
+
 
     .carousel-container img {
         width: 90%;

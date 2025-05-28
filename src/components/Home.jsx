@@ -22,9 +22,18 @@ export default function Home() {
 
 
 
-                    <div className="home-content">
+                    <div className="carousel-wrapper">
 
-                        <div className="carousel-container">
+                        <div class="carousel-container">
+
+                            <img src="../img/carousel1.jpg" alt="formula f" />
+                            <img src="../img/carousel2.avif" alt="formula f" />
+                            <img src="../img/carousel3.avif" alt="formula f" />
+                            <img src="../img/carousel4.jpg" alt="formula f" />
+                            <img src="../img/carousel5.jpg" alt="formula f" />
+                            <img src="../img/carousel6.png" alt="formula f" />
+
+
                             <img src="../img/carousel1.jpg" alt="formula f" />
                             <img src="../img/carousel2.avif" alt="formula f" />
                             <img src="../img/carousel3.avif" alt="formula f" />
