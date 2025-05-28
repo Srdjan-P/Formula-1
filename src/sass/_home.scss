@@ -187,10 +187,12 @@
 
 /* Logo - sponzori */
 .sponsors {
+    width: 100vw;
     padding: 40px 20px;
-    background-color: rgba(0, 0, 0, 0.85);
+    background-color: rgba(0, 0, 0, 0.75);
     color: white;
     text-align: center;
+    overflow: hidden;
 }
 
 .sponsors h3 {
@@ -212,6 +214,7 @@
     width: 120px;
     height: auto;
 }
+
 
 @media (max-width: 768px) {
     .sponsor-logos img {
