@@ -63,9 +63,12 @@ export default function TeamDetails({ countryList, selectedYear, searchInput }) 
                                     className="teams-img"
                                 />
                             </div>
-                            <span>
-                                <Flag className="flag" country={getCodeByNationality(countryList, teamDetails.Constructor.nationality)} />
-                                <h2>{teamDetails.Constructor.name}</h2></span>
+                            <div className="flag-name">
+                                <span>
+                                    <Flag className="flag" country={getCodeByNationality(countryList, teamDetails.Constructor.nationality)} />
+                                    <h2>{teamDetails.Constructor.name}</h2>
+                                </span>
+                            </div>
                         </div>
                         <ul className="team-info">
                             <li>Country:{teamDetails.Constructor?.nationality}</li>
