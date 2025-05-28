@@ -139,7 +139,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
 
 .header-h3,
-.welcome {
+.welcome,
+.sponsors h3 {
     font-family: 'Orbitron', sans-serif;
     font-weight: 700;
     text-transform: uppercase;
@@ -187,15 +188,17 @@
     color: white;
     text-align: center;
     overflow: hidden;
+
+    .sponsors h3 {
+        font-size: 28px;
+        margin-bottom: 30px;
+        color: #e10600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+
 }
 
-.sponsors h3 {
-    font-size: 28px;
-    margin-bottom: 30px;
-    color: #e10600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
 
 .sponsor-logos {
     display: flex;
@@ -231,6 +234,7 @@
 }
 
 .sponsors h3 {
+    font-family: 'Orbitron', sans-serif;
     font-size: 28px;
     margin-bottom: 30px;
     color: #e10600;
