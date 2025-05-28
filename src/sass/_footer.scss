@@ -1,3 +1,5 @@
+@use "variables" as variable;
+
 footer {
     position: fixed;
     bottom: 0;
@@ -6,12 +8,13 @@ footer {
     justify-content: space-between;
     align-items: center;
 
-    background-color: rgb(56, 56, 63);
-    padding: 10px 20px;
-    border-top: 1px solid #ccc;
+    background-color: variable.$tertiaryColor;
+    padding: 5px 20px;
     z-index: 1000;
 
     .footer-left {
+        display: flex;
+        align-items: center;
         height: 30px;
         width: auto;
     }
@@ -23,21 +26,26 @@ footer {
     }
 
     .logo-footer {
-        height: 30px;
+        height: 20px;
     }
 
     .social-icons {
         display: flex;
+        align-items: center;
         gap: 10px;
-        margin-top: 10px;
         font-size: 28px;
+
+        a {
+            display: flex;
+            align-items: center;
+        }
     }
 
     .social-icons a {
         color: white;
 
         &:hover {
-            color: rgb(225, 6, 0);
+            color: variable.$primaryColor;
         }
     }
 
