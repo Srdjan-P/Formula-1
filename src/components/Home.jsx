@@ -24,7 +24,7 @@ export default function Home() {
 
                     <div className="home-content">
 
-                        <div class="carousel-container">
+                        <div className="carousel-container">
                             <img src="../img/carousel1.jpg" alt="formula f" />
                             <img src="../img/carousel2.avif" alt="formula f" />
                             <img src="../img/carousel3.avif" alt="formula f" />
