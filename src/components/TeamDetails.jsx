@@ -79,13 +79,13 @@ export default function TeamDetails({ countryList, selectedYear, searchInput }) 
                         </ul>
                     </div>
                     <div className="team-details-table">
+                        <div className="team-details-h2">
+
+                            <h2>Formula 1 {selectedYear} Results</h2>
+                        </div>
                         <table>
                             <thead>
-                                <tr>
-                                    <td colSpan={5}>
-                                        <p>Formula 1 {selectedYear} Results</p>
-                                    </td>
-                                </tr>
+
                                 <tr>
                                     <th>Round</th>
                                     <th>Grand Prix</th>
