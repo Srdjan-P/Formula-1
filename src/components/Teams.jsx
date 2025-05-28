@@ -14,6 +14,7 @@ export default function Teams({ selectedYear, countryList, searchInput }) {
 
     useEffect(() => {
         getTeams();
+        setIsLoading(true);
     }, [selectedYear]);
 
     const getTeams = async () => {

@@ -12,6 +12,7 @@ export default function Races({ countryList, selectedYear, searchInput }) {
 
     useEffect(() => {
         getRaces();
+        setIsLoading(true);
     }, [selectedYear])
 
     const getRaces = async () => {

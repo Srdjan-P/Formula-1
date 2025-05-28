@@ -12,7 +12,7 @@ export default function Drivers({ countryList, selectedYear, searchInput }) {
 
   useEffect(() => {
     getDrivers();
-    setIsLoading(true)
+    setIsLoading(true);
   }, [selectedYear]);
 
   const getDrivers = async () => {

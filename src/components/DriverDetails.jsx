@@ -16,6 +16,7 @@ export default function DriverDetails({ countryList, selectedYear, searchInput }
 
     useEffect(() => {
         getDriverDetails();
+        setIsLoading(true);
     }, [selectedYear]);
 
     const getDriverDetails = async () => {

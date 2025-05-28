@@ -17,6 +17,7 @@ export default function TeamDetails({ countryList, selectedYear, searchInput }) 
 
     useEffect(() => {
         getTeamDetails();
+        setIsLoading(true);
     }, [teamsId, selectedYear]);
 
     const getTeamDetails = async () => {

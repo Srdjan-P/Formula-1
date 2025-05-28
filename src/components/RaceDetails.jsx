@@ -17,6 +17,7 @@ export default function RaceDetails({ countryList, selectedYear, searchInput }) 
 
     useEffect(() => {
         getQualifying();
+        setIsLoading(true);
     }, [selectedYear]);
 
     const getQualifying = async () => {
