@@ -40,54 +40,58 @@ export default function Teams({ selectedYear, countryList, searchInput }) {
     })
 
     return (
-        <div className="teams-container">
-            <div className="teams">
-                {isLoading ? (
-                    <Loader />
-                ) : (
-                    <table>
-                        <thead>
-                            <tr>
-                                <th colSpan={4}>
-                                    <p>Constructor Championship Standings - {selectedYear}</p>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {filteredData.map((team) => {
-                                return (
-                                    <tr key={team.Constructor.constructorId}>
-                                        <td>{team.position}</td>
-                                        <td
-                                            onClick={() => {
-                                                handleClickDetails(team.Constructor.constructorId);
-                                            }}>
-                                            <span>
-                                                <Flag
-                                                    country={getCodeByNationality(
-                                                        countryList,
-                                                        team.Constructor.nationality
-                                                    )} />
-                                                {team.Constructor.name}
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <Link target="_blank" to={team.Constructor.url}>
-                                                Details
-                                                <LaunchIcon fontSize="small" />
-                                            </Link>
-                                        </td>
-                                        <td>{team.points}</td>
-                                    </tr>
-                                );
-                            })}
-                        </tbody>
-                    </table>
-                )}
+        <div className="teams-wrapper">
+
+            <div className="teams-container">
+                <div className="teams">
+                    {isLoading ? (
+                        <Loader />
+                    ) : (
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th colSpan={4}>
+                                        <p>Constructor Championship Standings - {selectedYear}</p>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {filteredData.map((team) => {
+                                    return (
+                                        <tr key={team.Constructor.constructorId}>
+                                            <td>{team.position}</td>
+                                            <td
+                                                onClick={() => {
+                                                    handleClickDetails(team.Constructor.constructorId);
+                                                }}>
+                                                <span>
+                                                    <Flag
+                                                        country={getCodeByNationality(
+                                                            countryList,
+                                                            team.Constructor.nationality
+                                                        )} />
+                                                    {team.Constructor.name}
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <Link target="_blank" to={team.Constructor.url}>
+                                                    Details
+                                                    <LaunchIcon fontSize="small" />
+                                                </Link>
+                                            </td>
+                                            <td>{team.points}</td>
+                                        </tr>
+                                    );
+                                })}
+                            </tbody>
+                        </table>
+                    )}
+                </div>
             </div>
             <img src="/img/formulaNissan.png" alt="Formula Nissan Bolid" className="bolid2" />
             <img src="/img/pitStop.png" alt="pit stop" className="pitStop" />
         </div>
+
     );
 }
 

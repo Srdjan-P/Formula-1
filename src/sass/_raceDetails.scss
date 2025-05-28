@@ -3,10 +3,8 @@
 .raceDetails {
     display: flex;
     justify-content: center;
-    margin: 10px;
-    padding: 10px;
+    padding: 30px;
     height: 100%;
-    margin-bottom: 80px;
     position: relative;
 
     .race-card {
@@ -74,7 +72,7 @@
             width: 600px;
             /* Adjust the size */
             position: absolute;
-            bottom: -55px;
+            bottom: -20px;
             left: 0;
             animation: drive 7s linear infinite;
         }

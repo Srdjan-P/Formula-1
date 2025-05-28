@@ -45,51 +45,56 @@ export default function App() {
 
   return (
     <Router>
-      <nav>
-        <div className="nav-top">
-          <div className="logo-container">
-            <NavLink to="/" onClick={() => setSearchInput("")}>
-              <div className="logo"></div>
-            </NavLink>
+      <div className="app-layout">
+        <nav>
+          <div className="nav-top">
+            <div className="logo-container">
+              <NavLink to="/" onClick={() => setSearchInput("")}>
+                <div className="logo"></div>
+              </NavLink>
+            </div>
+            <ul>
+              <li>
+                <NavLink to="/drivers" onClick={() => setSearchInput("")}>Drivers</NavLink>
+              </li>
+              <li>
+                <NavLink to="/races" onClick={() => setSearchInput("")}>Races</NavLink>
+              </li>
+              <li>
+                <NavLink to="/teams" onClick={() => setSearchInput("")}>Teams</NavLink>
+              </li>
+            </ul>
+            <div className="select">
+              <BasicSelect
+                array={years}
+                value={selectedYear}
+                onChange={handleYearChange}
+              />
+            </div>
           </div>
-          <ul>
-            <li>
-              <NavLink to="/drivers" onClick={() => setSearchInput("")}>Drivers</NavLink>
-            </li>
-            <li>
-              <NavLink to="/races" onClick={() => setSearchInput("")}>Races</NavLink>
-            </li>
-            <li>
-              <NavLink to="/teams" onClick={() => setSearchInput("")}>Teams</NavLink>
-            </li>
-          </ul>
-          <div className="select">
-            <BasicSelect
-              array={years}
-              value={selectedYear}
-              onChange={handleYearChange}
-            />
-          </div>
-        </div>
-      </nav>
-      <NavBottom />
-      <footer>
-        <Footer />
-      </footer>
+        </nav>
+        <NavBottom />
 
-      <Routes>
-        <Route path="/" element={<Home countryList={countryList} selectedYear={selectedYear} />} />
-        <Route path="/drivers" element={
-          <Drivers countryList={countryList} selectedYear={selectedYear} searchInput={searchInput} />} />
-        <Route path="/drivers/:driverId" element={
-          <DriverDetails countryList={countryList} selectedYear={selectedYear} searchInput={searchInput} />} />
-        <Route path="/races" element={
-          <Races countryList={countryList} selectedYear={selectedYear} searchInput={searchInput} />} />
-        <Route path="/races/:raceId" element={
-          <RaceDetails countryList={countryList} selectedYear={selectedYear} searchInput={searchInput} />} />
-        <Route path="/teams" element={<Teams countryList={countryList} selectedYear={selectedYear} searchInput={searchInput} />} />
-        <Route path="/teams/:teamsId" element={<TeamDetails countryList={countryList} selectedYear={selectedYear} searchInput={searchInput} />} />
-      </Routes >
+        <main className="content-container">
+          <Routes>
+            <Route path="/" element={<Home countryList={countryList} selectedYear={selectedYear} />} />
+            <Route path="/drivers" element={
+              <Drivers countryList={countryList} selectedYear={selectedYear} searchInput={searchInput} />} />
+            <Route path="/drivers/:driverId" element={
+              <DriverDetails countryList={countryList} selectedYear={selectedYear} searchInput={searchInput} />} />
+            <Route path="/races" element={
+              <Races countryList={countryList} selectedYear={selectedYear} searchInput={searchInput} />} />
+            <Route path="/races/:raceId" element={
+              <RaceDetails countryList={countryList} selectedYear={selectedYear} searchInput={searchInput} />} />
+            <Route path="/teams" element={<Teams countryList={countryList} selectedYear={selectedYear} searchInput={searchInput} />} />
+            <Route path="/teams/:teamsId" element={<TeamDetails countryList={countryList} selectedYear={selectedYear} searchInput={searchInput} />} />
+          </Routes >
+        </main>
+
+        <footer>
+          <Footer />
+        </footer>
+      </div>
     </Router >
   );
 }
