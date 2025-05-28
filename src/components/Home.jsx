@@ -70,6 +70,23 @@ export default function Home() {
 
                     </div>
                 </div>
+
+                <section className="sponsors">
+                    <h3>Official Sponsors</h3>
+                    <div className="sponsors-logos">
+                        <img src="../partners/Amex.png" alt="Sponsor 1" />
+                        <img src="../partners/dhl.png" alt="Sponsor 2" />
+                        <img src="../partners/Heineken-Outlined.png" alt="Sponsor 3" />
+                        <img src="../partners/lenovo.png" alt="Sponsor 4" />
+                        <img src="../partners/louis-vuitton.png" alt="Sponsor 5" />
+                        <img src="../partners/nestle.png" alt="Sponsor 6" />
+                        <img src="../partners/Paramount+.png" alt="Sponsor 7" />
+                        <img src="../partners/AWS-GLOBAL.png" alt="Sponsor 8" />
+
+                    </div>
+
+                </section>
+
             </main>
 
         </div>
