@@ -15,13 +15,30 @@
         color: rgb(241, 232, 232);
         font-size: 18px;
         font-weight: bold;
-        margin-left: 10px;
         padding: 20px;
         background-color: #8f8080;
-        justify-content: space-between;
+        justify-content: center;
         line-height: 1.5;
         opacity: 0.9;
         height: 400px;
+        min-width: 250px;
+
+        .team-bio-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            span {
+                h2 {
+                    font-size: 20px;
+                    text-align: center;
+                    color: beige;
+                    padding-bottom: 10px;
+
+                }
+            }
+        }
 
         .team-avatar {
             text-align: center;
@@ -29,27 +46,21 @@
             padding-bottom: 20px;
         }
 
+
         .teams-img {
             width: 150px;
             height: 80px;
             box-shadow: 5px 5px 5px 5px burlywood;
-            margin-right: 100px;
             padding: 10px;
         }
 
-        .h2 {
-            font-size: 18px;
-            text-align: left;
-        }
+
 
         .flag {
             width: 100px;
             height: 80px;
-            margin-left: 100px;
             margin-bottom: 10px;
-            padding-left: 30px;
-            padding-top: 10px;
-            padding-bottom: 20px;
+
 
         }
     }
@@ -80,6 +91,13 @@
                     @include variable.th;
                     font-size: 18px;
                     border-radius: 0;
+                }
+
+                td {
+                    @include variable.th;
+                    font-size: 18px;
+                    border-radius: 0;
+                    background-color: variable.$tertiaryColor
                 }
             }
 
