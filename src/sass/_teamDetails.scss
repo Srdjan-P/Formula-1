@@ -4,7 +4,7 @@
     display: flex;
     justify-content: center;
     margin-bottom: 60px;
-    padding: 30px;
+    padding: 50px;
 
     .team-card {
         border-radius: 20px 0 0px 20px;
@@ -14,13 +14,14 @@
         background-image: rgb(65, 62, 62);
         color: rgb(241, 232, 232);
         font-size: 18px;
-        font-weight: bold;
-        padding: 20px;
+        font-style: oblique;
+        font-weight: bolder;
+        padding: 15px;
         background-color: #8f8080;
         justify-content: center;
         line-height: 1.5;
         opacity: 0.9;
-        height: 400px;
+        height: fit-content;
         min-width: 250px;
 
         .team-bio-card {
@@ -29,47 +30,54 @@
             justify-content: center;
             align-items: center;
 
-            span {
-                h2 {
-                    font-size: 20px;
-                    text-align: center;
-                    color: beige;
-                    padding-bottom: 10px;
+            .flag-name {
+                display: flex;
+                flex-direction: column;
+                height: fit-content;
+                padding: 10px;
 
+            }
+
+            span {
+                width: 120px;
+
+                h2 {
+                    color: rgb(240, 217, 118);
+                    font-style: italic;
+                    font-size: 28px;
                 }
             }
         }
 
         .team-avatar {
             text-align: center;
-            padding-top: 30px;
-            padding-bottom: 20px;
-        }
+            padding-top: 5px;
 
+        }
 
         .teams-img {
             width: 150px;
-            height: 80px;
             box-shadow: 5px 5px 5px 5px burlywood;
-            padding: 10px;
+            padding: 5px;
+            border-radius: 20px 20px 20px 20px;
+
         }
 
-
-
         .flag {
-            width: 100px;
-            height: 80px;
-            margin-bottom: 10px;
-
-
+            width: 100%;
+            height: 100px;
         }
     }
 
     .team-info {
         background-image: rgb(102, 57, 57);
-        color: rgb(226, 221, 221);
-        height: 110px;
+        color: rgb(10, 9, 9);
+        padding-top: 10px;
+        height: 120px;
         box-shadow: 0px 0px 12px burlywood;
+        text-align: center;
+        border-radius: 50px 50px 50px 50px;
+
     }
 
     .team-details-table {
@@ -84,7 +92,6 @@
             @include variable.table;
             max-width: 700px;
             box-shadow: 0 0 10px 1px #fff;
-
 
             thead {
                 th {

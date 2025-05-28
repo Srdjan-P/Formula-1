@@ -43,12 +43,8 @@
             background-color: #ffffff;
             height: 100px;
             width: 100%;
-
             margin-bottom: auto;
             padding-top: 25px;
-
-
-
         }
 
         .welcome {
@@ -58,8 +54,6 @@
             font-weight: bolder;
             font-style: italic;
             color: rgb(56, 56, 63);
-
-
         }
     }
 }
@@ -76,27 +70,39 @@
 
 .carousel-container {
     display: flex;
-    // overflow-x: auto;
-    /* horizontal skrol */
+    overflow-x: hidden;
+    /* da nema horizontalni scroll */
     scroll-snap-type: x mandatory;
-    width: 100%;
+    // max-width: 100%;
+    // width: 100%;
+    width: 100vw;
+    /* sirina kontejnera */
     gap: 3px;
+    justify-content: center;
+
 }
+
 
 
 
 .carousel-container img {
-    // width: 100%;
-    max-width: 30%;
-    /* za manje ekrane */
+    width: calc(100vw / 3);
+    /* prikaz 3 slike odjednom */
     height: auto;
-    opacity: 0.9;
-    border-radius: 2px;
 }
 
 
 
+
 @media (min-width: 768px) {
+
+    .carousel-container {
+        display: flex;
+        width: max-content;
+        animation: slide 25s linear infinite;
+
+    }
+
     @keyframes slide {
         from {
             transform: translateX(0);
@@ -104,19 +110,19 @@
 
         to {
             transform: translateX(-50%);
+            /* stalno pomeranje */
         }
     }
 
-    .carousel-container {
-        display: flex;
-        width: 2400px;
-        animation: slide 25s infinite linear;
-    }
+
+
+
 }
 
 
 
 @media (max-width: 768px) {
+
     .carousel-container {
         display: flex;
         flex-direction: column;
@@ -126,6 +132,7 @@
         /* razmak izmedju slika */
         width: 100%;
     }
+
 
     .carousel-container img {
         width: 90%;
@@ -139,7 +146,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
 
 .header-h3,
-.welcome {
+.welcome,
+.sponsors h3 {
     font-family: 'Orbitron', sans-serif;
     font-weight: 700;
     text-transform: uppercase;
@@ -162,14 +170,15 @@
 
 .kartice {
     display: flex;
+    width: 100vw;
     gap: 10px;
     justify-content: space-around;
 
 }
 
 .kartice img {
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
     border-radius: 20px;
 }
 
@@ -187,15 +196,17 @@
     color: white;
     text-align: center;
     overflow: hidden;
+
+    .sponsors h3 {
+        font-size: 28px;
+        margin-bottom: 30px;
+        color: #e10600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+
 }
 
-.sponsors h3 {
-    font-size: 28px;
-    margin-bottom: 30px;
-    color: #e10600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
 
 .sponsor-logos {
     display: flex;
@@ -231,6 +242,7 @@
 }
 
 .sponsors h3 {
+    font-family: 'Orbitron', sans-serif;
     font-size: 28px;
     margin-bottom: 30px;
     color: #e10600;
