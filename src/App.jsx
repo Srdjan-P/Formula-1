@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, NavLink, useLocation } from "react-router";
+import { BrowserRouter as Router, Routes, Route, NavLink } from "react-router";
 import Drivers from "./components/Drivers";
 import Races from "./components/Races";
 import Teams from "./components/Teams";
@@ -9,9 +9,6 @@ import TeamDetails from "./components/TeamDetails";
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
-import BasicSelect from "./components/BasicSelect";
-import Breadcrumbs from "./components/Breadcrumbs";
-import Search from "./components/Search";
 import Footer from "./components/Footer";
 import NavBottom from "./components/NavBottom";
 
@@ -21,7 +18,6 @@ export default function App() {
   const [selectedYear, setSelectedYear] = useState(currentYear - 1);
   const years = Array.from({ length: 50 }, (_, i) => currentYear - 1 - i);
   const [searchInput, setSearchInput] = useState("")
-
 
   useEffect(() => {
     getCountryList();
@@ -38,11 +34,6 @@ export default function App() {
     setSelectedYear(event.target.value);
   };
 
-  const handleSearchInput = (event) => {
-    setSearchInput(event.target.value)
-  }
-
-
   return (
     <Router>
       <div className="app-layout">
@@ -53,27 +44,24 @@ export default function App() {
                 <div className="logo"></div>
               </NavLink>
             </div>
-            <ul>
-              <li>
-                <NavLink to="/drivers" onClick={() => setSearchInput("")}>Drivers</NavLink>
-              </li>
-              <li>
-                <NavLink to="/races" onClick={() => setSearchInput("")}>Races</NavLink>
-              </li>
-              <li>
-                <NavLink to="/teams" onClick={() => setSearchInput("")}>Teams</NavLink>
-              </li>
-            </ul>
-            <div className="select">
-              <BasicSelect
-                array={years}
-                value={selectedYear}
-                onChange={handleYearChange}
-              />
+
+            <div className="nav-links">
+              <ul>
+                <li>
+                  <NavLink to="/drivers" onClick={() => setSearchInput("")}>Drivers</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/races" onClick={() => setSearchInput("")}>Races</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/teams" onClick={() => setSearchInput("")}>Teams</NavLink>
+                </li>
+              </ul>
             </div>
+
           </div>
         </nav>
-        <NavBottom />
+        <NavBottom years={years} handleYearChange={handleYearChange} selectedYear={selectedYear} />
 
         <main className="content-container">
           <Routes>

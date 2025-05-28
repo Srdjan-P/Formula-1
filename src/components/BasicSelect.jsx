@@ -13,6 +13,9 @@ export default function BasicSelect({ array, value, onChange }) {
           sx={{
             color: "Text.secondary",
             fontWeight: "600",
+            "&.Mui-focused": {
+              color: "red"
+            }
           }}
         >
           {"Years"}
@@ -32,6 +35,13 @@ export default function BasicSelect({ array, value, onChange }) {
             "&:hover .MuiOutlinedInput-notchedOutline": {
               borderColor: "black",
             },
+            "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+              borderColor: "red",
+              borderWidth: "1px"
+            },
+            "& .MuiSvgIcon-root": {
+              color: "red"
+            }
           }}
           MenuProps={{
             PaperProps: {
