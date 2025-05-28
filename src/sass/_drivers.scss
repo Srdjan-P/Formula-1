@@ -42,10 +42,41 @@
       }
     }
 
+    .align-left {
+      text-align: left;
+      padding-left: 10px;
+    }
+
     tr:nth-child(n + 4) {
       &:hover {
         background-color: #ffeeee;
       }
+    }
+  }
+}
+
+@media (max-width: 770px) {
+  .drivers {
+    padding: 0;
+
+    table {
+
+      thead {
+
+        th {
+          font-size: 17px;
+          border-radius: 0;
+        }
+      }
+
+      td {
+        padding: 10px 8px;
+
+        span {
+          justify-content: center;
+        }
+      }
+
     }
   }
 }

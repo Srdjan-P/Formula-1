@@ -3,7 +3,7 @@ $secondaryColor: rgb(185, 33, 33);
 $tertiaryColor: rgba(21, 21, 30, 255);
 
 @mixin table {
-  width: 96vw;
+  width: 100%;
   max-width: 800px;
   box-shadow: 0 0 20px 5px #ddd;
   border-radius: 20px 20px 0 0;
@@ -26,7 +26,7 @@ $tertiaryColor: rgba(21, 21, 30, 255);
     -5px 0 10px -5px #fff, // left shadow
     0 5px 10px -5px #fff; // bottom shadow
   text-align: left;
-  padding: 10px;
+  padding: 12px 8px;
   height: 30px;
   background-color: $secondaryColor;
   color: #fff;
@@ -43,4 +43,8 @@ $tertiaryColor: rgba(21, 21, 30, 255);
     box-shadow: 0 0 5px 0 black;
     transition: 0.1s ease-in-out;
   }
+}
+
+.cursor {
+  cursor: pointer;
 }

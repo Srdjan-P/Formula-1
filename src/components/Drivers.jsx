@@ -80,7 +80,7 @@ export default function Drivers({ countryList, selectedYear, searchInput }) {
                     </span>
                   </td>
                   <td width="40%">
-                    <span
+                    <span className="cursor align-left"
                       onClick={() =>
                         handleClickTeams(driver.Constructors[0].constructorId)
                       }

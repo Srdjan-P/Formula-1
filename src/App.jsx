@@ -11,6 +11,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import Footer from "./components/Footer";
 import NavBottom from "./components/NavBottom";
+import Search from "./components/Search";
 
 export default function App() {
   const [countryList, setCountryList] = useState([]);
@@ -18,6 +19,7 @@ export default function App() {
   const [selectedYear, setSelectedYear] = useState(currentYear - 1);
   const years = Array.from({ length: 50 }, (_, i) => currentYear - 1 - i);
   const [searchInput, setSearchInput] = useState("")
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   useEffect(() => {
     getCountryList();
@@ -34,34 +36,51 @@ export default function App() {
     setSelectedYear(event.target.value);
   };
 
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen)
+  }
+
+  const handleSearchInput = (event) => {
+    setSearchInput(event.target.value)
+  }
+
   return (
     <Router>
       <div className="app-layout">
         <nav>
           <div className="nav-top">
             <div className="logo-container">
-              <NavLink to="/" onClick={() => setSearchInput("")}>
+              <NavLink to="/" onClick={() => {
+                setSearchInput("");
+                setIsMenuOpen(false);
+              }}>
                 <div className="logo"></div>
               </NavLink>
             </div>
 
-            <div className="nav-links">
+            <button className="menu-button" onClick={toggleMenu}>
+              ☰
+            </button>
+
+            <div className={`nav-links ${isMenuOpen ? 'open' : ''}`}>
               <ul>
                 <li>
-                  <NavLink to="/drivers" onClick={() => setSearchInput("")}>Drivers</NavLink>
+                  <NavLink to="/drivers" onClick={() => { setSearchInput(""); setIsMenuOpen(false) }}>Drivers</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/races" onClick={() => setSearchInput("")}>Races</NavLink>
+                  <NavLink to="/races" onClick={() => { setSearchInput(""); setIsMenuOpen(false) }}>Races</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/teams" onClick={() => setSearchInput("")}>Teams</NavLink>
+                  <NavLink to="/teams" onClick={() => { setSearchInput(""); setIsMenuOpen(false) }}>Teams</NavLink>
                 </li>
               </ul>
             </div>
 
           </div>
         </nav>
-        <NavBottom years={years} handleYearChange={handleYearChange} selectedYear={selectedYear} />
+        <NavBottom years={years} handleYearChange={handleYearChange} selectedYear={selectedYear}>
+          <Search value={searchInput} onChange={handleSearchInput} />
+        </NavBottom>
 
         <main className="content-container">
           <Routes>
