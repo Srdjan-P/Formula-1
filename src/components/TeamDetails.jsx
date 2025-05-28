@@ -63,11 +63,9 @@ export default function TeamDetails({ countryList, selectedYear, searchInput }) 
                                     className="teams-img"
                                 />
                             </div>
-                            <div>
-                                <h2>
-                                    <Flag className="flag" country={getCodeByNationality(countryList, teamDetails.Constructor.nationality)} />
-                                    {teamDetails.Constructor.name}</h2>
-                            </div>
+                            <span>
+                                <Flag className="flag" country={getCodeByNationality(countryList, teamDetails.Constructor.nationality)} />
+                                <h2>{teamDetails.Constructor.name}</h2></span>
                         </div>
                         <ul className="team-info">
                             <li>Country:{teamDetails.Constructor?.nationality}</li>
@@ -80,9 +78,9 @@ export default function TeamDetails({ countryList, selectedYear, searchInput }) 
                         <table>
                             <thead>
                                 <tr>
-                                    <th colSpan={5}>
+                                    <td colSpan={5}>
                                         <p>Formula 1 {selectedYear} Results</p>
-                                    </th>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th>Round</th>
