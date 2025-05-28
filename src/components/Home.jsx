@@ -5,16 +5,8 @@ export default function Home() {
     return (
         <div className="homepage-container">
 
-            <header>
-                <div className="header-container">
-                    {/* <img className="flag" src="../img/ChecheredFlag.avif" alt="" srcset="" /> */}
-
-                    <div className="welcome-container">
-                        <h2 className="welcome">Experience the adrenaline of the F1 universe</h2>
-
-                    </div>
-
-                </div>
+            <header className="welcome-container">
+                <h2 className="welcome">Experience the adrenaline of the F1 universe</h2>
             </header>
 
             <main>
