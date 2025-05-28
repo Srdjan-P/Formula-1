@@ -91,13 +91,11 @@ export default function DriverDetails({ countryList, selectedYear, searchInput }
                     </div>
                     {/* Tabela - desna strana */}
                     <div className="driver-details">
+                        <h2>
+                            Formula 1 {selectedYear} Results
+                        </h2>
                         <table className="driver-details-table">
                             <thead>
-                                <tr>
-                                    <th colSpan={5}>
-                                        <p>Formula 1 {selectedYear} Results</p>
-                                    </th>
-                                </tr>
                                 <tr>
                                     <th>Round</th>
                                     <th>Grand Prix</th>
@@ -112,16 +110,14 @@ export default function DriverDetails({ countryList, selectedYear, searchInput }
                                         <tr key={driverRace.round}>
                                             <td>{driverRace.round}</td>
                                             <td width="45%"
-                                                onClick={() => { handleRaces(driverRace.round) }}
-                                                style={{ cursor: 'pointer' }}>
+                                                onClick={() => { handleRaces(driverRace.round) }}>
                                                 <span>
                                                     <Flag country={getCodeByCountryName(countryList, driverRace.Circuit.Location.country)} />
                                                     {driverRace.raceName}
                                                 </span>
                                             </td>
                                             <td width="30%"
-                                                onClick={() => { handleTeams(driverRace.Results[0].Constructor.constructorId) }}
-                                                style={{ cursor: 'pointer' }}>
+                                                onClick={() => { handleTeams(driverRace.Results[0].Constructor.constructorId) }}>
                                                 <span>
                                                     {driverRace.Results[0].Constructor.name}
                                                 </span>

@@ -62,7 +62,7 @@ export default function Drivers({ countryList, selectedYear, searchInput }) {
             {filteredData.map((driver) => {
               return (
                 <tr key={driver.Driver.driverId}>
-                  <td style={{ textAlign: "center" }}>{driver.position}</td>
+                  <td>{driver.position}</td>
                   <td
                     width="40%"
                     onClick={() => {
@@ -88,7 +88,7 @@ export default function Drivers({ countryList, selectedYear, searchInput }) {
                       {driver.Constructors[0].name}
                     </span>
                   </td>
-                  <td style={{ textAlign: "center" }}>{driver.points}</td>
+                  <td>{driver.points}</td>
                 </tr>
               );
             })}

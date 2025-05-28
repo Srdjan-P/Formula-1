@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, NavLink } from "react-router";
+import { BrowserRouter as Router, Routes, Route, NavLink, useLocation } from "react-router";
 import Drivers from "./components/Drivers";
 import Races from "./components/Races";
 import Teams from "./components/Teams";
@@ -13,6 +13,7 @@ import BasicSelect from "./components/BasicSelect";
 import Breadcrumbs from "./components/Breadcrumbs";
 import Search from "./components/Search";
 import Footer from "./components/Footer";
+import NavBottom from "./components/NavBottom";
 
 export default function App() {
   const [countryList, setCountryList] = useState([]);
@@ -20,6 +21,7 @@ export default function App() {
   const [selectedYear, setSelectedYear] = useState(currentYear - 1);
   const years = Array.from({ length: 50 }, (_, i) => currentYear - 1 - i);
   const [searchInput, setSearchInput] = useState("")
+
 
   useEffect(() => {
     getCountryList();
@@ -40,62 +42,54 @@ export default function App() {
     setSearchInput(event.target.value)
   }
 
+
   return (
-    <>
-      <Router>
+    <Router>
+      <nav>
         <div className="nav-top">
-          <div className="bread-crumbs-container">
-            <Breadcrumbs />
+          <div className="logo-container">
+            <NavLink to="/" onClick={() => setSearchInput("")}>
+              <div className="logo"></div>
+            </NavLink>
           </div>
-          <div className="search">
-            <Search value={searchInput} onChange={handleSearchInput} />
+          <ul>
+            <li>
+              <NavLink to="/drivers" onClick={() => setSearchInput("")}>Drivers</NavLink>
+            </li>
+            <li>
+              <NavLink to="/races" onClick={() => setSearchInput("")}>Races</NavLink>
+            </li>
+            <li>
+              <NavLink to="/teams" onClick={() => setSearchInput("")}>Teams</NavLink>
+            </li>
+          </ul>
+          <div className="select">
+            <BasicSelect
+              array={years}
+              value={selectedYear}
+              onChange={handleYearChange}
+            />
           </div>
         </div>
-        <nav>
-          <div className="nav-bottom">
-            <div className="logo-container">
-              <NavLink to="/" onClick={() => setSearchInput("")}>
-                <div className="logo"></div>
-              </NavLink>
-            </div>
-            <ul>
-              <li>
-                <NavLink to="/drivers" onClick={() => setSearchInput("")}>Drivers</NavLink>
-              </li>
-              <li>
-                <NavLink to="/races" onClick={() => setSearchInput("")}>Races</NavLink>
-              </li>
-              <li>
-                <NavLink to="/teams" onClick={() => setSearchInput("")}>Teams</NavLink>
-              </li>
-            </ul>
-            <div className="select">
-              <BasicSelect
-                array={years}
-                value={selectedYear}
-                onChange={handleYearChange}
-              />
-            </div>
-          </div>
-        </nav>
-        <footer>
-          <Footer />
-        </footer>
+      </nav>
+      <NavBottom />
+      <footer>
+        <Footer />
+      </footer>
 
-        <Routes>
-          <Route path="/" element={<Home countryList={countryList} selectedYear={selectedYear} />} />
-          <Route path="/drivers" element={
-            <Drivers countryList={countryList} selectedYear={selectedYear} searchInput={searchInput} />} />
-          <Route path="/drivers/:driverId" element={
-            <DriverDetails countryList={countryList} selectedYear={selectedYear} searchInput={searchInput} />} />
-          <Route path="/races" element={
-            <Races countryList={countryList} selectedYear={selectedYear} searchInput={searchInput} />} />
-          <Route path="/races/:raceId" element={
-            <RaceDetails countryList={countryList} selectedYear={selectedYear} searchInput={searchInput} />} />
-          <Route path="/teams" element={<Teams countryList={countryList} selectedYear={selectedYear} searchInput={searchInput} />} />
-          <Route path="/teams/:teamsId" element={<TeamDetails countryList={countryList} selectedYear={selectedYear} searchInput={searchInput} />} />
-        </Routes >
-      </Router >
-    </>
+      <Routes>
+        <Route path="/" element={<Home countryList={countryList} selectedYear={selectedYear} />} />
+        <Route path="/drivers" element={
+          <Drivers countryList={countryList} selectedYear={selectedYear} searchInput={searchInput} />} />
+        <Route path="/drivers/:driverId" element={
+          <DriverDetails countryList={countryList} selectedYear={selectedYear} searchInput={searchInput} />} />
+        <Route path="/races" element={
+          <Races countryList={countryList} selectedYear={selectedYear} searchInput={searchInput} />} />
+        <Route path="/races/:raceId" element={
+          <RaceDetails countryList={countryList} selectedYear={selectedYear} searchInput={searchInput} />} />
+        <Route path="/teams" element={<Teams countryList={countryList} selectedYear={selectedYear} searchInput={searchInput} />} />
+        <Route path="/teams/:teamsId" element={<TeamDetails countryList={countryList} selectedYear={selectedYear} searchInput={searchInput} />} />
+      </Routes >
+    </Router >
   );
 }

@@ -16,7 +16,7 @@ export default function Home() {
 
                     <div className="carousel-wrapper">
 
-                        <div class="carousel-container">
+                        <div className="carousel-container">
 
                             <img src="../img/carousel1.jpg" alt="formula f" />
                             <img src="../img/carousel2.avif" alt="formula f" />
@@ -39,19 +39,19 @@ export default function Home() {
                         <div className="kartice">
 
                             <div className="kartica">
-                                <img src="../img/circuitDeMonaco.jpg" alt="monaco track" srcset="" />
+                                <img src="../img/circuitDeMonaco.jpg" alt="monaco track" />
                             </div>
 
                             <div className="kartica">
-                                <img src="../img/circuitDeSilverstone.jpg" alt="monaco track" srcset="" />
+                                <img src="../img/circuitDeSilverstone.jpg" alt="monaco track" />
                             </div>
 
                             <div className="kartica">
-                                <img src="../img/circuitDeHungaroring.jpg" alt="monaco track" srcset="" />
+                                <img src="../img/circuitDeHungaroring.jpg" alt="monaco track" />
                             </div>
 
                             <div className="kartica">
-                                <img src="../img/circuitDeSuzuka.jpg" alt="monaco track" srcset="" />
+                                <img src="../img/circuitDeSuzuka.jpg" alt="monaco track" />
                             </div>
 
                         </div>

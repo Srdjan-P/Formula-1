@@ -80,12 +80,10 @@ export default function TeamDetails({ countryList, selectedYear, searchInput }) 
                     </div>
                     <div className="team-details-table">
                         <div className="team-details-h2">
-
                             <h2>Formula 1 {selectedYear} Results</h2>
                         </div>
                         <table>
                             <thead>
-
                                 <tr>
                                     <th>Round</th>
                                     <th>Grand Prix</th>
@@ -96,7 +94,6 @@ export default function TeamDetails({ countryList, selectedYear, searchInput }) 
                             </thead>
                             <tbody>
                                 {filteredData.map((teamResult) => {
-
                                     return (
                                         <tr key={teamResult.round}>
                                             <td>{teamResult.round}</td>

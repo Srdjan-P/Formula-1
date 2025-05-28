@@ -1,6 +1,54 @@
 @use "variables" as variable;
 
-.nav-top {
+nav {
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 5%;
+  background-color: variable.$primaryColor;
+  width: 100%;
+
+  .nav-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    .logo {
+      background-image: url("../img/Logo.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 200px;
+      height: 60px;
+    }
+
+    .select {
+      margin-right: 20px;
+    }
+
+    ul {
+      margin: 0 5%;
+      display: flex;
+      width: 80%;
+
+      li {
+        padding: 0 3%;
+
+        a {
+          font-size: 22px;
+          color: #fff;
+          font-weight: 600;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+.nav-bottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -52,56 +100,4 @@
   .search {
     width: 200px;
   }
-}
-
-nav {
-  height: 60px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: 5%;
-  background-color: variable.$primaryColor;
-  width: 100%;
-
-  .nav-bottom {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-
-    .logo {
-      background-image: url("../img/Logo.png");
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-      width: 200px;
-      height: 60px;
-    }
-
-    .select {
-      margin-right: 20px;
-    }
-
-    ul {
-      margin: 0 5%;
-      display: flex;
-      width: 80%;
-
-      li {
-        padding: 0 30px;
-
-        a {
-          font-size: 25px;
-          color: #fff;
-          font-weight: 600;
-          text-decoration: none;
-        }
-      }
-    }
-  }
-}
-
-.cursor {
-  cursor: pointer;
 }

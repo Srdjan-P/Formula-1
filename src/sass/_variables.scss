@@ -38,9 +38,10 @@ $tertiaryColor: rgba(21, 21, 30, 255);
   height: 40px;
   border: 2px solid #ddd;
   vertical-align: middle;
+  text-align: center;
 
   &:hover {
     box-shadow: 0 0 5px 0 black;
-    transition: 0.2s ease-out;
+    transition: 0.1s ease-in-out;
   }
 }

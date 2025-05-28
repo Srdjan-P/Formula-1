@@ -79,13 +79,16 @@ export default function RaceDetails({ countryList, selectedYear, searchInput }) 
                                 <li>Country: {qualifying.Circuit.Location.country}</li>
                                 <li>Location: {qualifying.Circuit.Location.locality}</li>
                                 <li>Date: {qualifying.date}</li>
-                                <li> <Link target="_blank" to={qualifying.url}>
-                                    Full Report: <LaunchIcon fontSize="small" />
+                                <li><Link target="_blank" to={qualifying.url}>
+                                    <span>Full Report: </span>
+                                    <span className="link-icon">
+                                        <LaunchIcon fontSize="small" />
+                                    </span>
                                 </Link></li>
                             </ul>
                             <img src="/img/australiaCarbon.png" className="staza" />
-                            <img src="/img/formulaCar.png" alt="formulaCar.png" className="bolid" />
                         </div>
+                        <img src="/img/formulaCar.png" alt="formulaCar.png" className="bolid" />
                     </div>
                     <div className="race-tables">
                         <div className="race-table1">
@@ -112,7 +115,7 @@ export default function RaceDetails({ countryList, selectedYear, searchInput }) 
                                         return (
                                             <tr key={driver.position}>
                                                 <td width="5%">{driver.position}</td>
-                                                <td style={{ cursor: "pointer" }}
+                                                <td
                                                     onClick={() => handleClickDriver(driver.Driver.driverId)}
                                                 >
                                                     <span>
@@ -121,9 +124,11 @@ export default function RaceDetails({ countryList, selectedYear, searchInput }) 
                                                     </span>
                                                 </td>
                                                 <td
-                                                    style={{ cursor: "pointer" }}
                                                     onClick={() => handleClickTeam(driver.Constructor.constructorId)}>
-                                                    {driver.Constructor.name}</td>
+                                                    <span>
+                                                        {driver.Constructor.name}
+                                                    </span>
+                                                </td>
                                                 <td>{fastestTime}</td>
                                             </tr>
                                         );
@@ -146,10 +151,9 @@ export default function RaceDetails({ countryList, selectedYear, searchInput }) 
                                 <tbody>
                                     {filteredData2.map((lap) => {
                                         return (
-                                            <tr key={lap.position}>
+                                            <tr key={lap.pstylosition}>
                                                 <td>{lap.position}</td>
                                                 <td width="30%"
-                                                    style={{ cursor: "pointer" }}
                                                     onClick={() => handleClickDriver(lap.Driver.driverId)}>
                                                     <span>
                                                         <Flag country={getCodeByNationality(countryList, lap.Driver.nationality)} />
@@ -157,9 +161,11 @@ export default function RaceDetails({ countryList, selectedYear, searchInput }) 
                                                     </span>
                                                 </td>
                                                 <td
-                                                    style={{ cursor: "pointer" }}
                                                     onClick={() => handleClickTeam(lap.Constructor.constructorId)}>
-                                                    {lap.Constructor.name}</td>
+                                                    <span>
+                                                        {lap.Constructor.name}
+                                                    </span>
+                                                </td>
                                                 <td>{lap.Time ? lap.Time.time : lap.status}</td>
                                                 <td style={getPositionColor(lap.position)}>{lap.points}</td>
                                             </tr>

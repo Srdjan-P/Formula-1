@@ -81,13 +81,14 @@
         span {
             display: flex;
             align-items: center;
-            gap: 10px;
-            margin-left: 10px;
             cursor: pointer;
+            height: 35px;
+            margin-left: 10px;
+            gap: 10px;
         }
 
         a {
-            color: lightcoral;
+            color: black;
         }
 
         td {

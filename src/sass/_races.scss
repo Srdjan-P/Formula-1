@@ -12,13 +12,12 @@
   padding: 30px;
 
   .races-data {
-
     h2 {
       display: flex;
       align-items: center;
       justify-content: center;
       border-radius: 10px 10px 0 0;
-      background-color: rgba(21, 21, 30, 255);
+      background-color: variable.$secondaryColor;
       color: white;
       height: 35px;
       font-weight: 600;
@@ -34,14 +33,21 @@
       span {
         display: flex;
         align-items: center;
+        cursor: pointer;
+        height: 35px;
+        margin-left: 10px;
         gap: 10px;
-        margin: 0 10px;
+
+        &:hover {
+          transition: 0.1 ease-in-out;
+        }
       }
 
       thead {
         th {
-          padding: 10px;
           @include variable.th;
+          padding: 10px;
+          background-color: variable.$tertiaryColor;
           font-size: 18px;
           text-align: center;
           border-radius: 0;

@@ -77,8 +77,21 @@
 
 .driver-details {
     display: flex;
+    flex-direction: column;
     width: 800px;
     margin-bottom: 50px;
+
+    h2 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px 10px 0 0;
+        background-color: variable.$secondaryColor;
+        color: white;
+        height: 35px;
+        font-weight: 600;
+        font-size: 18px;
+    }
 
     .driver-details-table {
         width: 100%;
@@ -89,7 +102,6 @@
         box-shadow: 0 0 20px 5px #ddd;
         border-radius: 20px 20px 0 0;
         opacity: 0.9;
-        font-size: 15px;
         font-weight: 600;
         background-color: rgba(255, 209, 220, 0.8);
         margin-left: 0;
@@ -99,22 +111,15 @@
 
             th {
                 @include variable.th;
-                box-shadow: 0 0 10px 1px #fff;
-                text-align: center;
                 padding: 10px;
-                height: 30px;
-                background-color: variable.$primaryColor;
-                color: #fff;
-            }
-
-            p {
-                font-weight: bold;
+                text-align: center;
+                border-radius: 0;
+                background-color: variable.$tertiaryColor;
             }
         }
 
         td {
             @include variable.td;
-            padding: 8px 20px;
             border: 2px solid #ddd;
             vertical-align: middle;
             text-align: center;
@@ -122,11 +127,10 @@
             span {
                 display: flex;
                 align-items: center;
+                cursor: pointer;
+                height: 35px;
+                margin-left: 10px;
                 gap: 10px;
-
-                &:hover {
-                    color: variable.$primaryColor;
-                }
             }
         }
     }

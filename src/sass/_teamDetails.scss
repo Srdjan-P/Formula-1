@@ -11,7 +11,6 @@
         border: 1px solid white;
         box-shadow: 0px 5px 30px 0px rgb(22, 32, 220, 0.37),
             0px 0px 15px white inset;
-        background-image: rgb(65, 62, 62);
         color: rgb(241, 232, 232);
         font-size: 18px;
         font-style: oblique;
@@ -35,7 +34,6 @@
                 flex-direction: column;
                 height: fit-content;
                 padding: 10px;
-
             }
 
             span {
@@ -52,15 +50,13 @@
         .team-avatar {
             text-align: center;
             padding-top: 5px;
-
         }
 
         .teams-img {
             width: 150px;
-            box-shadow: 5px 5px 5px 5px burlywood;
+            box-shadow: 0 0 10px 2px burlywood;
             padding: 5px;
             border-radius: 20px 20px 20px 20px;
-
         }
 
         .flag {
@@ -70,7 +66,6 @@
     }
 
     .team-info {
-        background-image: rgb(102, 57, 57);
         color: rgb(10, 9, 9);
         padding-top: 10px;
         height: 120px;
@@ -97,8 +92,6 @@
             height: 35px;
             font-weight: 600;
             font-size: 18px;
-
-
         }
 
         table {
@@ -118,8 +111,6 @@
                 td {
                     @include variable.th;
                     font-size: 18px;
-
-
                 }
             }
 
@@ -132,14 +123,9 @@
                     display: flex;
                     align-items: center;
                     cursor: pointer;
-                    height: 40px;
-                    gap: 10px;
+                    height: 35px;
                     margin-left: 10px;
-
-                    &:hover {
-                        font-size: 16px;
-                        transition: 0.1s ease-in;
-                    }
+                    gap: 10px;
                 }
             }
         }

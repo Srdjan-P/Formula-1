@@ -73,10 +73,11 @@ export default function Teams({ selectedYear, countryList, searchInput }) {
                                         </td>
                                         <td>
                                             <Link target="_blank" to={team.Constructor.url}>
-                                                Details <LaunchIcon fontSize="small" />
+                                                Details
+                                                <LaunchIcon fontSize="small" />
                                             </Link>
                                         </td>
-                                        <td style={{ textAlign: "center" }}>{team.points}</td>
+                                        <td>{team.points}</td>
                                     </tr>
                                 );
                             })}
