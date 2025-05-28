@@ -6,6 +6,7 @@ import Flag from "react-flagkit";
 import { getCodeByCountryName, getCodeByNationality } from "../FlagCodes";
 import { Link } from "react-router";
 import LaunchIcon from '@mui/icons-material/Launch';
+import getPositionColor from "./getPositionColor";
 
 export default function RaceDetails({ countryList, selectedYear, searchInput }) {
     const { raceId } = useParams();
@@ -160,7 +161,7 @@ export default function RaceDetails({ countryList, selectedYear, searchInput }) 
                                                     onClick={() => handleClickTeam(lap.Constructor.constructorId)}>
                                                     {lap.Constructor.name}</td>
                                                 <td>{lap.Time ? lap.Time.time : lap.status}</td>
-                                                <td>{lap.points}</td>
+                                                <td style={getPositionColor(lap.position)}>{lap.points}</td>
                                             </tr>
                                         )
                                     })}

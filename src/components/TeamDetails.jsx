@@ -6,6 +6,7 @@ import Loader from "./Loader";
 import LaunchIcon from '@mui/icons-material/Launch';
 import { getCodeByCountryName, getCodeByNationality } from "../FlagCodes";
 import Flag from "react-flagkit";
+import getPositionColor from "./getPositionColor";
 
 export default function TeamDetails({ countryList, selectedYear, searchInput }) {
     const { teamsId } = useParams();
@@ -63,9 +64,12 @@ export default function TeamDetails({ countryList, selectedYear, searchInput }) 
                                     className="teams-img"
                                 />
                             </div>
-                            <span>
-                                <Flag className="flag" country={getCodeByNationality(countryList, teamDetails.Constructor.nationality)} />
-                                <h2>{teamDetails.Constructor.name}</h2></span>
+                            <div className="flag-name">
+                                <span>
+                                    <Flag className="flag" country={getCodeByNationality(countryList, teamDetails.Constructor.nationality)} />
+                                    <h2>{teamDetails.Constructor.name}</h2>
+                                </span>
+                            </div>
                         </div>
                         <ul className="team-info">
                             <li>Country:{teamDetails.Constructor?.nationality}</li>
@@ -96,14 +100,15 @@ export default function TeamDetails({ countryList, selectedYear, searchInput }) 
                                     return (
                                         <tr key={teamResult.round}>
                                             <td>{teamResult.round}</td>
-                                            <td onClick={() => handleRaces(teamResult.round)} width="80%">
+                                            <td
+                                                onClick={() => handleRaces(teamResult.round)} width="80%">
                                                 <span>
                                                     <Flag country={getCodeByCountryName(countryList, teamResult.Circuit.Location.country)} />{teamResult.raceName}
                                                 </span>
                                             </td>
-                                            <td width="30%" style={{ cursor: "pointer" }}>{teamResult.Results[0].position}</td>
-                                            <td>{teamResult.Results[1].position}</td>
-                                            <td>{parseInt(teamResult.Results[0].points) + parseInt(teamResult.Results[1].points)} </td>
+                                            <td className="cursor" width="30%" style={getPositionColor(teamResult.Results[0].position)}>{teamResult.Results[0].position}</td>
+                                            <td style={getPositionColor(teamResult.Results[1].position)}>{teamResult.Results[1].position}</td>
+                                            <td >{parseInt(teamResult.Results[0].points) + parseInt(teamResult.Results[1].points)} </td>
                                         </tr>
                                     );
                                 })}
@@ -111,7 +116,8 @@ export default function TeamDetails({ countryList, selectedYear, searchInput }) 
                         </table>
                     </div>
                 </div >
-            )}
+            )
+            }
         </>
     );
 }
