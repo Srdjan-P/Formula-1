@@ -148,7 +148,7 @@
 @media (min-width: 768px) {
 
 
-    .kartice-div {
+    .cards-div {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -169,7 +169,7 @@
         }
     }
 
-    .kartice {
+    .cards {
         // display: flex;
         // grid-template-columns: repeat(2, 1fr);
         /* 2 kolone */
@@ -182,7 +182,7 @@
         justify-content: center;
     }
 
-    .kartica img {
+    .card img {
         filter: grayscale(100%);
         transition: filter 0.4s ease-in-out;
         width: 65%;
@@ -202,7 +202,7 @@
 
 }
 
-/* KARTICE KRAJ */
+/* cards KRAJ */
 
 /* Logo - sponzori */
 .sponsors {
