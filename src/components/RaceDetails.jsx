@@ -93,93 +93,92 @@ export default function RaceDetails({ countryList, selectedYear, searchInput }) 
                             <img src="/img/formulaCar.png" alt="formulaCar.png" className="bolid" />
                         </div>
                     </div>
-                    <div className="race-tables">
-                        <div className="race-table1">
-                            <h2>Qualifying Results</h2>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Pos</th>
-                                        <th>Driver</th>
-                                        <th>Team</th>
-                                        <th>Best Time</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {filteredData.map((driver) => {
-                                        let fastestTime = "";
-                                        if (driver.Q3) {
-                                            fastestTime = driver.Q3
-                                        } else if (driver.Q2) {
-                                            fastestTime = driver.Q2
-                                        } else {
-                                            fastestTime = driver.Q1
-                                        }
-                                        return (
-                                            <tr key={driver.position}>
-                                                <td width="5%">{driver.position}</td>
-                                                <td
-                                                    onClick={() => handleClickDriver(driver.Driver.driverId)}
-                                                >
-                                                    <span>
-                                                        <Flag country={getCodeByNationality(countryList, driver.Driver.nationality)} />
-                                                        {driver.Driver.familyName}
-                                                    </span>
-                                                </td>
-                                                <td
-                                                    onClick={() => handleClickTeam(driver.Constructor.constructorId)}>
-                                                    <span>
-                                                        {driver.Constructor.name}
-                                                    </span>
-                                                </td>
-                                                <td>{fastestTime}</td>
-                                            </tr>
-                                        );
-                                    })}
-                                </tbody>
-                            </table>
-                        </div>
-                        <div className="race-table2">
-                            <h2>Race Results</h2>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Pos</th>
-                                        <th>Driver</th>
-                                        <th>Team</th>
-                                        <th>Results</th>
-                                        <th>Points</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {filteredData2.map((lap) => {
-                                        return (
-                                            <tr key={lap.pstylosition}>
-                                                <td>{lap.position}</td>
-                                                <td width="30%"
-                                                    onClick={() => handleClickDriver(lap.Driver.driverId)}>
-                                                    <span>
-                                                        <Flag country={getCodeByNationality(countryList, lap.Driver.nationality)} />
-                                                        {lap.Driver.familyName}
-                                                    </span>
-                                                </td>
-                                                <td
-                                                    onClick={() => handleClickTeam(lap.Constructor.constructorId)}>
-                                                    <span>
-                                                        {lap.Constructor.name}
-                                                    </span>
-                                                </td>
-                                                <td>{lap.Time ? lap.Time.time : lap.status}</td>
-                                                <td style={getPositionColor(lap.position)}>{lap.points}</td>
-                                            </tr>
-                                        )
-                                    })}
-                                </tbody>
-                            </table>
-                        </div>
+                    <div className="race-table1">
+                        <h2>Qualifying Results</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Pos</th>
+                                    <th>Driver</th>
+                                    <th>Team</th>
+                                    <th>Best Time</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {filteredData.map((driver) => {
+                                    let fastestTime = "";
+                                    if (driver.Q3) {
+                                        fastestTime = driver.Q3
+                                    } else if (driver.Q2) {
+                                        fastestTime = driver.Q2
+                                    } else {
+                                        fastestTime = driver.Q1
+                                    }
+                                    return (
+                                        <tr key={driver.position}>
+                                            <td width="5%">{driver.position}</td>
+                                            <td
+                                                onClick={() => handleClickDriver(driver.Driver.driverId)}
+                                            >
+                                                <span>
+                                                    <Flag country={getCodeByNationality(countryList, driver.Driver.nationality)} />
+                                                    {driver.Driver.familyName}
+                                                </span>
+                                            </td>
+                                            <td
+                                                onClick={() => handleClickTeam(driver.Constructor.constructorId)}>
+                                                <span>
+                                                    {driver.Constructor.name}
+                                                </span>
+                                            </td>
+                                            <td>{fastestTime}</td>
+                                        </tr>
+                                    );
+                                })}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div className="race-table2">
+                        <h2>Race Results</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Pos</th>
+                                    <th>Driver</th>
+                                    <th>Team</th>
+                                    <th>Results</th>
+                                    <th>Points</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {filteredData2.map((lap) => {
+                                    return (
+                                        <tr key={lap.position}>
+                                            <td>{lap.position}</td>
+                                            <td width="30%"
+                                                onClick={() => handleClickDriver(lap.Driver.driverId)}>
+                                                <span>
+                                                    <Flag country={getCodeByNationality(countryList, lap.Driver.nationality)} />
+                                                    {lap.Driver.familyName}
+                                                </span>
+                                            </td>
+                                            <td
+                                                onClick={() => handleClickTeam(lap.Constructor.constructorId)}>
+                                                <span>
+                                                    {lap.Constructor.name}
+                                                </span>
+                                            </td>
+                                            <td>{lap.Time ? lap.Time.time : lap.status}</td>
+                                            <td style={getPositionColor(lap.position)}>{lap.points}</td>
+                                        </tr>
+                                    )
+                                })}
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-            )}
+            )
+            }
         </>
     )
 }

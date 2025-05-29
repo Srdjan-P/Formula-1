@@ -74,6 +74,7 @@
 
     .team-details-table {
         margin-left: 20px;
+        max-width: 700px;
         width: 100%;
 
         .team-details-h2 {
@@ -178,7 +179,9 @@
             table {
 
                 thead {
+
                     th {
+                        text-align: center;
                         font-size: 17px;
                         border-radius: 0;
                     }
