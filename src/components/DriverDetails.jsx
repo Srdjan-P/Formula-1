@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router";
 import Loader from "./Loader";
 import { useNavigate } from "react-router";
 import LaunchIcon from '@mui/icons-material/Launch';
-import { getCodeByCountryName, getCodeByNationality } from "../FlagCodes";
+import { getCodeByCountryName, getCodeByNationality } from "../helpers/flagCodes";
 import Flag from "react-flagkit";
 
 export default function DriverDetails({ countryList, selectedYear, searchInput }) {

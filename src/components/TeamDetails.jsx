@@ -4,9 +4,9 @@ import { useNavigate, useParams } from "react-router";
 import { Link } from "react-router";
 import Loader from "./Loader";
 import LaunchIcon from '@mui/icons-material/Launch';
-import { getCodeByCountryName, getCodeByNationality } from "../FlagCodes";
+import { getCodeByCountryName, getCodeByNationality } from "../helpers/flagCodes";
 import Flag from "react-flagkit";
-import getPositionColor from "./getPositionColor";
+import getPositionColor from "../helpers/getPositionColor";
 
 export default function TeamDetails({ countryList, selectedYear, searchInput }) {
     const { teamsId } = useParams();

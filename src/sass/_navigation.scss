@@ -130,12 +130,16 @@ nav {
 
       .nav-links {
         width: 100%;
+        margin: 0;
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.3s ease-out;
+        margin-left: -2.5%;
+
 
         &.open {
           max-height: 500px;
+          margin-left: -2.5%;
         }
 
         ul {

@@ -3,10 +3,10 @@ import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router";
 import Loader from "./Loader";
 import Flag from "react-flagkit";
-import { getCodeByCountryName, getCodeByNationality } from "../FlagCodes";
+import { getCodeByCountryName, getCodeByNationality } from "../helpers/flagCodes";
 import { Link } from "react-router";
 import LaunchIcon from '@mui/icons-material/Launch';
-import getPositionColor from "./getPositionColor";
+import getPositionColor from "../helpers/getPositionColor";
 
 export default function RaceDetails({ countryList, selectedYear, searchInput }) {
     const { raceId } = useParams();

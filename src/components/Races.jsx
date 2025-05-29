@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router"
 import Flag from "react-flagkit";
-import { getCodeByCountryName, getCodeByNationality } from "../FlagCodes";
+import { getCodeByCountryName, getCodeByNationality } from "../helpers/flagCodes";
 import Loader from "./Loader";
 
 export default function Races({ countryList, selectedYear, searchInput }) {
