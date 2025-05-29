@@ -8,9 +8,6 @@
 
     .team-card {
         border-radius: 20px 0 0px 20px;
-        border: 1px solid white;
-        box-shadow: 0px 5px 30px 0px rgb(22, 32, 220, 0.37),
-            0px 0px 15px white inset;
         color: rgb(241, 232, 232);
         font-size: 18px;
         font-style: oblique;
@@ -22,6 +19,8 @@
         opacity: 0.9;
         height: fit-content;
         min-width: 250px;
+        display: flex;
+        justify-content: center;
 
         .team-bio-card {
             display: flex;
@@ -74,6 +73,7 @@
 
     .team-details-table {
         margin-left: 20px;
+        width: 600px;
 
         .team-details-h2 {
             background-color: variable.$tertiaryColor;
@@ -103,7 +103,6 @@
                     @include variable.th;
                     font-size: 18px;
                     border-radius: 0;
-                    border-radius: 5px 5px 5px 5px;
                     background-color: variable.$tertiaryColor
                 }
 
@@ -147,15 +146,12 @@
             .team-card {
                 display: flex;
                 flex-direction: column;
-                box-shadow: 0 0 0 0;
                 border-radius: 0;
                 background-color: rgba(0, 0, 0, 0.493);
 
                 ul {
-                    background-color: rgba(255, 255, 255, 0.226);
                     height: fit-content;
                     border-radius: 0;
-                    box-shadow: 0 0 0 0;
                     width: 100%;
                     color: white;
                 }

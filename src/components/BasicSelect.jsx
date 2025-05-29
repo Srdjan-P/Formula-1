@@ -18,7 +18,7 @@ export default function BasicSelect({ array, value, onChange }) {
             }
           }}
         >
-          {"Years"}
+          Years
         </InputLabel>
         <Select
           labelId="select-label"
