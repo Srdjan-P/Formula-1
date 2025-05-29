@@ -18,8 +18,9 @@
         line-height: 1.5;
         opacity: 0.9;
         height: fit-content;
-        min-width: 250px;
         display: flex;
+        flex-direction: column;
+        width: 230px;
         justify-content: center;
 
         .team-bio-card {
@@ -73,7 +74,7 @@
 
     .team-details-table {
         margin-left: 20px;
-        width: 600px;
+        width: 100%;
 
         .team-details-h2 {
             background-color: variable.$tertiaryColor;
@@ -148,6 +149,8 @@
                 flex-direction: column;
                 border-radius: 0;
                 background-color: rgba(0, 0, 0, 0.493);
+                box-shadow: 0 0 10px 1px white;
+
 
                 ul {
                     height: fit-content;
