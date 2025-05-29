@@ -14,7 +14,7 @@ export default function Home() {
 
 
 
-                    <div className="carousel-wrapper">
+                    {/* <div className="carousel-wrapper">
 
                         <div className="carousel-container">
 
@@ -27,10 +27,9 @@ export default function Home() {
                             <img src="../img/carousel3.avif" alt="formula f" />
 
                         </div>
-                        {/* <Link target="_blank" top={"https://www.monacograndprixticket.com/formula1monaco/the-circuit-of-monaco"}></Link> */}
-                        {/* <a href="https://www.monacograndprixticket.com/formula1monaco/the-circuit-of-monaco"></a> */}
+                       
 
-                    </div>
+                    </div> */}
 
                     <div className="kartice-div">
 
@@ -38,20 +37,30 @@ export default function Home() {
 
                         <div className="kartice">
 
-                            <div className="kartica">
-                                <img src="../img/circuitDeMonaco.jpg" alt="monaco track" />
-                            </div>
+                            <div className="kartice">
+                                <div className="kartica">
+                                    <a href="https://www.formula1.com/en/racing/2024/Monaco.html" target="_blank">
+                                        <img src="../img/circuitDeMonaco.jpg" alt="Circuit de Monaco" />
+                                    </a>
+                                </div>
 
-                            <div className="kartica">
-                                <img src="../img/circuitDeSilverstone.jpg" alt="monaco track" />
-                            </div>
+                                <div className="kartica">
+                                    <a href="https://www.formula1.com/en/racing/2024/Great_Britain.html" target="_blank">
+                                        <img src="../img/circuitDeSilverstone.jpg" alt="Silverstone Circuit" />
+                                    </a>
+                                </div>
 
-                            <div className="kartica">
-                                <img src="../img/circuitDeHungaroring.jpg" alt="monaco track" />
-                            </div>
+                                <div className="kartica">
+                                    <a href="https://www.formula1.com/en/racing/2024/Hungary.html" target="_blank">
+                                        <img src="../img/circuitDeHungaroring.jpg" alt="Hungaroring Circuit" />
+                                    </a>
+                                </div>
 
-                            <div className="kartica">
-                                <img src="../img/circuitDeSuzuka.jpg" alt="monaco track" />
+                                <div className="kartica">
+                                    <a href="https://www.formula1.com/en/racing/2024/Japan.html" target="_blank">
+                                        <img src="../img/circuitDeSuzuka.jpg" alt="Suzuka International Racing Course" />
+                                    </a>
+                                </div>
                             </div>
 
                         </div>
@@ -60,6 +69,11 @@ export default function Home() {
 
                     </div>
                 </div>
+
+                <div className="checkered-board">
+                    {/* <h2 className="checkered-text">Legendary Race Tracks Await</h2> */}
+                </div>
+
 
                 <section className="sponsors">
                     <h3>Official Sponsors</h3>
