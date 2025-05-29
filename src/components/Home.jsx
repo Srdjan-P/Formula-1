@@ -8,6 +8,9 @@ export default function Home() {
             <header className="welcome-container">
                 <h2 className="welcome">Experience the adrenaline of the F1 universe</h2>
             </header>
+            <div className="checkered-board-1">
+                {/* <h2 className="checkered-text">Legendary Race Tracks Await</h2> */}
+            </div>
 
             <main>
                 <div className="homepage-container dark-theme">

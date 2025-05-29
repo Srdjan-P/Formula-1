@@ -236,6 +236,19 @@
 
 }
 
+.checkered-board-1 {
+    background-color: black;
+    height: 25px;
+    /* Increased for visibility */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url(../img/track.JPG);
+    background-size: contain;
+
+}
+
 .sponsor-logos {
     display: flex;
     justify-content: center;
