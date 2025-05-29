@@ -71,7 +71,7 @@ export default function Teams({ selectedYear, countryList, searchInput }) {
                                                             countryList,
                                                             team.Constructor.nationality
                                                         )} />
-                                                    {team.Constructor.name}
+                                                    {team.Constructor?.name}
                                                 </span>
                                             </td>
                                             <td>

@@ -104,7 +104,7 @@ export default function TeamDetails({ countryList, selectedYear, searchInput }) 
                                                     <Flag country={getCodeByCountryName(countryList, teamResult.Circuit.Location.country)} />{teamResult.raceName}
                                                 </span>
                                             </td>
-                                            <td className="cursor" width="30%" style={getPositionColor(teamResult.Results[0].position)}>{teamResult.Results[0].position}</td>
+                                            <td width="30%" style={getPositionColor(teamResult.Results[0].position)}>{teamResult.Results[0].position}</td>
                                             <td style={getPositionColor(teamResult.Results[1].position)}>{teamResult.Results[1].position}</td>
                                             <td >{parseInt(teamResult.Results[0].points) + parseInt(teamResult.Results[1].points)} </td>
                                         </tr>
