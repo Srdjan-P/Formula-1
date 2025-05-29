@@ -81,16 +81,32 @@ export default function Home() {
                 <section className="sponsors">
                     <h3>Official Sponsors</h3>
                     <div className="sponsors-logos">
-                        <img src="../partners/Amex.png" alt="Sponsor 1" />
-                        <img src="../partners/dhl.png" alt="Sponsor 2" />
-                        <img src="../partners/Heineken-Outlined.png" alt="Sponsor 3" />
-                        <img src="../partners/lenovo.png" alt="Sponsor 4" />
-                        <img src="../partners/louis-vuitton.png" alt="Sponsor 5" />
-                        <img src="../partners/nestle.png" alt="Sponsor 6" />
-                        <img src="../partners/Paramount+.png" alt="Sponsor 7" />
-                        <img src="../partners/AWS-GLOBAL.png" alt="Sponsor 8" />
-
+                        <a href="https://www.americanexpress.com/" target="_blank">
+                            <img src="../partners/Amex.png" alt="American Express" />
+                        </a>
+                        <a href="https://www.dhl.com/global-en/home.html" target="_blank">
+                            <img src="../partners/dhl.png" alt="DHL" />
+                        </a>
+                        <a href="https://www.heineken.com/global/en/home" target="_blank">
+                            <img src="../partners/Heineken-Outlined.png" alt="Heineken" />
+                        </a>
+                        <a href="https://www.lenovo.com/us/en/" target="_blank">
+                            <img src="../partners/lenovo.png" alt="Lenovo" />
+                        </a>
+                        <a href="https://eu.louisvuitton.com/eng-e1/homepage" target="_blank">
+                            <img src="../partners/louis-vuitton.png" alt="Louis Vuitton" />
+                        </a>
+                        <a href="https://www.nestle.com/" target="_blank">
+                            <img src="../partners/nestle.png" alt="Nestlé" />
+                        </a>
+                        <a href="https://www.paramountplus.com/" target="_blank">
+                            <img src="../partners/Paramount+.png" alt="Paramount+" />
+                        </a>
+                        <a href="https://aws.amazon.com/" target="_blank">
+                            <img src="../partners/AWS-GLOBAL.png" alt="AWS (Amazon Web Services)" />
+                        </a>
                     </div>
+
 
                 </section>
 
