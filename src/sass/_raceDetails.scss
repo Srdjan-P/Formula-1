@@ -120,6 +120,7 @@
                 @include variable.td;
                 text-align: center;
                 vertical-align: middle;
+                padding: 0 10px
             }
 
             th {
@@ -148,7 +149,6 @@
                 align-items: center;
                 cursor: pointer;
                 height: 35px;
-                margin-left: 10px;
                 gap: 10px;
                 text-align: left;
             }
@@ -182,6 +182,7 @@
                 @include variable.td;
                 text-align: center;
                 vertical-align: middle;
+                padding: 0 10px
             }
 
             th {
@@ -198,7 +199,6 @@
                 align-items: center;
                 cursor: pointer;
                 height: 35px;
-                margin-left: 10px;
                 gap: 10px;
                 text-align: left;
             }

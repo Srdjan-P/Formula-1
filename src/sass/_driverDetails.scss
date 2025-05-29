@@ -122,13 +122,13 @@
             border: 2px solid #ddd;
             vertical-align: middle;
             text-align: center;
+            padding: 0 10px;
 
             span {
                 display: flex;
                 align-items: center;
                 cursor: pointer;
                 height: 35px;
-                margin-left: 10px;
                 gap: 10px;
             }
         }

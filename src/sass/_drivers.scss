@@ -31,20 +31,19 @@
 
     td {
       @include variable.td;
+      padding: 0 10px;
 
       span {
         display: flex;
         align-items: center;
         cursor: pointer;
         height: 35px;
-        margin-left: 10px;
         gap: 10px;
       }
     }
 
     .align-left {
       text-align: left;
-      padding-left: 10px;
     }
 
     tr:nth-child(n + 4) {

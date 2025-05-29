@@ -18,11 +18,12 @@ export default function App() {
   const currentYear = new Date().getFullYear();
   const [selectedYear, setSelectedYear] = useState(currentYear - 1);
   const years = Array.from({ length: 50 }, (_, i) => currentYear - 1 - i);
-  const [searchInput, setSearchInput] = useState("")
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [searchInput, setSearchInput] = useState("");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     getCountryList();
+    setSearchInput("");
   }, []);
 
   const getCountryList = async () => {
@@ -65,13 +66,13 @@ export default function App() {
             <div className={`nav-links ${isMenuOpen ? 'open' : ''}`}>
               <ul>
                 <li>
-                  <NavLink to="/drivers" onClick={() => { setSearchInput(""); setIsMenuOpen(false) }}>Drivers</NavLink>
+                  <NavLink to="/drivers" onClick={() => { setIsMenuOpen(false) }}>Drivers</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/races" onClick={() => { setSearchInput(""); setIsMenuOpen(false) }}>Races</NavLink>
+                  <NavLink to="/races" onClick={() => { setIsMenuOpen(false) }}>Races</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/teams" onClick={() => { setSearchInput(""); setIsMenuOpen(false) }}>Teams</NavLink>
+                  <NavLink to="/teams" onClick={() => { setIsMenuOpen(false) }}>Teams</NavLink>
                 </li>
               </ul>
             </div>

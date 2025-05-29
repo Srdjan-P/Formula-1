@@ -82,7 +82,7 @@ export default function Races({ countryList, selectedYear, searchInput }) {
                                                     <Flag country={getCodeByNationality(countryList, race.Results[0].Driver.nationality)} className="flag" />
                                                     {race.Results[0].Driver.familyName}
                                                 </span>
-                                            </td>
+                                            </td >
                                         </tr>
                                     )
                                 })}

@@ -35,7 +35,6 @@
         align-items: center;
         cursor: pointer;
         height: 35px;
-        margin-left: 10px;
         gap: 10px;
 
         &:hover {
@@ -56,6 +55,7 @@
 
       td {
         @include variable.td;
+        padding: 0 10px;
       }
     }
   }
