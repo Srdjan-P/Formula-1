@@ -106,9 +106,10 @@ export default function TeamDetails({ countryList, selectedYear, searchInput }) 
                                                     <Flag country={getCodeByCountryName(countryList, teamResult.Circuit.Location.country)} />{teamResult.raceName}
                                                 </span>
                                             </td>
-                                            <td width="30%" style={getPositionColor(teamResult.Results[0].position)}>{teamResult.Results[0].position}</td>
-                                            <td style={getPositionColor(teamResult.Results[1].position)}>{teamResult.Results[1].position}</td>
-                                            <td >{parseInt(teamResult.Results[0].points) + parseInt(teamResult.Results[1].points)} </td>
+                                            <td width="30%" style={getPositionColor(teamResult.Results[0]?.position != undefined ? teamResult.Results[0]?.position : "0")}>{teamResult.Results[0]?.position != undefined ? teamResult.Results[0]?.position : 0}</td>
+                                            <td style={getPositionColor(teamResult.Results[1]?.position != undefined ? teamResult.Results[1]?.position : "0")}>{teamResult.Results[1]?.position != undefined ? teamResult.Results[1]?.position : 0}</td>
+                                            <td >{parseInt(teamResult.Results[0]?.points ? teamResult.Results[0]?.points : 0)
+                                                + parseInt(teamResult.Results[1]?.points ? teamResult.Results[1]?.points : 0)} </td>
                                         </tr>
                                     );
                                 })}
