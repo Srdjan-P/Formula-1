@@ -78,7 +78,6 @@
 .driver-details {
     display: flex;
     flex-direction: column;
-    width: 800px;
 
     h2 {
         display: flex;
@@ -132,5 +131,57 @@
                 gap: 10px;
             }
         }
+    }
+}
+
+@media (max-width: 770px) {
+    .driver-details-container {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .driver-card-wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            background-color: rgba(0, 0, 0, 0.75);
+
+            .driver-card {
+                background-color: rgba(0, 0, 0, 0.493);
+                width: fit-content;
+                height: fit-content;
+                border-radius: 0;
+                box-shadow: 0 0 10px 1px white;
+            }
+        }
+
+        .driver-details {
+            h2 {
+                border-radius: 0;
+            }
+
+            table {
+                border-radius: 10px;
+
+                thead {
+
+                    th {
+                        font-size: 17px;
+                        border-radius: 0;
+                    }
+                }
+
+                td {
+                    padding: 10px 8px;
+
+                    span {
+                        justify-content: center;
+                    }
+                }
+
+            }
+        }
+
     }
 }

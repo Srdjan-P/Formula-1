@@ -70,26 +70,28 @@ export default function RaceDetails({ countryList, selectedYear, searchInput }) 
                 <Loader />
             ) : (
                 <div className="raceDetails">
-                    <div className="race-card">
-                        <div className="race-driver">
-                            <Flag className="flag" country={getCodeByCountryName(countryList, qualifying.Circuit.Location.country)} />
-                            <h2>{qualifying.raceName}</h2>
+                    <div className="race-card-wrapper">
+                        <div className="race-card">
+                            <div className="race-driver">
+                                <Flag className="flag" country={getCodeByCountryName(countryList, qualifying.Circuit.Location.country)} />
+                                <h2>{qualifying.raceName}</h2>
+                            </div>
+                            <div className="race-card-details">
+                                <ul>
+                                    <li>Country: {qualifying.Circuit.Location.country}</li>
+                                    <li>Location: {qualifying.Circuit.Location.locality}</li>
+                                    <li>Date: {qualifying.date}</li>
+                                    <li><Link target="_blank" to={qualifying.url}>
+                                        <span>Full Report: </span>
+                                        <span className="link-icon">
+                                            <LaunchIcon fontSize="small" />
+                                        </span>
+                                    </Link></li>
+                                </ul>
+                                <img src="/img/australiaCarbon.png" className="staza" />
+                            </div>
+                            <img src="/img/formulaCar.png" alt="formulaCar.png" className="bolid" />
                         </div>
-                        <div className="race-card-details">
-                            <ul>
-                                <li>Country: {qualifying.Circuit.Location.country}</li>
-                                <li>Location: {qualifying.Circuit.Location.locality}</li>
-                                <li>Date: {qualifying.date}</li>
-                                <li><Link target="_blank" to={qualifying.url}>
-                                    <span>Full Report: </span>
-                                    <span className="link-icon">
-                                        <LaunchIcon fontSize="small" />
-                                    </span>
-                                </Link></li>
-                            </ul>
-                            <img src="/img/australiaCarbon.png" className="staza" />
-                        </div>
-                        <img src="/img/formulaCar.png" alt="formulaCar.png" className="bolid" />
                     </div>
                     <div className="race-tables">
                         <div className="race-table1">

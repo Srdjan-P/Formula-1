@@ -53,31 +53,33 @@ export default function TeamDetails({ countryList, selectedYear, searchInput }) 
                 <Loader />
             ) : (
                 <div className="team-details">
-                    <div className="team-card">
-                        <div className="team-bio-card">
-                            <div className="team-avatar">
-                                <img src={`/avatars/${teamDetails.Constructor.constructorId}.png`}
-                                    alt="/avatars/team.png" width="100"
-                                    onError={(e) => {
-                                        e.target.onerror = null;
-                                        e.target.src = "/avatars/team.png";
-                                    }}
-                                    className="teams-img"
-                                />
+                    <div className="team-card-wrapper">
+                        <div className="team-card">
+                            <div className="team-bio-card">
+                                <div className="team-avatar">
+                                    <img src={`/avatars/${teamDetails.Constructor.constructorId}.png`}
+                                        alt="/avatars/team.png" width="100"
+                                        onError={(e) => {
+                                            e.target.onerror = null;
+                                            e.target.src = "/avatars/team.png";
+                                        }}
+                                        className="teams-img"
+                                    />
+                                </div>
+                                <div className="flag-name">
+                                    <span>
+                                        <Flag className="flag" country={getCodeByNationality(countryList, teamDetails.Constructor.nationality)} />
+                                        <h2>{teamDetails.Constructor.name}</h2>
+                                    </span>
+                                </div>
                             </div>
-                            <div className="flag-name">
-                                <span>
-                                    <Flag className="flag" country={getCodeByNationality(countryList, teamDetails.Constructor.nationality)} />
-                                    <h2>{teamDetails.Constructor.name}</h2>
-                                </span>
-                            </div>
+                            <ul className="team-info">
+                                <li>Country:{teamDetails.Constructor?.nationality}</li>
+                                <li>Position:{teamDetails?.position}</li>
+                                <li>Points:{teamDetails?.points}</li>
+                                <li>History: <Link to={teamDetails.Constructor.url} target="_blank"><LaunchIcon fontSize="small" sx={{ fontSize: 16 }} /></Link></li>
+                            </ul>
                         </div>
-                        <ul className="team-info">
-                            <li>Country:{teamDetails.Constructor?.nationality}</li>
-                            <li>Position:{teamDetails?.position}</li>
-                            <li>Points:{teamDetails?.points}</li>
-                            <li>History: <Link to={teamDetails.Constructor.url} target="_blank"><LaunchIcon fontSize="small" sx={{ fontSize: 16 }} /></Link></li>
-                        </ul>
                     </div>
                     <div className="team-details-table">
                         <div className="team-details-h2">

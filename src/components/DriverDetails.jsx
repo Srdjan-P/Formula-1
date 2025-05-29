@@ -58,38 +58,42 @@ export default function DriverDetails({ countryList, selectedYear, searchInput }
                 <Loader />
             ) : (
                 <div className="driver-details-container">
-                    <div className="driver-card">
-                        {/* odavde krece slika i biografija - leva strana */}
-                        <div className="driver-biography-card">
-                            <div className="driver-avatar">
-                                <img
-                                    src={`/avatars/${driverDetails.Driver.driverId}.jpg`}
-                                    alt="/avatars/avatar.png" width="100"
-                                    onError={(e) => {
-                                        e.target.onerror = null;
-                                        e.target.src = "/avatars/avatar.png";
-                                    }}
-                                    className="driver-img"
-                                />
+                    <div className="driver-card-wrapper">
+
+                        <div className="driver-card">
+                            {/* odavde krece slika i biografija - leva strana */}
+                            <div className="driver-biography-card">
+                                <div className="driver-avatar">
+                                    <img
+                                        src={`/avatars/${driverDetails.Driver.driverId}.jpg`}
+                                        alt="/avatars/avatar.png" width="100"
+                                        onError={(e) => {
+                                            e.target.onerror = null;
+                                            e.target.src = "/avatars/avatar.png";
+                                        }}
+                                        className="driver-img"
+                                    />
+                                </div>
+                                <div className="driver-name">
+                                    <h2>
+                                        <span>
+                                            {/* odavde krece ime i zastavica - takodje, leva strana */}
+                                            <Flag className="country-flags" country={getCodeByNationality(countryList, driverDetails.Driver.nationality)} />
+                                            {driverDetails.Driver.givenName} {driverDetails.Driver.familyName}
+                                        </span>
+                                    </h2>
+                                </div>
                             </div>
-                            <div className="driver-name">
-                                <h2>
-                                    <span>
-                                        {/* odavde krece ime i zastavica - takodje, leva strana */}
-                                        <Flag className="country-flags" country={getCodeByNationality(countryList, driverDetails.Driver.nationality)} />
-                                        {driverDetails.Driver.givenName} {driverDetails.Driver.familyName}
-                                    </span>
-                                </h2>
+                            {/* Drzava, Rodjendan itd - leva strana */}
+                            <div className="driver-info">
+                                <p>Nationality: {driverDetails.Driver.nationality}</p>
+                                <p>Team: {driverDetails.Constructors[0].name}</p>
+                                <p>Birth: {driverDetails.Driver.dateOfBirth}</p>
+                                <p className="biography"><Link to={driverDetails.Driver.url} target="_blank">Biography<LaunchIcon fontSize="small" sx={{ fontSize: 16 }} /></Link></p>
                             </div>
-                        </div>
-                        {/* Drzava, Rodjendan itd - leva strana */}
-                        <div className="driver-info">
-                            <p>Nationality: {driverDetails.Driver.nationality}</p>
-                            <p>Team: {driverDetails.Constructors[0].name}</p>
-                            <p>Birth: {driverDetails.Driver.dateOfBirth}</p>
-                            <p className="biography"><Link to={driverDetails.Driver.url} target="_blank">Biography<LaunchIcon fontSize="small" sx={{ fontSize: 16 }} /></Link></p>
                         </div>
                     </div>
+
                     {/* Tabela - desna strana */}
                     <div className="driver-details">
                         <h2>
