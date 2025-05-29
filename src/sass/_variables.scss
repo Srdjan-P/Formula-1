@@ -44,6 +44,8 @@ $tertiaryColor: rgba(21, 21, 30, 255);
   }
 }
 
-.cursor {
-  cursor: pointer;
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

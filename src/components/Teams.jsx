@@ -52,7 +52,7 @@ export default function Teams({ selectedYear, countryList, searchInput }) {
                             <thead>
                                 <tr>
                                     <th colSpan={4}>
-                                        <p>Constructor Championship Standings - {selectedYear}</p>
+                                        Constructor Championship Standings - {selectedYear}
                                     </th>
                                 </tr>
                             </thead>
@@ -89,8 +89,6 @@ export default function Teams({ selectedYear, countryList, searchInput }) {
                     )}
                 </div>
             </div>
-            <img src="/img/formulaNissan.png" alt="Formula Nissan Bolid" className="bolid2" />
-            <img src="/img/pitStop.png" alt="pit stop" className="pitStop" />
         </div>
 
     );

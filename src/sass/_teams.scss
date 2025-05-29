@@ -57,15 +57,11 @@
                 @include variable.table;
                 font-size: 18px;
 
-                p {
-                    font-size: 20px;
-                    text-align: center;
-                }
-
                 thead {
                     th {
                         @include variable.th;
-                        text-align: justify;
+                        font-size: 20px;
+                        text-align: center;
                     }
                 }
 
@@ -111,7 +107,7 @@
                     thead {
 
                         th {
-                            font-size: 17px;
+                            font-size: 18px;
                             border-radius: 0;
                         }
                     }

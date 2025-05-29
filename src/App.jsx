@@ -23,7 +23,6 @@ export default function App() {
 
   useEffect(() => {
     getCountryList();
-    setSearchInput("");
   }, []);
 
   const getCountryList = async () => {
@@ -66,13 +65,13 @@ export default function App() {
             <div className={`nav-links ${isMenuOpen ? 'open' : ''}`}>
               <ul>
                 <li>
-                  <NavLink to="/drivers" onClick={() => { setIsMenuOpen(false) }}>Drivers</NavLink>
+                  <NavLink to="/drivers" onClick={() => { setIsMenuOpen(false), setSearchInput("") }}>Drivers</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/races" onClick={() => { setIsMenuOpen(false) }}>Races</NavLink>
+                  <NavLink to="/races" onClick={() => { setIsMenuOpen(false), setSearchInput("") }}>Races</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/teams" onClick={() => { setIsMenuOpen(false) }}>Teams</NavLink>
+                  <NavLink to="/teams" onClick={() => { setIsMenuOpen(false), setSearchInput("") }}>Teams</NavLink>
                 </li>
               </ul>
             </div>
