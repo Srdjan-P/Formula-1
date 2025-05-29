@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router"
 import Flag from "react-flagkit";
-import { getCodeByCountryName, getCodeByNationality } from "../FlagCodes";
+import { getCodeByCountryName, getCodeByNationality } from "../helpers/flagCodes";
 import Loader from "./Loader";
 
 export default function Races({ countryList, selectedYear, searchInput }) {
@@ -82,7 +82,7 @@ export default function Races({ countryList, selectedYear, searchInput }) {
                                                     <Flag country={getCodeByNationality(countryList, race.Results[0].Driver.nationality)} className="flag" />
                                                     {race.Results[0].Driver.familyName}
                                                 </span>
-                                            </td>
+                                            </td >
                                         </tr>
                                     )
                                 })}

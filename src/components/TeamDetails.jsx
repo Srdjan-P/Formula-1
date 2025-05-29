@@ -4,9 +4,9 @@ import { useNavigate, useParams } from "react-router";
 import { Link } from "react-router";
 import Loader from "./Loader";
 import LaunchIcon from '@mui/icons-material/Launch';
-import { getCodeByCountryName, getCodeByNationality } from "../FlagCodes";
+import { getCodeByCountryName, getCodeByNationality } from "../helpers/flagCodes";
 import Flag from "react-flagkit";
-import getPositionColor from "./getPositionColor";
+import getPositionColor from "../helpers/getPositionColor";
 
 export default function TeamDetails({ countryList, selectedYear, searchInput }) {
     const { teamsId } = useParams();
@@ -104,7 +104,7 @@ export default function TeamDetails({ countryList, selectedYear, searchInput }) 
                                                     <Flag country={getCodeByCountryName(countryList, teamResult.Circuit.Location.country)} />{teamResult.raceName}
                                                 </span>
                                             </td>
-                                            <td className="cursor" width="30%" style={getPositionColor(teamResult.Results[0].position)}>{teamResult.Results[0].position}</td>
+                                            <td width="30%" style={getPositionColor(teamResult.Results[0].position)}>{teamResult.Results[0].position}</td>
                                             <td style={getPositionColor(teamResult.Results[1].position)}>{teamResult.Results[1].position}</td>
                                             <td >{parseInt(teamResult.Results[0].points) + parseInt(teamResult.Results[1].points)} </td>
                                         </tr>

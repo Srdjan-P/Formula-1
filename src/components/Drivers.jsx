@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import Loader from "./Loader";
-import { getCodeByNationality } from "../FlagCodes";
+import { getCodeByNationality } from "../helpers/flagCodes";
 import Flag from "react-flagkit";
 
 export default function Drivers({ countryList, selectedYear, searchInput }) {
@@ -62,7 +62,7 @@ export default function Drivers({ countryList, selectedYear, searchInput }) {
             {filteredData.map((driver) => {
               return (
                 <tr key={driver.Driver.driverId}>
-                  <td>{driver.position}</td>
+                  <td width="10%">{driver.position}</td>
                   <td
                     width="40%"
                     onClick={() => {
@@ -88,7 +88,7 @@ export default function Drivers({ countryList, selectedYear, searchInput }) {
                       {driver.Constructors[0].name}
                     </span>
                   </td>
-                  <td>{driver.points}</td>
+                  <td width="10%">{driver.points}</td>
                 </tr>
               );
             })}

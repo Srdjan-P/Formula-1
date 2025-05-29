@@ -5,7 +5,7 @@ import { Link } from "react-router";
 import Loader from "./Loader";
 import LaunchIcon from '@mui/icons-material/Launch';
 import Flag from "react-flagkit";
-import { getCodeByNationality } from "../FlagCodes";
+import { getCodeByNationality } from "../helpers/flagCodes";
 
 export default function Teams({ selectedYear, countryList, searchInput }) {
     const [teams, setTeams] = useState([]);
@@ -71,7 +71,7 @@ export default function Teams({ selectedYear, countryList, searchInput }) {
                                                             countryList,
                                                             team.Constructor.nationality
                                                         )} />
-                                                    {team.Constructor.name}
+                                                    {team.Constructor?.name}
                                                 </span>
                                             </td>
                                             <td>

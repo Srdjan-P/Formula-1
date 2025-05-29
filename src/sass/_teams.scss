@@ -38,14 +38,13 @@
 }
 
 .teams-wrapper {
-    flex: 1;
     display: flex;
     flex-direction: column;
+    flex: 1;
     position: relative;
-    min-height: 100%;
+    width: 100%;
 
     .teams-container {
-        flex: 1;
         position: relative;
         padding-bottom: 60px;
 
@@ -86,6 +85,45 @@
                 td {
                     @include variable.td;
                     text-align: center;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 770px) {
+
+    .teams-wrapper {
+
+        .teams-container {
+
+            .teams {
+                padding: 0;
+
+
+                h2 {
+                    border-radius: 0;
+                }
+
+                table {
+                    border-radius: 10px;
+
+                    thead {
+
+                        th {
+                            font-size: 17px;
+                            border-radius: 0;
+                        }
+                    }
+
+                    td {
+                        padding: 10px 8px;
+
+                        span {
+                            justify-content: center;
+                        }
+                    }
+
                 }
             }
         }

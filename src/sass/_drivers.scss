@@ -19,6 +19,7 @@
 
     tr:first-child {
       box-shadow: 0 0 70px 0 rgb(246, 217, 52) inset;
+      border-radius: 10px 10px 0 0;
     }
 
     tr:nth-child(2) {
@@ -31,20 +32,19 @@
 
     td {
       @include variable.td;
+      padding: 0 10px;
 
       span {
         display: flex;
         align-items: center;
         cursor: pointer;
         height: 35px;
-        margin-left: 10px;
         gap: 10px;
       }
     }
 
     .align-left {
       text-align: left;
-      padding-left: 10px;
     }
 
     tr:nth-child(n + 4) {
@@ -60,6 +60,7 @@
     padding: 0;
 
     table {
+      border-radius: 10px;
 
       thead {
 

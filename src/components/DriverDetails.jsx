@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router";
 import Loader from "./Loader";
 import { useNavigate } from "react-router";
 import LaunchIcon from '@mui/icons-material/Launch';
-import { getCodeByCountryName, getCodeByNationality } from "../FlagCodes";
+import { getCodeByCountryName, getCodeByNationality } from "../helpers/flagCodes";
 import Flag from "react-flagkit";
 
 export default function DriverDetails({ countryList, selectedYear, searchInput }) {
@@ -109,8 +109,8 @@ export default function DriverDetails({ countryList, selectedYear, searchInput }
                                 {filteredData.map((driverRace) => {
                                     return (
                                         <tr key={driverRace.round}>
-                                            <td>{driverRace.round}</td>
-                                            <td width="45%"
+                                            <td width="10%">{driverRace.round}</td>
+                                            <td width="40%"
                                                 onClick={() => { handleRaces(driverRace.round) }}>
                                                 <span>
                                                     <Flag country={getCodeByCountryName(countryList, driverRace.Circuit.Location.country)} />
@@ -123,8 +123,8 @@ export default function DriverDetails({ countryList, selectedYear, searchInput }
                                                     {driverRace.Results[0].Constructor.name}
                                                 </span>
                                             </td>
-                                            <td>{driverRace.Results[0].grid}</td>
-                                            <td>{driverRace.Results[0].position}</td>
+                                            <td width="10%">{driverRace.Results[0].grid}</td>
+                                            <td width="10%">{driverRace.Results[0].position}</td>
                                         </tr>
                                     );
                                 })}
