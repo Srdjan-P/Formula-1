@@ -1,9 +1,8 @@
 import { useLocation } from "react-router";
 import Breadcrumbs from "./Breadcrumbs";
-import Search from "./Search";
 import BasicSelect from "./BasicSelect";
 
-export default function NavBottom({ searchInput, handleSearchInput, years, selectedYear, handleYearChange, children }) {
+export default function NavBottom({ years, selectedYear, handleYearChange, children }) {
   const location = useLocation()
   const isHomePage = location.pathname === "/";
 
