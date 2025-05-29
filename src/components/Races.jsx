@@ -65,7 +65,7 @@ export default function Races({ countryList, selectedYear, searchInput }) {
                                             <td width="5%">{race.round}</td>
                                             <td
                                                 onClick={() => { handleRaces(race.round) }}>
-                                                <span>
+                                                <span style={{ cursor: "pointer" }}>
                                                     <Flag
                                                         country={getCodeByCountryName(countryList, race.Circuit.Location.country)} className="flag" />
                                                     {race.raceName}
