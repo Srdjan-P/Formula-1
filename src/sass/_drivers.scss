@@ -19,6 +19,7 @@
 
     tr:first-child {
       box-shadow: 0 0 70px 0 rgb(246, 217, 52) inset;
+      border-radius: 10px 10px 0 0;
     }
 
     tr:nth-child(2) {
@@ -59,6 +60,7 @@
     padding: 0;
 
     table {
+      border-radius: 10px;
 
       thead {
 

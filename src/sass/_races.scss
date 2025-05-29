@@ -60,3 +60,37 @@
     }
   }
 }
+
+@media (max-width: 770px) {
+  .races {
+    padding: 0;
+
+    .races-data {
+
+      h2 {
+        border-radius: 0;
+      }
+
+      table {
+        border-radius: 10px;
+
+        thead {
+
+          th {
+            font-size: 17px;
+            border-radius: 0;
+          }
+        }
+
+        td {
+          padding: 10px 8px;
+
+          span {
+            justify-content: center;
+          }
+        }
+
+      }
+    }
+  }
+}
