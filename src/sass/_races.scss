@@ -28,7 +28,6 @@
     table {
       @include variable.table;
       max-width: 900px;
-      text-align: center;
       margin: 0;
 
       span {
@@ -43,6 +42,7 @@
       }
 
       thead {
+
         th {
           @include variable.th;
           padding: 10px;
@@ -56,6 +56,7 @@
       td {
         @include variable.td;
         padding: 0 10px;
+        text-align: left;
       }
     }
   }
@@ -85,10 +86,6 @@
         td {
           padding: 10px 8px;
           font-size: 14px;
-
-          span {
-            justify-content: center;
-          }
         }
 
       }
