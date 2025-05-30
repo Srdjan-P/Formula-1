@@ -57,7 +57,7 @@ export default function TeamDetails({ countryList, selectedYear, searchInput }) 
                         <div className="team-card">
                             <div className="team-bio-card">
                                 <div className="team-avatar">
-                                    <img src={`/avatars/${teamDetails.Constructor.constructorId}.png`}
+                                    <img src={`../public/avatars/${teamDetails.Constructor.constructorId}.png`}
                                         alt="/avatars/team.png" width="100"
                                         onError={(e) => {
                                             e.target.onerror = null;

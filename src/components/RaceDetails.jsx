@@ -88,9 +88,9 @@ export default function RaceDetails({ countryList, selectedYear, searchInput }) 
                                         </span>
                                     </Link></li>
                                 </ul>
-                                <img src="/img/australiaCarbon.png" className="staza" />
+                                <img src="../public/img/australiaCarbon.png" className="staza" />
                             </div>
-                            <img src="/img/formulaCar.png" alt="formulaCar.png" className="bolid" />
+                            <img src="../public/img/formulaCar.png" alt="formulaCar.png" className="bolid" />
                         </div>
                     </div>
                     <div className="race-table1">
