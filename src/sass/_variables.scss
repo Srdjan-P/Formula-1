@@ -25,7 +25,6 @@ $tertiaryColor: rgba(21, 21, 30, 255);
     5px 0 10px -5px #fff, // right shadow
     -5px 0 10px -5px #fff, // left shadow
     0 5px 10px -5px #fff; // bottom shadow
-  text-align: left;
   padding: 12px 8px;
   height: 30px;
   background-color: $secondaryColor;
@@ -45,6 +44,8 @@ $tertiaryColor: rgba(21, 21, 30, 255);
   }
 }
 
-.cursor {
-  cursor: pointer;
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

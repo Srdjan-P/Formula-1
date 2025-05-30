@@ -62,8 +62,8 @@ export default function Races({ countryList, selectedYear, searchInput }) {
                                 {filteredData.map((race) => {
                                     return (
                                         <tr key={race.round}>
-                                            <td width="5%">{race.round}</td>
-                                            <td
+                                            <td style={{ textAlign: "center" }} width="10%">{race.round}</td>
+                                            <td width="30%"
                                                 onClick={() => { handleRaces(race.round) }}>
                                                 <span style={{ cursor: "pointer" }}>
                                                     <Flag
@@ -71,13 +71,13 @@ export default function Races({ countryList, selectedYear, searchInput }) {
                                                     {race.raceName}
                                                 </span>
                                             </td>
-                                            <td>
+                                            <td width="35%">
                                                 <span>
                                                     {race.Circuit.circuitName}
                                                 </span>
                                             </td>
-                                            <td>{race.date}</td>
-                                            <td>
+                                            <td width="15%">{race.date}</td>
+                                            <td width="10%">
                                                 <span style={{ cursor: "default" }}>
                                                     <Flag country={getCodeByNationality(countryList, race.Results[0].Driver.nationality)} className="flag" />
                                                     {race.Results[0].Driver.familyName}

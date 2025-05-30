@@ -40,16 +40,35 @@ nav {
     ul {
       margin: 0 5%;
       display: flex;
+      align-items: center;
       width: 80%;
 
+      .active {
+        background-color: variable.$secondaryColor;
+        box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.606);
+        transition: 0.1s ease-out;
+      }
+
       li {
-        padding: 0 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.363);
+        }
 
         a {
+          display: flex;
+          align-items: center;
           font-size: 22px;
           color: #fff;
           font-weight: 600;
           text-decoration: none;
+          height: 60px;
+          padding: 0 20px;
         }
       }
     }
