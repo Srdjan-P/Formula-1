@@ -45,7 +45,7 @@ export default function App() {
   }
 
   return (
-    <Router>
+    <Router basename="/Formula-1/">
       <div className="app-layout">
         <nav>
           <div className="nav-top">

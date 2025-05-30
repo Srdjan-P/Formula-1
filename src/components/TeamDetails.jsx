@@ -21,10 +21,10 @@ export default function TeamDetails({ countryList, selectedYear, searchInput }) 
     }, [teamsId, selectedYear]);
 
     const getTeamDetails = async () => {
-        const teamStandingsUrl = `http://ergast.com/api/f1/${selectedYear}/constructors/${teamsId}/constructorStandings.json`;
+        const teamStandingsUrl = `https://ergast.com/api/f1/${selectedYear}/constructors/${teamsId}/constructorStandings.json`;
         const teamStandingResponse = await axios.get(teamStandingsUrl);
 
-        const teamResultUrl = `http://ergast.com/api/f1/${selectedYear}/constructors/${teamsId}/results.json`;
+        const teamResultUrl = `https://ergast.com/api/f1/${selectedYear}/constructors/${teamsId}/results.json`;
         const teamResultResponse = await axios.get(teamResultUrl);
 
         setTeamDetails(teamStandingResponse.data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings[0]);

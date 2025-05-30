@@ -20,10 +20,10 @@ export default function DriverDetails({ countryList, selectedYear, searchInput }
     }, [selectedYear]);
 
     const getDriverDetails = async () => {
-        const driverStandingsUrl = `http://ergast.com/api/f1/${selectedYear}/drivers/${driverId}/driverStandings.json`;
+        const driverStandingsUrl = `https://ergast.com/api/f1/${selectedYear}/drivers/${driverId}/driverStandings.json`;
         const driverStandingsResponse = await axios.get(driverStandingsUrl);
 
-        const driverResult = `http://ergast.com/api/f1/${selectedYear}/drivers/${driverId}/results.json`;
+        const driverResult = `https://ergast.com/api/f1/${selectedYear}/drivers/${driverId}/results.json`;
         const driverResultResponse = await axios.get(driverResult);
 
         setDriverDetails(driverStandingsResponse.data.MRData.StandingsTable.StandingsLists[0].DriverStandings[0]);

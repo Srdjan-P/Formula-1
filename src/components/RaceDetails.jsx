@@ -21,10 +21,10 @@ export default function RaceDetails({ countryList, selectedYear, searchInput }) 
     }, [selectedYear]);
 
     const getQualifying = async () => {
-        const urlQualifying = `http://ergast.com/api/f1/${selectedYear}/${raceId}/qualifying.json`
+        const urlQualifying = `https://ergast.com/api/f1/${selectedYear}/${raceId}/qualifying.json`
         const qualifyingResponse = await axios.get(urlQualifying);
 
-        const urlResults = `http://ergast.com/api/f1/${selectedYear}/${raceId}/results.json`
+        const urlResults = `https://ergast.com/api/f1/${selectedYear}/${raceId}/results.json`
         const resultResponse = await axios.get(urlResults)
 
         setQualifying(qualifyingResponse.data.MRData.RaceTable.Races[0]);

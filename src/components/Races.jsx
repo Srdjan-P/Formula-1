@@ -16,7 +16,7 @@ export default function Races({ countryList, selectedYear, searchInput }) {
     }, [selectedYear])
 
     const getRaces = async () => {
-        const url = `http://ergast.com/api/f1/${selectedYear}/results/1.json`;
+        const url = `https://ergast.com/api/f1/${selectedYear}/results/1.json`;
         const response = await axios.get(url);
 
         setRaces(response.data.MRData.RaceTable.Races);
