@@ -13,7 +13,7 @@
         font-style: oblique;
         font-weight: bolder;
         padding: 15px;
-        background-color: #8f8080;
+        background-color: rgb(68, 63, 57);
         justify-content: center;
         line-height: 1.5;
         opacity: 0.9;
@@ -50,13 +50,17 @@
         .team-avatar {
             text-align: center;
             padding-top: 5px;
-            background-color: rgba(255, 255, 255, 0.466);
+            background-color: rgb(216, 216, 216);
+            box-shadow: 0 0 10px 2px bisque;
+
         }
 
         .teams-img {
             width: 150px;
             padding: 5px;
             border-radius: 20px 20px 20px 20px;
+
+
         }
 
         .flag {
