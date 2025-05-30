@@ -67,28 +67,28 @@ export default function Home() {
                     {/* <h2 className="sponsors-title">Official Sponsors</h2> */}
                     <div className="sponsors-flex">
                         <a className="sponsor-logo" href="https://www.americanexpress.com/" target="_blank">
-                            <img src="../partners/Amex.PNG" alt="American Express" />
+                            <img src="../partners/Amex.png" alt="American Express" />
                         </a>
                         <a className="sponsor-logo" href="https://www.dhl.com/global-en/home.html" target="_blank">
-                            <img src="../partners/dhl.PNG" alt="DHL" />
+                            <img src="../partners/dhl.png" alt="DHL" />
                         </a>
                         <a className="sponsor-logo" href="https://www.heineken.com/global/en/home" target="_blank">
-                            <img src="../partners/Heineken-Outlined.PNG" alt="Heineken" />
+                            <img src="../partners/Heineken-Outlined.png" alt="Heineken" />
                         </a>
                         <a className="sponsor-logo" href="https://www.lenovo.com/us/en/" target="_blank">
-                            <img src="../partners/lenovo.PNG" alt="Lenovo" />
+                            <img src="../partners/lenovo.png" alt="Lenovo" />
                         </a>
                         <a className="sponsor-logo" href="https://eu.louisvuitton.com/eng-e1/homepage" target="_blank">
-                            <img src="../partners/louis-vuitton.PNG" alt="Louis Vuitton" />
+                            <img src="../partners/louis-vuitton.png" alt="Louis Vuitton" />
                         </a>
                         <a className="sponsor-logo" href="https://www.nestle.com/" target="_blank">
-                            <img src="../partners/nestle.PNG" alt="Nestlé" />
+                            <img src="../partners/nestle.png" alt="Nestlé" />
                         </a>
                         <a className="sponsor-logo" href="https://www.paramountplus.com/" target="_blank">
-                            <img src="../partners/Paramount+.PNG" alt="Paramount+" />
+                            <img src="../partners/Paramount+.png" alt="Paramount+" />
                         </a>
                         <a className="sponsor-logo" href="https://aws.amazon.com/" target="_blank">
-                            <img src="../partners/AWS-GLOBAL.PNG" alt="AWS (Amazon Web Services)" />
+                            <img src="../partners/AWS-GLOBAL.png" alt="AWS (Amazon Web Services)" />
                         </a>
                     </div>
                 </div>
