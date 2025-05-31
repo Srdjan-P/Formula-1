@@ -11,6 +11,7 @@
   display: flex;
   justify-content: center;
   padding: 30px;
+  overflow-x: auto;
 
   .races-data {
 
@@ -79,16 +80,16 @@
         border-radius: 10px;
 
         thead {
-
           th {
-            font-size: 16px;
+            font-size: 14px;
             border-radius: 0;
           }
         }
 
         td {
           padding: 10px 8px;
-          font-size: 14px;
+          font-size: 12px;
+          width: fit-content;
         }
 
       }

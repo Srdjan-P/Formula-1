@@ -49,11 +49,14 @@ footer {
 }
 
 @media (max-width: 770px) {
-    .footer-right {
-        padding: 0 10px;
+    footer {
 
-        p {
-            font-size: 10px;
+        .footer-right {
+            padding: 0 10px;
+
+            p {
+                font-size: 10px;
+            }
         }
     }
 

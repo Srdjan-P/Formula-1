@@ -51,7 +51,7 @@ export default function Races({ countryList, selectedYear, searchInput }) {
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Round</th>
+                                    <th>Rnd</th>
                                     <th>Grand Prix</th>
                                     <th>Circuit</th>
                                     <th>Date</th>

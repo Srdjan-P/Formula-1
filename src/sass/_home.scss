@@ -187,6 +187,18 @@
 
 @media (max-width: 770px) {
     .homepage {
+
+        .welcome {
+            min-height: 30vh;
+            max-height: 40vh;
+
+            .welcome-content {
+                h1 {
+                    font-size: 30px;
+                }
+            }
+        }
+
         .homepage-wrapper {
             .container {
                 .cards-title {
@@ -204,6 +216,8 @@
 
     .sponsors {
         .container {
+            padding: 0;
+
             .sponsors-flex {
                 .sponsor-logo {
                     img {
