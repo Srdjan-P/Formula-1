@@ -16,7 +16,7 @@ export default function Home() {
                         <div className="card">
                             <a href="https://www.formula1.com/en/racing/2024/Monaco.html" target="_blank">
                                 <div className="card-image">
-                                    <img src="/img/circuitDeMonaco.jpg" alt="Circuit de Monaco" />
+                                    <img src="/Formula-1/img/circuitDeMonaco.jpg" alt="Circuit de Monaco" />
                                     <div className="card-image-overlay">
                                         <span>Monaco</span>
                                     </div>
@@ -27,7 +27,7 @@ export default function Home() {
                         <div className="card">
                             <a href="https://www.formula1.com/en/racing/2024/Great_Britain.html" target="_blank">
                                 <div className="card-image">
-                                    <img src="/img/circuitDeSilverstone.jpg" alt="Silverstone Circuit" />
+                                    <img src="/Formula-1/img/circuitDeSilverstone.jpg" alt="Silverstone Circuit" />
                                     <div className="card-image-overlay">
                                         <span>Silverstone</span>
                                     </div>
@@ -38,7 +38,7 @@ export default function Home() {
                         <div className="card">
                             <a href="https://www.formula1.com/en/racing/2024/Hungary.html" target="_blank">
                                 <div className="card-image">
-                                    <img src="/img/circuitDeHungaroring.jpg" alt="Hungaroring Circuit" />
+                                    <img src="/Formula-1/img/circuitDeHungaroring.jpg" alt="Hungaroring Circuit" />
                                     <div className="card-image-overlay">
                                         <span>Hungaroring</span>
                                     </div>
@@ -49,7 +49,7 @@ export default function Home() {
                         <div className="card">
                             <a href="https://www.formula1.com/en/racing/2024/Japan.html" target="_blank">
                                 <div className="card-image">
-                                    <img src="/img/circuitDeSuzuka.jpg" alt="Suzuka International Racing Course" />
+                                    <img src="/Formula-1/img/circuitDeSuzuka.jpg" alt="Suzuka International Racing Course" />
                                     <div className="card-image-overlay">
                                         <span>Suzuka</span>
                                     </div>
@@ -67,28 +67,28 @@ export default function Home() {
                     {/* <h2 className="sponsors-title">Official Sponsors</h2> */}
                     <div className="sponsors-flex">
                         <a className="sponsor-logo" href="https://www.americanexpress.com/" target="_blank">
-                            <img src="/partners/Amex.png" alt="American Express" />
+                            <img src="/Formula-1/partners/Amex.png" alt="American Express" />
                         </a>
                         <a className="sponsor-logo" href="https://www.dhl.com/global-en/home.html" target="_blank">
-                            <img src="/partners/dhl.png" alt="DHL" />
+                            <img src="/Formula-1/partners/dhl.png" alt="DHL" />
                         </a>
                         <a className="sponsor-logo" href="https://www.heineken.com/global/en/home" target="_blank">
-                            <img src="/partners/Heineken-Outlined.png" alt="Heineken" />
+                            <img src="/Formula-1/partners/Heineken-Outlined.png" alt="Heineken" />
                         </a>
                         <a className="sponsor-logo" href="https://www.lenovo.com/us/en/" target="_blank">
-                            <img src="/partners/lenovo.png" alt="Lenovo" />
+                            <img src="/Formula-1/partners/lenovo.png" alt="Lenovo" />
                         </a>
                         <a className="sponsor-logo" href="https://eu.louisvuitton.com/eng-e1/homepage" target="_blank">
-                            <img src="/partners/louis-vuitton.png" alt="Louis Vuitton" />
+                            <img src="/Formula-1/partners/louis-vuitton.png" alt="Louis Vuitton" />
                         </a>
                         <a className="sponsor-logo" href="https://www.nestle.com/" target="_blank">
-                            <img src="/partners/nestle.png" alt="Nestlé" />
+                            <img src="/Formula-1/partners/nestle.png" alt="Nestlé" />
                         </a>
                         <a className="sponsor-logo" href="https://www.paramountplus.com/" target="_blank">
-                            <img src="/partners/Paramount+.png" alt="Paramount+" />
+                            <img src="/Formula-1/partners/Paramount+.png" alt="Paramount+" />
                         </a>
                         <a className="sponsor-logo" href="https://aws.amazon.com/" target="_blank">
-                            <img src="/partners/AWS-GLOBAL.png" alt="AWS (Amazon Web Services)" />
+                            <img src="/Formula-1/partners/AWS-GLOBAL.png" alt="AWS (Amazon Web Services)" />
                         </a>
                     </div>
                 </div>

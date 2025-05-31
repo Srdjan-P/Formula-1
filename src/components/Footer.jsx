@@ -7,7 +7,7 @@ export default function Footer() {
     return (
         <>
             <div className="footer-left">
-                <img src="./public/img/Logo.png" alt="Logo" className="logo-footer" />
+                <img src="/Formula-1/img/Logo.png" alt="Logo" className="logo-footer" />
             </div>
             <div className="footer-right">
                 <p>&copy; 1975-{new Date().getFullYear()} All right reserved.</p>
