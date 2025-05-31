@@ -65,11 +65,11 @@ export default function DriverDetails({ countryList, selectedYear, searchInput }
                             <div className="driver-biography-card">
                                 <div className="driver-avatar">
                                     <img
-                                        src={`../public/avatars/${driverDetails.Driver.driverId}.jpg`}
+                                        src={`/Forumla-1/avatars/${driverDetails.Driver.driverId}.jpg`}
                                         alt="/avatars/avatar.png" width="100"
                                         onError={(e) => {
                                             e.target.onerror = null;
-                                            e.target.src = "../public/avatars/avatar.png";
+                                            e.target.src = "/Formula-1/avatars/avatar.png";
                                         }}
                                         className="driver-img"
                                     />
