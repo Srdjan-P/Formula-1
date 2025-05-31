@@ -65,7 +65,7 @@ export default function DriverDetails({ countryList, selectedYear, searchInput }
                             <div className="driver-biography-card">
                                 <div className="driver-avatar">
                                     <img
-                                        src={`/Forumla-1/avatars/${driverDetails.Driver.driverId}.jpg`}
+                                        src={`/Formula-1/avatars/${driverDetails.Driver.driverId}.jpg`}
                                         alt="/avatars/avatar.png" width="100"
                                         onError={(e) => {
                                             e.target.onerror = null;
